@@ -1,0 +1,558 @@
+[[[[[ ~/kanut/LTC-kanut_2021-07-15_0800 ]]]]]
+
+=> Started proxy.
+=> A patch (Meteor 1.7.0.5) for your current release is available!
+   Update this project now with 'meteor update --patch'.
+=> Started MongoDB.
+[34mI20210715-11:28:00.624(0)? [39mOn collections 
+=> Started your app.
+
+=> App running at: http://localhost:3000/
+[34mW20210715-11:28:00.670(0)? (STDERR) [39m[35mufs: permissions are not defined for store "proEditCm"[39m
+[34mW20210715-11:28:00.671(0)? (STDERR) [39m[35mufs: permissions are not defined for store "hpcEditCm"[39m
+[34mW20210715-11:28:00.671(0)? (STDERR) [39m[35mufs: permissions are not defined for store "proEditCG"[39m
+[34mW20210715-11:28:00.671(0)? (STDERR) [39m[35mufs: permissions are not defined for store "photoCG"[39m
+[34mW20210715-11:28:00.671(0)? (STDERR) [39m[35mufs: permissions are not defined for store "PhotoCC"[39m
+[34mW20210715-11:28:00.672(0)? (STDERR) [39m[35mufs: permissions are not defined for store "editPhotocg"[39m
+[34mW20210715-11:28:00.672(0)? (STDERR) [39m[35mufs: permissions are not defined for store "editPhotocm"[39m
+[34mW20210715-11:28:00.672(0)? (STDERR) [39m[35mufs: permissions are not defined for store "photos"[39m
+[34mI20210715-11:29:24.129(0)? [39mZONE:  12
+[34mI20210715-11:29:24.143(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-11:29:24.144(0)? [39m    CID: '3900900534733',
+[34mI20210715-11:29:24.144(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-11:29:24.144(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-11:29:24.145(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-11:29:24.145(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-11:29:24.145(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-11:29:24.145(0)? [39m    HOSPCODE: null,
+[34mI20210715-11:29:24.146(0)? [39m    DLACODE: 
+[34mI20210715-11:29:24.146(0)? [39m     { CODE: '5901113',
+[34mI20210715-11:29:24.146(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-11:29:24.146(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-11:29:24.147(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-11:29:24.147(0)? [39m    confirm: true,
+[34mI20210715-11:29:24.147(0)? [39m    zone: '12',
+[34mI20210715-11:29:24.147(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-11:29:25.352(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-11:29:25.353(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-11:29:25.353(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-11:29:25.353(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-11:29:25.354(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:29:25.354(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-11:29:25.354(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:29:25.354(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-11:29:25.354(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-11:29:25.355(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-11:29:25.355(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-11:29:33.934(0)? [39mk_test1
+[34mI20210715-11:35:49.383(0)? [39mk_test1
+[34mI20210715-11:37:04.229(0)? [39mZONE:  12
+[34mI20210715-11:37:04.237(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-11:37:04.237(0)? [39m    CID: '3900900534733',
+[34mI20210715-11:37:04.237(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-11:37:04.238(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-11:37:04.238(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-11:37:04.238(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-11:37:04.238(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-11:37:04.238(0)? [39m    HOSPCODE: null,
+[34mI20210715-11:37:04.239(0)? [39m    DLACODE: 
+[34mI20210715-11:37:04.239(0)? [39m     { CODE: '5901113',
+[34mI20210715-11:37:04.239(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-11:37:04.239(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-11:37:04.239(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-11:37:04.240(0)? [39m    confirm: true,
+[34mI20210715-11:37:04.240(0)? [39m    zone: '12',
+[34mI20210715-11:37:04.240(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-11:37:04.640(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-11:37:04.640(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-11:37:04.640(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-11:37:04.641(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-11:37:04.641(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:37:04.641(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-11:37:04.641(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:37:04.641(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-11:37:04.642(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-11:37:04.642(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-11:37:04.642(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-11:37:08.986(0)? [39mk_test1
+[34mI20210715-11:37:39.583(0)? [39mZONE:  12
+[34mI20210715-11:37:39.592(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-11:37:39.593(0)? [39m    CID: '3900900534733',
+[34mI20210715-11:37:39.593(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-11:37:39.593(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-11:37:39.594(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-11:37:39.594(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-11:37:39.594(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-11:37:39.594(0)? [39m    HOSPCODE: null,
+[34mI20210715-11:37:39.594(0)? [39m    DLACODE: 
+[34mI20210715-11:37:39.595(0)? [39m     { CODE: '5901113',
+[34mI20210715-11:37:39.595(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-11:37:39.595(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-11:37:39.595(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-11:37:39.595(0)? [39m    confirm: true,
+[34mI20210715-11:37:39.596(0)? [39m    zone: '12',
+[34mI20210715-11:37:39.596(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-11:37:40.079(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-11:37:40.080(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-11:37:40.081(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-11:37:40.081(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-11:37:40.081(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:37:40.081(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-11:37:40.085(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:37:40.085(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-11:37:40.086(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-11:37:40.086(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-11:37:40.086(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-11:37:42.539(0)? [39mk_test1
+[34mI20210715-11:38:17.664(0)? [39mk_test1
+[34mI20210715-11:39:44.466(0)? [39mZONE:  2
+[34mI20210715-11:39:44.467(0)? [39m[]
+[34mI20210715-11:39:44.733(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-11:39:44.733(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-11:39:44.733(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-11:39:44.734(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-11:39:44.734(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:39:44.735(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-11:39:44.735(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:39:44.736(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-11:39:44.736(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-11:39:44.737(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-11:39:44.737(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-11:39:51.209(0)? [39mk_test1
+[34mI20210715-11:41:19.721(0)? [39mZONE:  2
+[34mI20210715-11:41:19.722(0)? [39m[]
+[34mI20210715-11:41:19.978(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-11:41:19.979(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-11:41:19.979(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-11:41:19.979(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-11:41:19.980(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:41:19.980(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-11:41:19.980(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:41:19.980(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-11:41:19.980(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-11:41:19.981(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-11:41:19.981(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-11:41:43.979(0)? [39mZONE:  2
+[34mI20210715-11:41:43.980(0)? [39m[]
+[34mI20210715-11:41:44.246(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-11:41:44.246(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-11:41:44.246(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-11:41:44.247(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-11:41:44.247(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:41:44.247(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-11:41:44.247(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-11:41:44.247(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-11:41:44.248(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-11:41:44.248(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-11:41:44.248(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-11:41:45.376(0)? [39mk_test1
+[34mI20210715-12:19:48.178(0)? [39mZONE:  12
+[34mI20210715-12:19:48.188(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-12:19:48.188(0)? [39m    CID: '3900900534733',
+[34mI20210715-12:19:48.189(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-12:19:48.189(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-12:19:48.189(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-12:19:48.189(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-12:19:48.189(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-12:19:48.190(0)? [39m    HOSPCODE: null,
+[34mI20210715-12:19:48.190(0)? [39m    DLACODE: 
+[34mI20210715-12:19:48.190(0)? [39m     { CODE: '5901113',
+[34mI20210715-12:19:48.190(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-12:19:48.190(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-12:19:48.191(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-12:19:48.191(0)? [39m    confirm: true,
+[34mI20210715-12:19:48.191(0)? [39m    zone: '12',
+[34mI20210715-12:19:48.191(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-12:19:49.652(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-12:19:49.653(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-12:19:49.653(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-12:19:49.653(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-12:19:49.653(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-12:19:49.653(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-12:19:49.654(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-12:19:49.654(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-12:19:49.654(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-12:19:49.654(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-12:19:49.654(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-12:19:53.531(0)? [39mk_test1
+[34mI20210715-13:04:15.694(0)? [39mZONE:  12
+[34mI20210715-13:04:15.702(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-13:04:15.703(0)? [39m    CID: '3900900534733',
+[34mI20210715-13:04:15.703(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-13:04:15.703(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-13:04:15.704(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-13:04:15.704(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-13:04:15.704(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-13:04:15.704(0)? [39m    HOSPCODE: null,
+[34mI20210715-13:04:15.708(0)? [39m    DLACODE: 
+[34mI20210715-13:04:15.708(0)? [39m     { CODE: '5901113',
+[34mI20210715-13:04:15.708(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-13:04:15.708(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-13:04:15.709(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-13:04:15.709(0)? [39m    confirm: true,
+[34mI20210715-13:04:15.709(0)? [39m    zone: '12',
+[34mI20210715-13:04:15.709(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-13:04:22.314(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:04:22.315(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:04:22.315(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:04:22.315(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:04:22.315(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:04:22.316(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:04:22.316(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:04:22.316(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:04:22.316(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:04:22.316(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:04:22.317(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:04:25.817(0)? [39mk_test1
+[34mI20210715-13:05:39.234(0)? [39musername= hpc12
+[34mI20210715-13:05:39.234(0)? [39mchosenProvinceID= 0
+[34mI20210715-13:05:39.235(0)? [39mchosenAmphoeID= 0
+[34mI20210715-13:05:39.236(0)? [39mhpc12 HPC undefined
+[34mI20210715-13:05:40.315(0)? [39mtambonAssessmentList length = 7436
+[34mI20210715-13:05:40.317(0)? [39mprovinceList= 7
+[34mI20210715-13:05:40.320(0)? [39mdata length=  565
+[34mI20210715-13:08:12.750(0)? [39musername= hpc12
+[34mI20210715-13:08:12.751(0)? [39mchosenProvinceID= 90
+[34mI20210715-13:08:12.751(0)? [39mchosenAmphoeID= 0
+[34mI20210715-13:08:12.752(0)? [39mhpc12 HPC undefined
+[34mI20210715-13:08:13.813(0)? [39mtambonAssessmentList length = 7436
+[34mI20210715-13:08:13.816(0)? [39mprovinceList= 7
+[34mI20210715-13:08:13.819(0)? [39mdata length=  127
+[34mI20210715-13:08:24.208(0)? [39mk_test1
+[34mI20210715-13:08:43.752(0)? [39mZONE:  2
+[34mI20210715-13:08:43.754(0)? [39m[]
+[34mI20210715-13:08:44.035(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:08:44.036(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:08:44.036(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:08:44.036(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:08:44.041(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:08:44.041(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:08:44.042(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:08:44.042(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:08:44.043(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:08:44.043(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:08:44.043(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:09:25.135(0)? [39mk_test1
+[34mI20210715-13:09:28.151(0)? [39mZONE:  2
+[34mI20210715-13:09:28.153(0)? [39m[]
+[34mI20210715-13:09:28.421(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:09:28.421(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:09:28.421(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:09:28.422(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:09:28.422(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:09:28.422(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:09:28.422(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:09:28.422(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:09:28.423(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:09:28.424(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:09:28.424(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:09:29.819(0)? [39mk_test1
+[34mI20210715-13:10:31.274(0)? [39mk_test1
+[34mI20210715-13:10:41.223(0)? [39mZONE:  2
+[34mI20210715-13:10:41.226(0)? [39m[]
+[34mI20210715-13:10:41.530(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:10:41.532(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:10:41.532(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:10:41.532(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:10:41.532(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:10:41.533(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:10:41.533(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:10:41.533(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:10:41.533(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:10:41.534(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:10:41.534(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:12:00.171(0)? [39mZONE:  2
+[34mI20210715-13:12:00.172(0)? [39m[]
+[34mI20210715-13:12:00.475(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:12:00.475(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:12:00.476(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:12:00.476(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:12:00.476(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:12:00.476(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:12:00.476(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:12:00.477(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:12:00.477(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:12:00.477(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:12:00.477(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:12:01.944(0)? [39mk_test1
+[34mI20210715-13:13:41.522(0)? [39mZONE:  2
+[34mI20210715-13:13:41.523(0)? [39m[]
+[34mI20210715-13:13:41.792(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:13:41.793(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:13:41.793(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:13:41.793(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:13:41.793(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:13:41.793(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:13:41.794(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:13:41.794(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:13:41.794(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:13:41.794(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:13:41.794(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:13:49.609(0)? [39mk_test1
+[34mI20210715-13:14:03.682(0)? [39mZONE:  12
+[34mI20210715-13:14:03.691(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-13:14:03.691(0)? [39m    CID: '3900900534733',
+[34mI20210715-13:14:03.691(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-13:14:03.691(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-13:14:03.692(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-13:14:03.692(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-13:14:03.692(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-13:14:03.692(0)? [39m    HOSPCODE: null,
+[34mI20210715-13:14:03.692(0)? [39m    DLACODE: 
+[34mI20210715-13:14:03.693(0)? [39m     { CODE: '5901113',
+[34mI20210715-13:14:03.693(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-13:14:03.693(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-13:14:03.693(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-13:14:03.694(0)? [39m    confirm: true,
+[34mI20210715-13:14:03.694(0)? [39m    zone: '12',
+[34mI20210715-13:14:03.694(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-13:14:04.104(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:14:04.105(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:14:04.105(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:14:04.105(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:14:04.105(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:14:04.106(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:14:04.109(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:14:04.109(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:14:04.109(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:14:04.109(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:14:04.109(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:14:05.363(0)? [39mk_test1
+[34mI20210715-13:14:33.971(0)? [39mk_test1
+[34mI20210715-13:18:23.105(0)? [39mZONE:  12
+[34mI20210715-13:18:23.118(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-13:18:23.118(0)? [39m    CID: '3900900534733',
+[34mI20210715-13:18:23.119(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-13:18:23.119(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-13:18:23.119(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-13:18:23.119(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-13:18:23.120(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-13:18:23.120(0)? [39m    HOSPCODE: null,
+[34mI20210715-13:18:23.120(0)? [39m    DLACODE: 
+[34mI20210715-13:18:23.120(0)? [39m     { CODE: '5901113',
+[34mI20210715-13:18:23.120(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-13:18:23.120(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-13:18:23.121(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-13:18:23.121(0)? [39m    confirm: true,
+[34mI20210715-13:18:23.121(0)? [39m    zone: '12',
+[34mI20210715-13:18:23.121(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-13:18:23.724(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:18:23.725(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:18:23.727(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:18:23.728(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:18:23.728(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:18:23.728(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:18:23.729(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:18:23.729(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:18:23.729(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:18:23.729(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:18:23.729(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:18:24.698(0)? [39mk_test1
+[34mI20210715-13:18:26.533(0)? [39mZONE:  12
+[34mI20210715-13:18:26.541(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-13:18:26.542(0)? [39m    CID: '3900900534733',
+[34mI20210715-13:18:26.542(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-13:18:26.542(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-13:18:26.542(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-13:18:26.542(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-13:18:26.543(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-13:18:26.543(0)? [39m    HOSPCODE: null,
+[34mI20210715-13:18:26.543(0)? [39m    DLACODE: 
+[34mI20210715-13:18:26.543(0)? [39m     { CODE: '5901113',
+[34mI20210715-13:18:26.543(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-13:18:26.543(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-13:18:26.544(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-13:18:26.544(0)? [39m    confirm: true,
+[34mI20210715-13:18:26.544(0)? [39m    zone: '12',
+[34mI20210715-13:18:26.544(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-13:18:27.152(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:18:27.152(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:18:27.153(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:18:27.153(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:18:27.154(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:18:27.154(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:18:27.155(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:18:27.155(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:18:27.155(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:18:27.156(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:18:27.156(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:18:29.958(0)? [39mZONE:  12
+[34mI20210715-13:18:29.965(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-13:18:29.965(0)? [39m    CID: '3900900534733',
+[34mI20210715-13:18:29.966(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-13:18:29.966(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-13:18:29.966(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-13:18:29.966(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-13:18:29.966(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-13:18:29.967(0)? [39m    HOSPCODE: null,
+[34mI20210715-13:18:29.967(0)? [39m    DLACODE: 
+[34mI20210715-13:18:29.967(0)? [39m     { CODE: '5901113',
+[34mI20210715-13:18:29.967(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-13:18:29.967(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-13:18:29.967(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-13:18:29.968(0)? [39m    confirm: true,
+[34mI20210715-13:18:29.968(0)? [39m    zone: '12',
+[34mI20210715-13:18:29.968(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-13:18:30.342(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:18:30.343(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:18:30.344(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:18:30.344(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:18:30.345(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:18:30.345(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:18:30.345(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:18:30.346(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:18:30.346(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:18:30.346(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:18:30.346(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:18:30.933(0)? [39mk_test1
+[34mI20210715-13:19:15.443(0)? [39mresetTambonAssesment-------->
+[34mI20210715-13:20:28.409(0)? [39mZONE:  12
+[34mI20210715-13:20:28.417(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-13:20:28.417(0)? [39m    CID: '3900900534733',
+[34mI20210715-13:20:28.417(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-13:20:28.417(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-13:20:28.418(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-13:20:28.418(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-13:20:28.418(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-13:20:28.418(0)? [39m    HOSPCODE: null,
+[34mI20210715-13:20:28.418(0)? [39m    DLACODE: 
+[34mI20210715-13:20:28.419(0)? [39m     { CODE: '5901113',
+[34mI20210715-13:20:28.419(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-13:20:28.419(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-13:20:28.419(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-13:20:28.419(0)? [39m    confirm: true,
+[34mI20210715-13:20:28.420(0)? [39m    zone: '12',
+[34mI20210715-13:20:28.420(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-13:20:28.872(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:20:28.873(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:20:28.874(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:20:28.874(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:20:28.875(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:20:28.875(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:20:28.875(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:20:28.876(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:20:28.876(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:20:28.877(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:20:28.877(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:20:29.608(0)? [39mk_test1
+[34mI20210715-13:21:11.125(0)? [39mZONE:  12
+[34mI20210715-13:21:11.134(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-13:21:11.134(0)? [39m    CID: '3900900534733',
+[34mI20210715-13:21:11.134(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-13:21:11.134(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-13:21:11.134(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-13:21:11.135(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-13:21:11.135(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-13:21:11.135(0)? [39m    HOSPCODE: null,
+[34mI20210715-13:21:11.135(0)? [39m    DLACODE: 
+[34mI20210715-13:21:11.135(0)? [39m     { CODE: '5901113',
+[34mI20210715-13:21:11.136(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-13:21:11.136(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-13:21:11.136(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-13:21:11.136(0)? [39m    confirm: true,
+[34mI20210715-13:21:11.136(0)? [39m    zone: '12',
+[34mI20210715-13:21:11.136(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-13:21:11.759(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:21:11.759(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:21:11.760(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:21:11.760(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:21:11.760(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:21:11.760(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:21:11.760(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:21:11.761(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:21:11.761(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:21:11.761(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:21:11.761(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:21:41.364(0)? [39mk_test1
+[34mI20210715-13:22:44.477(0)? [39mZONE:  2
+[34mI20210715-13:22:44.478(0)? [39m[]
+[34mI20210715-13:22:44.752(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:22:44.752(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:22:44.753(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:22:44.753(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:22:44.753(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:22:44.753(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:22:44.754(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:22:44.754(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:22:44.754(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:22:44.754(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:22:44.754(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:22:45.198(0)? [39mk_test1
+[34mI20210715-13:22:47.568(0)? [39mZONE:  2
+[34mI20210715-13:22:47.569(0)? [39m[]
+[34mI20210715-13:22:47.843(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:22:47.844(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:22:47.844(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:22:47.844(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:22:47.844(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:22:47.844(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:22:47.845(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:22:47.845(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:22:47.845(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:22:47.845(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:22:47.845(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:23:12.222(0)? [39mZONE:  12
+[34mI20210715-13:23:12.230(0)? [39m[ { _id: 'D9yof6HzTS9w3cpyx',
+[34mI20210715-13:23:12.231(0)? [39m    CID: '3900900534733',
+[34mI20210715-13:23:12.231(0)? [39m    PRENAME: 'นาง',
+[34mI20210715-13:23:12.231(0)? [39m    NAME: 'ดวงใจ',
+[34mI20210715-13:23:12.232(0)? [39m    LNAME: 'อ่อนแก้ว',
+[34mI20210715-13:23:12.232(0)? [39m    MOBILE: '0991939893',
+[34mI20210715-13:23:12.232(0)? [39m    EMAIL: 'nongnae123@hotmail.com',
+[34mI20210715-13:23:12.232(0)? [39m    HOSPCODE: null,
+[34mI20210715-13:23:12.233(0)? [39m    DLACODE: 
+[34mI20210715-13:23:12.233(0)? [39m     { CODE: '5901113',
+[34mI20210715-13:23:12.233(0)? [39m       NAME: 'เทศบาลเมืองคลองแห',
+[34mI20210715-13:23:12.233(0)? [39m       DISTRICT: 'อ.หาดใหญ่',
+[34mI20210715-13:23:12.233(0)? [39m       PROVINCE: 'สงขลา' },
+[34mI20210715-13:23:12.234(0)? [39m    confirm: true,
+[34mI20210715-13:23:12.234(0)? [39m    zone: '12',
+[34mI20210715-13:23:12.235(0)? [39m    HISTORY_COMP: [ [Object] ] } ]
+[34mI20210715-13:23:12.920(0)? [39mException while invoking method 'getZonelistApproveDISTRICT' TypeError: Cannot read property 'find' of undefined
+[34mI20210715-13:23:12.920(0)? [39m    at MethodInvocation.getZonelistApproveDISTRICT (server/main.js:1371:38)
+[34mI20210715-13:23:12.920(0)? [39m    at maybeAuditArgumentChecks (packages/ddp-server/livedata_server.js:1767:12)
+[34mI20210715-13:23:12.920(0)? [39m    at DDP._CurrentMethodInvocation.withValue (packages/ddp-server/livedata_server.js:719:19)
+[34mI20210715-13:23:12.921(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:23:12.921(0)? [39m    at DDPServer._CurrentWriteFence.withValue (packages/ddp-server/livedata_server.js:717:46)
+[34mI20210715-13:23:12.921(0)? [39m    at Meteor.EnvironmentVariable.EVp.withValue (packages/meteor.js:1304:12)
+[34mI20210715-13:23:12.921(0)? [39m    at Promise (packages/ddp-server/livedata_server.js:715:46)
+[34mI20210715-13:23:12.921(0)? [39m    at new Promise (<anonymous>)
+[34mI20210715-13:23:12.922(0)? [39m    at Session.method (packages/ddp-server/livedata_server.js:689:23)
+[34mI20210715-13:23:12.922(0)? [39m    at packages/ddp-server/livedata_server.js:559:43
+[34mI20210715-13:23:13.232(0)? [39mk_test1
+[34mI20210715-13:23:22.141(0)? [39mException while invoking method 'countAllCp' { MongoError: operation was interrupted
+[34mI20210715-13:23:22.142(0)? [39m    at /home/ltc/.meteor/packages/npm-mongo/.3.0.11.96dx1f.qmqr++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/connection/pool.js:593:63
+[34mI20210715-13:23:22.143(0)? [39m    at authenticateStragglers (/home/ltc/.meteor/packages/npm-mongo/.3.0.11.96dx1f.qmqr++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/connection/pool.js:516:16)
+[34mI20210715-13:23:22.143(0)? [39m    at Connection.messageHandler (/home/ltc/.meteor/packages/npm-mongo/.3.0.11.96dx1f.qmqr++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/connection/pool.js:552:5)
+[34mI20210715-13:23:22.143(0)? [39m    at emitMessageHandler (/home/ltc/.meteor/packages/npm-mongo/.3.0.11.96dx1f.qmqr++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/connection/connection.js:309:10)
+[34mI20210715-13:23:22.144(0)? [39m    at Socket.<anonymous> (/home/ltc/.meteor/packages/npm-mongo/.3.0.11.96dx1f.qmqr++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/connection/connection.js:452:17)
+[34mI20210715-13:23:22.144(0)? [39m    at emitOne (events.js:116:13)
+[34mI20210715-13:23:22.144(0)? [39m    at Socket.emit (events.js:211:7)
+[34mI20210715-13:23:22.145(0)? [39m    at addChunk (_stream_readable.js:263:12)
+[34mI20210715-13:23:22.145(0)? [39m    at readableAddChunk (_stream_readable.js:250:11)
+[34mI20210715-13:23:22.145(0)? [39m    at Socket.Readable.push (_stream_readable.js:208:10)
+[34mI20210715-13:23:22.145(0)? [39m    at TCP.onread (net.js:597:20)
+[34mI20210715-13:23:22.146(0)? [39m  name: 'MongoError',
+[34mI20210715-13:23:22.146(0)? [39m  message: 'operation was interrupted',
+[34mI20210715-13:23:22.146(0)? [39m  ok: 0,
+[34mI20210715-13:23:22.146(0)? [39m  errmsg: 'operation was interrupted',
+[34mI20210715-13:23:22.147(0)? [39m  code: 237,
+[34mI20210715-13:23:22.147(0)? [39m  codeName: 'CursorKilled' }
+[34mI20210715-13:23:22.201(0)? [39mException while invoking method 'countAllCp' { MongoError: Error in $cursor stage :: caused by :: operation was interrupted
+[34mI20210715-13:23:22.202(0)? [39m    at /home/ltc/.meteor/packages/npm-mongo/.3.0.11.96dx1f.qmqr++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/connection/pool.js:593:63
+[34mI20210715-13:23:22.202(0)? [39m    at authenticateStragglers (/home/ltc/.meteor/packages/npm-mongo/.3.0.11.96dx1f.qmqr++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/connection/pool.js:516:16)
+[34mI20210715-13:23:22.202(0)? [39m    at Connection.messageHandler (/home/ltc/.meteor/packages/npm-mongo/.3.0.11.96dx1f.qmqr++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/connection/pool.js:552:5)
+[34mI20210715-13:23:22.202(0)? [39m    at emitMessageHandler (/home/ltc/.meteor/packages/npm-mongo/.3.0.11.96dx1f.qmqr++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/connection/connection.js:309:10)
+[34mI20210715-13:23:22.203(0)? [39m    at Socket.<anonymous> (/home/ltc/.meteor/packages/npm-mongo/.3.0.11.96dx1f.qmqr++os+web.browser+web.browser.legacy+web.cordova/npm/node_modules/mongodb-core/lib/connection/connection.js:452:17)
+[34mI20210715-13:23:22.203(0)? [39m    at emitOne (events.js:116:13)
+[34mI20210715-13:23:22.203(0)? [39m    at Socket.emit (events.js:211:7)
+[34mI20210715-13:23:22.203(0)? [39m    at addChunk (_stream_readable.js:263:12)
+[34mI20210715-13:23:22.203(0)? [39m    at readableAddChunk (_stream_readable.js:250:11)
+[34mI20210715-13:23:22.204(0)? [39m    at Socket.Readable.push (_stream_readable.js:208:10)
+[34mI20210715-13:23:22.204(0)? [39m    at TCP.onread (net.js:597:20)
+[34mI20210715-13:23:22.204(0)? [39m  name: 'MongoError',
+[34mI20210715-13:23:22.204(0)? [39m  message: 'Error in $cursor stage :: caused by :: operation was interrupted',
+[34mI20210715-13:23:22.204(0)? [39m  ok: 0,
+[34mI20210715-13:23:22.205(0)? [39m  errmsg: 'Error in $cursor stage :: caused by :: operation was interrupted',
+[34mI20210715-13:23:22.205(0)? [39m  code: 237,
+[34mI20210715-13:23:22.205(0)? [39m  codeName: 'CursorKilled' }

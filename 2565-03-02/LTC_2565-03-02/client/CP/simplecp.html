@@ -1,0 +1,293 @@
+<template name="simplecp">
+    {{> menu}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <div class="panel-heading"><b>แผนการดูแลรายบุคคลเพื่อเสนอต่อคณะอนุกรรมการสนับสนุนการจัดบริการดูแลระยะยาวสำหรับผู้สูงอายุที่มีภาวะพึ่งพิงพิจารณาสนับสนุนงบบริการสาธารณสุขสำหรับผู้สูงอายุที่มีภาวะพึ่งพิง (อัตราการชดเชยค่าบริการ เหมาจ่าย/ราย/ปี)</b></div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table width="100%" class="t1">
+                                    <tr>
+                                        <td>วันจัดทำ</td>
+                                        <td>:</td>
+                                        <td width="70%">
+                                            <div class="form-group">
+                                                <div class='input-group date' id="createDate">
+                                                    <input type='text' class="form-control" id="DateMof"/>
+                                                    <span class="input-group-addon">
+                                                        <span class="fa fa-calendar"></span>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>วินิจฉัย</td>
+                                        <td>:</td>
+                                        <td>
+                                            <select id="diagnose" placeholder="เลือก ...">
+                                                <option value="-">-</option>
+                                                {{#each listdiagnose}}
+                                                <option value="{{textcomplete}}">{{textcomplete}}</option>
+                                                {{else}} {{/each}}
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <b>สถานะสุขภาพ/งบประมาณเหมาจ่ายรายปีที่ขอรับการสนับสนุน</b>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table width="100%">
+                                    <tr>
+                                        <td>เป็นผู้มีภาวะพึ่งพิงจัดอยู่ในกลุ่มที่</td>
+                                        <td> : </td>
+                                        <td width="60%">
+                                            <select id="adlgroup" placeholder="เลือก ...">
+                                                <option value="-">-</option>
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <table width="100%">
+                                    <tr>
+                                        <td>ขอรับการสนับสนุนงบประมาณเหมาจ่ายรายปีเป็นจำนวนเงิน </td>
+                                        <td width="30%">
+                                            <select id="moneySuport" placeholder="เลือก ...">
+                                                <option value="-">-</option>
+                                                {{#each listmoneySuport}}
+                                                <option value="{{textcomplete}}">{{textcomplete}}</option>
+                                                {{else}} {{/each}}
+                                            </select>
+                                        </td>
+                                        <td> บาท </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <b>ประเด็นปัญหา/ความต้องการ</b>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table width="100%">
+                                    <tr>
+                                        <td>สภาพชีวิต</td>
+                                        <td> : </td>
+                                        <td width="70%">
+                                            <select id="policyLiving" placeholder="เลือก ..." multiple>
+                                                <option value="นั่ง/นอน อยู่บนเตียงตลอด  ไม่ค่อยลุกเดินไปไหน">นั่ง/นอน อยู่บนเตียงตลอด  ไม่ค่อยลุกเดินไปไหน</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>คำร้องเรียนหลัก</td>
+                                        <td> : </td>
+                                        <td width="70%">
+                                            <select id="policyComplaint" placeholder="เลือก ..." multiple>
+                                                <option value="บุตรหลานต้องการคนช่วยแบ่งเบาภาระในการดูแล">บุตรหลานต้องการคนช่วยแบ่งเบาภาระในการดูแล</option>
+                                                <option value="การมีอาชีพ มีรายได้ที่เหมาะสมตามสภาพ">การมีอาชีพ มีรายได้ที่เหมาะสมตามสภาพ</option>
+                                                <option value="อยู่อาศัยในสภาพแวดล้อมที่เหมาะสม">อยู่อาศัยในสภาพแวดล้อมที่เหมาะสม</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>การรับรู้</td>
+                                        <td> : </td>
+                                        <td width="70%">
+                                            <select id="policyRecognition" placeholder="เลือก ..." multiple>
+                                                <option value="-">-</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>การคบหาสมาคม</td>
+                                        <td> : </td>
+                                        <td width="70%">
+                                            <select id="policySocial" placeholder="เลือก ..." multiple>
+                                                <option value="สามารถเข้าร่วมในกิจกรรมเชิงสังคม และวัฒนธรรมในชุมชนได้">สามารถเข้าร่วมในกิจกรรมเชิงสังคม และวัฒนธรรมในชุมชนได้</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>การสื่อสาร</td>
+                                        <td> : </td>
+                                        <td width="70%">
+                                            <select id="talk" placeholder="เลือก ..." multiple>
+                                                <option value="-">-</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <table width="100%">
+                                    <tr>
+                                        <td>การขับถ่าย</td>
+                                        <td> : </td>
+                                        <td width="70%">
+                                            <select id="policyExcretion" placeholder="เลือก ..." multiple> 
+                                                <option value="-">-</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>การรับประทานอาหาร</td>
+                                        <td> : </td>
+                                        <td width="70%">
+                                            <select id="policyEat" placeholder="เลือก ..." multiple>
+                                                <option value="-">-</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>การดูแล</td>
+                                        <td> : </td>
+                                        <td width="70%">
+                                            <select id="policySupport" placeholder="เลือก ..." multiple>
+                                                <option value="ขาดการออกกำลังกาย กายภาพ ทำให้กล้ามเนื้อลีบ ข้อติด">ขาดการออกกำลังกาย กายภาพ ทำให้กล้ามเนื้อลีบ ข้อติด</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>ผู้ให้การดูแล</td>
+                                        <td> : </td>
+                                        <td width="70%">
+                                            <select id="policyCaretaker" placeholder="เลือก ..." multiple>
+                                                <option value="-">-</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <b>เป้าหมายการดูแล</b>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table width="100%">
+                                    <tr>
+                                        <td>
+                                            ระยะสั้น
+                                        </td>
+                                        <td width="90%">
+                                            <select id="shortCare" placeholder="เลือก ..." multiple>
+                                                <option value="ไม่เกิดแผลกดทับ">ไม่เกิดแผลกดทับ</option>
+                                                <option value="ไม่เกิดข้อยึดติด">ไม่เกิดข้อยึดติด</option>
+                                                <option value="รับประทานอาหารเองได้">รับประทานอาหารเองได้</option>
+                                                <option value="เข้าร่วมในกิจกรรมของชุมชนได้">เข้าร่วมในกิจกรรมของชุมชนได้</option>
+                                                <option value="ควบคุมอาการเจ็บป่วยไม่ให้รุนแรงขึ้น">ควบคุมอาการเจ็บป่วยไม่ให้รุนแรงขึ้น</option>
+                                                <option value="อยู่ในสิ่งแวดล้อมที่เหมาะสมตามสภาพปัญหา">อยู่ในสิ่งแวดล้อมที่เหมาะสมตามสภาพปัญหา</option>
+                                                <option value="มีกายอุปกรณ์ช่วยเหลือด้านการเคลื่อนไหวตามสภาพปัญหาอย่างเหมาะสม">มีกายอุปกรณ์ช่วยเหลือด้านการเคลื่อนไหวตามสภาพปัญหาอย่างเหมาะสม</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            ระยะยาว
+                                        </td>
+                                        <td>
+                                            <select id="longCare" placeholder="เลือก ..." multiple>
+                                                <option value="ไม่เกิดแผลกดทับ">ไม่เกิดแผลกดทับ</option>
+                                                <option value="ไม่เกิดภาวะแทรกซ้อนจากการนอนนานๆ">ไม่เกิดภาวะแทรกซ้อนจากการนอนนานๆ</option>
+                                                <option value="ถึงเวลาจากไปอย่างสงบ">ถึงเวลาจากไปอย่างสงบ</option>
+                                                <option value="มีคุณภาพชีวิตที่ดีขึ้น">มีคุณภาพชีวิตที่ดีขึ้น</option>
+                                                <option value="สามารถพอพยุงเดินได้">สามารถพอพยุงเดินได้</option>
+                                                <option value="ไม่มีภาวะชักเกร็งซ้ำ">ไม่มีภาวะชักเกร็งซ้ำ</option>
+                                                <option value="ญาติสามารถดูแลผู้ป่วยได้อย่างถูกต้อง">ญาติสามารถดูแลผู้ป่วยได้อย่างถูกต้อง</option>
+                                                <option value="มีอาชีพ มีรายได้">มีอาชีพ มีรายได้</option>
+                                            </select>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <b>การดูแล</b> (ตามหลักเกณฑ์เพื่อสนับสนุนให้องค์กรปกครองส่วนท้องถิ่นดำเนินงานและบริหารจัดการกองทุนหลักประกันสุขภาพในระดับท้องถิ่นหรือพื้นที่ (ฉบับที่ ๒) พ.ศ. ๒๕๕๙)
+                        <div class="row">
+                            <div class="col-md-12">
+                                <select id="careSuport" multiple placeholder="เลือก ...">
+                                    <option value="ประเมินและวางแผนโดยเจ้าหน้าที่">๑ ประเมินและวางแผนโดยเจ้าหน้าที่</option>
+                                    <option value="การดูแลด้านการพยาบาล">๒.๑ การดูแลด้านการพยาบาล</option>
+                                    <option value="การฟื้นฟูสภาพร่างกาย">๒.๒ การฟื้นฟูสภาพร่างกาย</option>
+                                    <option value="การดูแลด้านโภชนาการ">๒.๓ การดูแลด้านโภชนาการ</option>
+                                    <option value="การดูแลด้านเภสัชกรรม">๒.๔ การดูแลด้านเภสัชกรรม</option>
+                                    <option value="การดูแลสุขภาพด้านอื่นๆตามความจำเป็น">๒.๕ การดูแลสุขภาพด้านอื่นๆตามความจำเป็น</option>
+                                    <option value="การบริการสาธาณสุขเบื้องต้น">๓.๑ การบริการสาธาณสุขเบื้องต้น</option>
+                                    <option value="การดูแลสุขภาพขั้นพื้นฐาน">๓.๒ การดูแลสุขภาพขั้นพื้นฐาน</option>
+                                    <option value="การจัดการสภาพแวดล้อม">๓.๓ การจัดการสภาพแวดล้อม</option>
+                                    <option value="จัดหาอุปกรณ์การแพทย์">๔ จัดหาอุปกรณ์การแพทย์</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <b>ข้อควรระวังในการให้บริการ</b>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <select id="warnningService" multiple placeholder="เลือก ...">
+                                    <option value="ภาวะแทรกซ้อนจากการนอนนานๆ">ภาวะแทรกซ้อนจากการนอนนานๆ</option>
+                                    <option value="การติดเชื้อในร่างกาย">การติดเชื้อในร่างกาย</option>
+                                    <option value="อุบัติเหตุจาก ภาวะไม่รู้สึกตัว / ชักเกร็ง">อุบัติเหตุจาก ภาวะไม่รู้สึกตัว / ชักเกร็ง</option>
+                                </select>
+                            </div>
+                        </div>
+                        <br>
+                        <br>
+                        <center>
+                            <div class="pull-center">
+                                <button type="button" class="button blue " id="xx" data-toggle="modal" data-target="#myModal">ถัดไป</button>
+                            </div>
+                        </center>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <b><p class="modal-title">ต้องการทำ Care Plan แบบละเอียดต่อหรือไม่</p></b>
+                </div>
+                <div class="modal-body">
+                    <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <button class="btn btn-success" id="createCP"  data-dismiss="modal" style="width: 400px">
+                                    ใช่ ต้องการทำ Care Plan แบบละเอียดต่อ
+                                </button>
+                            </td>
+                        </tr>
+                        <br>
+                         <tr>
+                            <td align="center">
+                                <button class="btn btn-default" id="save" data-dismiss="modal" style="width: 400px">
+                                    ยังไม่ทำ ต้องการทำ Care Plan แบบละเอียดทีหลัง
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

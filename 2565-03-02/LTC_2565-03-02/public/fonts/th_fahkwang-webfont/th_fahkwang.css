@@ -1,0 +1,47 @@
+@font-face {
+    font-family: 'THFahkwang';
+    src: url('th_fahkwang_bold_italic-webfont.eot');
+    src: url('th_fahkwang_bold_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('th_fahkwang_bold_italic-webfont.woff') format('woff'),
+         url('th_fahkwang_bold_italic-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'THFahkwang';
+    src: url('th_fahkwang_bold-webfont.eot');
+    src: url('th_fahkwang_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('th_fahkwang_bold-webfont.woff') format('woff'),
+         url('th_fahkwang_bold-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'THFahkwang';
+    src: url('th_fahkwang_italic-webfont.eot');
+    src: url('th_fahkwang_italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('th_fahkwang_italic-webfont.woff') format('woff'),
+         url('th_fahkwang_italic-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+
+}
+
+@font-face {
+    font-family: 'THFahkwang';
+    src: url('th_fahkwang-webfont.eot');
+    src: url('th_fahkwang-webfont.eot?#iefix') format('embedded-opentype'),
+         url('th_fahkwang-webfont.woff') format('woff'),
+         url('th_fahkwang-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.th_fahkwang{
+   font-family: 'THFahkwang', sans-serif;
+}

@@ -1,0 +1,245 @@
+<!-- client\Report\reportHopsital\repzone_hosp.html -->
+<template name="repzone_hosp">
+    <div>
+        {{> indexregmenu}}
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a type="button" class="btn btn-default btn-sm" href="/">
+                        <span class="glyphicon glyphicon-chevron-left"></span>ย้อนกลับ
+                    </a>
+                    รายงาน Care Plan ทั้งหมดระดับหน่วยบริการ
+                    <!-- <button type="button" id="printrep" class="btn btn-default btn-sm pull-right">
+                        <span class="glyphicon glyphicon-print"></span> พิมพ์
+                    </button> -->
+                </div>
+                <div class="panel-body">
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table border="0" class="faq">
+                                <tr>
+                                    <td width="20%"> ปีงบประมาณ</td>
+                                    <td width="80%">
+                                        <select id="budgetyear" class="form-control">
+                                            <option value="" selected>รวมทั้งหมด</option>
+                                            {{#each year}}
+                                            <option value="{{byear}}">{{byear}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <table border="0" class="faq">
+                                <tr>
+                                    <td> เขต</td>
+                                    <td>
+                                        <select id="zone" class="form-control">
+                                            <!-- <option selected value=''>[เลือกเขต]</option> -->
+                                            <option value=''>เลือกเขตทั้งหมด</option>
+                                            <option value="01">เขต 1</option>
+                                            <option value="02">เขต 2</option>
+                                            <option value="03">เขต 3</option>
+                                            <option value="04">เขต 4</option>
+                                            <option value="05">เขต 5</option>
+                                            <option value="06">เขต 6</option>
+                                            <option value="07">เขต 7</option>
+                                            <option value="08">เขต 8</option>
+                                            <option value="09">เขต 9</option>
+                                            <option value="10">เขต 10</option>
+                                            <option value="11">เขต 11</option>
+                                            <option value="12">เขต 12</option>
+                                            <!-- <option value="13">เขต 13</option> -->
+                                        </select>
+                                    </td>
+                                    <td> จังหวัด</td>
+                                    <td>
+                                        <select id="chooseProvince" class="form-control">
+                                            <option selected value=''>[เลือกจังหวัด]</option>
+                                        </select>
+                                    </td>
+                                    <td> อำเภอ</td>
+                                    <td>
+                                        <select id="chooseDist" disabled class="form-control">
+                                            <option selected value=''>[เลือกอำเภอ]</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <section style="height: 10px;"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table border="0" class="faq">
+                                <tr>
+                                    <td> ฐานข้อมูล</td>
+                                    <td>
+                                        <label class="radio-inline"><input type="radio" name="database" value=""
+                                                checked>ทั้งหมด</label>
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline"><input type="radio" name="database"
+                                                value="true">ข้อมูลจาก สปสช.</label>
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline"><input type="radio" name="database"
+                                                value="false">ลงทะเบียนเอง</label>
+                                    </td>
+                                </tr>
+                                <br>
+                                <tr>
+                                    <td> สิทธิการรักษา</td>
+                                    <td>
+                                        <label class="radio-inline"><input class="healty" type="radio" name="healty"
+                                                value="" checked>ทั้งหมด</label>
+                                    </td>
+
+                                    <td>
+                                        <label class="radio-inline"><input class="healty" type="radio" name="healty"
+                                                value="WEL">ผู้อายุที่มีภาวะพึ่งพิง (สิทธิ UC)</label>
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline"><input class="healty" type="radio" name="healty"
+                                                value="ETC">ผู้อายุที่มีภาวะพึ่งพิง (สิทธิ อื่นๆ)</label>
+                                    </td>
+                                </tr>
+
+                                <br>
+                                <tr>
+                                    <td> ประเภท </td>
+                                    <td>
+                                        <label class="radio-inline"><input type="radio" name="typeOf" value="01"
+                                                checked>ผู้ที่มีภาวะพึ่งพิง</label>
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline"><input type="radio" name="typeOf"
+                                                value="03">รวมเสียชีวิต</label>
+                                    </td>
+                                </tr>
+                                <br>
+                                <tr>
+                                    <td> เพศ </td>
+                                    <td>
+                                        <label class="radio-inline"><input type="radio" name="sex" value=""
+                                                checked>ทั้งหมด</label>
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline"><input type="radio" name="sex"
+                                                value="ชาย">เพศชาย</label>
+                                    </td>
+                                    <td>
+                                        <label class="radio-inline"><input type="radio" name="sex"
+                                                value="หญิง">เพศหญิง</label>
+                                    </td>
+                                </tr>
+                                <tr style="display: none;">
+                                    <td> ค้นหา </td>
+                                    <td colspan="2">
+                                        <input type="type" name="" value="" id="search_input" placeholder="ค้นหาจากรหัสหรือชื่อสถานบริการ"
+                                                class="form-control">
+                                    </td>
+                                </tr>
+                                <br>
+                                <tr>
+                                    <td>
+                                        <button class="hosp-button-ok" id="submit">ตกลง</button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                    <section style="height: 25px;"></section>
+                    <span style="font-weight: bold;font-size:16px"> {{getDetail}}</span>
+                    <section style="height: 20px;"></section>
+
+                    <!-- <button style="float: right;" class="hosp-button-download" id="download"><span class="glyphicon glyphicon-save"
+                            aria-hidden="true"></span>&nbsp;&nbsp;<span class="glyphicon glyphicon-triangle-bottom"
+                            aria-hidden="true"></span></button> 
+                    <span class="hr-part-text"></span> -->
+                    
+                    <div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table id="mytable" border="0" class="table table-striped table-grid" width="100%">
+                                    <thead>
+                                        <tr class="custom-th">
+                                            <th id="1" class="custom">{{tableHeader_cp}}</th>
+                                            <th id="2" class="custom">ผู้ที่มีภาวะพึ่งพิง</th>
+                                            <th id="3" class="custom">จำนวน Care Plan</th>
+                                            <th id="4" class="custom">ร้อยละการจัดทำ Care plan</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#if REPOR_RESULT}}
+                                        {{#each REPOR_RESULT}}
+                                        {{#if checkSSOandSSJ NAME}}
+                                        <tr>
+                                            <td align="left" style="background-color:#FCECE4;font-weight:bold;">
+                                                {{NAME}}
+                                            </td>
+
+                                            <td align="center">{{ELDER}}</td>
+                                            <td align="center">{{CAREPLAN}}</td>
+                                            <td align="center">{{getPercent CAREPLAN ELDER}}</td>
+                                        </tr>
+                                        {{/if}}
+                                        {{/each}}
+
+                                        <!-- <tr>
+                                            {{#each sumCMCG}}
+                                            <td align="left" style="background-color:#FCECE4;font-weight:bold;">
+                                                <b>รวม</b>
+                                            </td>
+
+                                            <td align="center">
+                                                <b>{{dataded numelder}}</b>
+                                            </td>
+                                            <td align="center">
+                                                <b>{{dataded numcp}}</b>
+                                            </td>
+                                            <td align="center">
+                                                <b>{{percentCpElder numcp numelder}}</b>
+                                            </td>
+                                            {{/each}}
+                                        </tr> -->
+                                        {{else}}
+                                        <tr>
+                                            <td colspan="4" align="left" style="background-color:#FCECE4;font-weight:bold;">
+                                                <center><b>ไม่พบข้อมูล</b></center>
+                                            </td>
+                                        </tr>
+                                        {{/if}}
+                                    </tbody>
+                                    {{#if REPOR_RESULT}}
+                                    <tfoot>
+                                        <tr>
+                                            <td align="left" style="font-weight:bold;">
+                                                <center>{{REPOR_RESULT_SUM.NAME}}</center>
+                                            </td>
+
+                                            <td align="center">{{REPOR_RESULT_SUM.ELDER}}</td>
+                                            <td align="center">{{REPOR_RESULT_SUM.CAREPLAN}}</td>
+                                            <td align="center">{{getPercent REPOR_RESULT_SUM.CAREPLAN REPOR_RESULT_SUM.ELDER}}</td>
+                                        </tr>
+                                    </tfoot>
+                                    {{/if}}
+                                </table>
+                                <br>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,92 @@
+<template name="betterElder">
+    <div id="loading">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <section style="height: 10px"></section>
+                        <div class="pull-left">
+                            <b style="font-size: 18px;">ผู้สูงอายุที่มีสถานะดีขึ้น (ADL > 11) ({{coutElder}} ราย)</b>
+                        </div>
+                    </div>
+                </div>
+                <br> {{#if listelder}}
+                <div class="row">
+                    <div class="col-md-12">
+                        <table id="mytable" class="table table-hover table-bordered table-striped">
+                            <thead>
+                                <tr>
+                                    <th>ลำดับ</th>
+                                    <th>เลขบัตรประชาชน</th>
+                                    <th>ชื่อ - สกุล</th>
+                                    <!-- <th>ที่อยู่</th> -->
+                                    <th>อายุ</th>
+                                    <th>สิทธิ</th>
+                                    <!-- <th>โทร</th> -->
+                                    <th>ADL</th>
+                                    <th>TAI</th>
+                                    <th>กลุ่ม</th>
+                                    <th>สถานะของผู้สูงอายุ</th>
+                                    <th>Careplan</th>
+                                    <th>แก้ไข</th>
+                                    <th>ลบ</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each listelder}}
+                                <tr valign="center">
+                                    <td>{{nhsoElderIndex @index}}</td>
+                                    <td>{{CID}}</td>
+                                    <td>{{PRENAME}}{{NAME}} {{LNAME}}</td>
+                                    <!-- <td>{{ADDRESS}}</td> -->
+                                    <td>{{getage BIRTHDATE}}</td>
+                                    <td>{{PRIVILEGE}}</td>
+                                    <!-- <td>{{PHONE}}</td> -->
+                                    <td>{{ADL}}</td>
+                                    <td>{{TAI}}</td>
+                                    <td>{{GROUPID}}</td>
+                                    <td>
+                                        <select id="statusElder" class="form-control">
+                                            <option value="02">ผู้สูงอายุดีขึ้น (ADL > 11)</option>
+                                            <option value="01">ไม่เปลี่ยนแปลง</option>
+                                            <option value="03">เสียชีวิต</option>
+                                        </select>
+                                    </td>
+                                    <td align="center" id="tocp">
+                                        <!-- <button class="btn btn-success btn-sm" id="edit"> -->
+
+                                        <button type="button" class="btn btn-primary ">
+                                            <span class="glyphicon glyphicon-folder-open"></span>
+                                        </button>
+
+                                        <!-- </button> -->
+                                    </td>
+                                    <td align="center" id="edit">
+                                        <a href="/editelder" style="color: black;">
+                                            <button type="button" class="btn btn-warning">
+                                                <i class="fa fa-wrench" aria-hidden="true"></i>
+                                            </button>
+
+                                        </a>
+                                    </td>
+                                    <td align="center" id="remove">
+                                        <a href="#" style="color: black;">
+                                            <button type="button" class="btn btn-danger">
+                                                <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+                                            </button>
+
+                                        </a>
+                                    </td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                {{else}}
+                <center>ไม่พบข้อมูลผู้สูงอายุ</center>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>

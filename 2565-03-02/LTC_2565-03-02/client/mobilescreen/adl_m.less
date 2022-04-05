@@ -1,0 +1,183 @@
+
+@import url("/icheck-bootstrap.min.css"); 
+.adlform{
+    .radio label, .checkbox label {
+        min-height: 20px;
+        padding-left: 20px;
+        margin-bottom: 15px;
+        font-weight: normal;
+        cursor: pointer;
+    }
+.clean-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    width: 100%;
+    height: 100%;
+    padding: 3.5vw;
+
+    &>.header {
+        order: 1;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+        &>.left {
+            order: 1;
+        }
+
+        &>.center {
+            order: 2;
+        }
+
+        &>.right {
+            order: 3;
+        }
+    }
+
+    &>.body {
+        order: 2;
+        flex-grow: 2;
+        overflow-y: scroll;
+    }
+
+    &>.footer {
+        margin-top: 15px;
+        order: 3;
+    }
+}
+
+.pages-controller {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+    &>button[command] {
+        width: 35%;
+
+        &[hidden] {
+            display: none;
+        }
+    }
+
+}
+
+.info-button {
+    color: inherit;
+
+    &:active {
+        color: #009688;
+    }
+}
+
+.answer-box {
+    display: block;
+    padding: 20px 5px;
+    font-size: 16px;
+    overflow: auto;
+    max-height: 100%;
+
+    & label span {
+        font-size: 18px !important;
+        color: black;
+        margin-left: 18px;
+
+        &::before {
+            margin-left: 10px;
+        }
+
+        &::after {
+            margin-left: 10px;
+        }
+    }
+
+    &>p:first-child {
+        margin-top: 0;
+    }
+
+    &>p:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.title-w-number {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    font-weight: bold;
+    font-size: 18px;
+
+    &>:first-child {
+        margin-right: 5px;
+    }
+
+}
+
+.flexbox {
+    display: flex;
+    flex-direction: row;
+
+    &.vertical {
+        flex-direction: column;
+    }
+
+    &.stretch {
+        justify-content: stretch;
+    }
+
+    &.with-gap {
+        &:not(.vertical)>:not(:first-child) {
+            margin-left: 5px;
+        }
+
+        &.vertical>:not(:first-child) {
+            margin-top: 5px;
+        }
+    }
+
+    &>.flex-grow {
+        flex-grow: 2;
+
+        &.relative {
+            position: relative;
+        }
+    }
+}
+
+.caret-stack {
+    display: flex;
+    flex-direction: column;
+    margin-top:5px;
+    margin-bottom:5px;
+    &>* {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        align-items: center;
+        &>:first-child {
+            flex-grow: 2;
+
+            &::after {
+                content: " : ";
+                margin-right: 5px;
+            }
+        }
+
+        &>:last-child {
+            text-align: left;
+            flex-shrink: 2;
+        }
+    }
+}
+
+.page .font-medium-lager{
+    font-weight: bold;
+}
+
+.clean-form.card .font-medium-lager.center{
+    font-weight: bold;
+}
+}

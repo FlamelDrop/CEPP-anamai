@@ -1,0 +1,105 @@
+<template name="reportevaamphoe">
+    {{> indexregmenu}}
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <a type="button" class="btn btn-default btn-sm" href="/reportevaprovince"><span
+                        class="glyphicon glyphicon-chevron-left"></span>ย้อนกลับ
+                </a>
+                เกณฑ์ตำบล LTC รายอำเภอ
+                <span style="font-size: large;">เขตสุขภาพที่ {{zoneID}}</span> /
+                <span style="font-size: large;">จังหวัด {{provinceName}}</span>
+                <button type="button" id="printrep" class="btn btn-default btn-sm pull-right">
+                    <span class="glyphicon glyphicon-print"></span> พิมพ์
+                </button>
+            </div>
+            <div class="panel-body">
+                <div style="margin-left:1%;margin-right:1%">
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div id="container-zoneltc">
+                                <canvas id="zoneevaltc" style="width:100%;height:320px;"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <table class="table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" class="text-center"
+                                            style="background-color:#FCECE4;font-weight:bold;">อำเภอ
+                                        </th>
+                                        <th rowspan="2" class="text-center">ทั้งหมด</th>
+                                        <th rowspan="2" class="text-center">ผ่าน</th>
+                                        <th rowspan="2" class="text-center">ไม่ผ่าน</th>
+                                        <th colspan="7" class="text-center">องค์ประกอบที่ไม่ผ่าน</th>
+                                    </tr>
+                                    <tr>
+                                        <td align="center"><b>1</b></td>
+                                        <td align="center"><b>2</b></td>
+                                        <td align="center"><b>3</b></td>
+                                        <td align="center"><b>4</b></td>
+                                        <td align="center"><b>5</b></td>
+                                        <td align="center"><b>6</b></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each amphoeAssessmentData}}
+                                        <tr>
+                                            <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                                <a href="/reportevatambon" class="viewTambonInAmphoe">{{amphoeName}}</a>
+                                            </td>
+                                            <td align="center">{{tambonCount}}</td>
+                                            <td align="center">{{verdictPass}}</td>
+                                            <td align="center">{{verdictFail}}</td>
+                                            <td align="center">{{c1Fail}}</td>
+                                            <td align="center">{{c2Fail}}</td>
+                                            <td align="center">{{c3Fail}}</td>
+                                            <td align="center">{{c4Fail}}</td>
+                                            <td align="center">{{c5Fail}}</td>
+                                            <td align="center">{{c6Fail}}</td>
+                                        </tr>
+                                    {{/each}}
+                                    <tr>
+                                        <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                            <b>รวม</b>
+                                        </td>
+                                        <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                            {{total}}
+                                        </td>
+                                        <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                            {{pass}}
+                                        </td>
+                                        <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                            {{fail}}
+                                        </td>
+                                        <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                            {{c1_fail}}
+                                        </td>
+                                        <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                            {{c2_fail}}
+                                        </td>
+                                        <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                            {{c3_fail}}
+                                        </td>
+                                        <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                            {{c4_fail}}
+                                        </td>
+                                        <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                            {{c5_fail}}
+                                        </td>
+                                        <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                            {{c6_fail}}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,270 @@
+<template name="hpcapprovedistrict">
+    <div>
+        <nav class="navbar navbar-custom">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/">
+                        <img src="./LogoLTC180x100.png" height="55">
+                    </a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">
+                            <b>Long Term Care</b>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <section style="height: 3px"></section>
+                        <a href="/CMdashboard" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span> {{user}}</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/cmchangepwd">
+                                    <span class="glyphicon glyphicon-lock"></span> เปลี่ยนรหัสผ่าน</a>
+                            </li>
+                            <li>
+                                <a href="/logout">
+                                    <span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="/hpcindex">หน้าแรก</a>
+                </li>
+                <li class="active">ยืนยัน ผู้รับผิดชอบงานระดับอำเภอ</li>
+            </ol>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table>
+                        <tr>
+                            <td style="font-size: 17px;font-weight: bold;">รายชื่อ ผู้รับผิดชอบงานระดับอำเภอ รออนุมัติ</td>
+                            <td style="font-size: 14px;">&nbsp;&nbsp;(ทั้งหมด {{count}} คน)</td>
+                        </tr>
+                    </table>
+                    <div class="container">
+                        <br>
+                        <div class="col-md-11">
+                            <table id="mytable" class="table table-hover table-bordered" width="100%" style="font-size: 13px">
+                                <thead>
+                                    <tr bgcolor="#E6E6E6">
+                                        <th id="0">เลขบัตรประชาชน</th>
+                                        <th id="2">ชื่อ - นามสกุล</th>
+                                        <th id="8">เบอร์โทรติดต่อ</th>
+
+                                        <th id="10">รหัสหน่วยงาน</th>
+                                        <th id="11">หน่วยงาน</th>
+                                        <th id="12">ตำบล</th>
+                                        <th id="13">อำเภอ</th>
+                                        <th id="14">จังหวัด</th>
+
+                                        <th id="20" align="center">ประเภทบุคลากร</th>
+                                        <th id="24" align="center">รายละเอียด</th>
+                                        <th id="25" width="80px">อนุมัติ</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each list}}
+                                    <tr>
+                                        <td>{{CID}}</td>
+                                        <td>{{PRENAME}}{{NAME}} {{LNAME}}</td>
+                                        <td>{{MOBILE}}</td>
+
+                                        <td>{{DISTRICT_DETAIL.CODE}}</td>
+                                        <td>{{DISTRICT_DETAIL.NAME}}</td>
+                                        <td>{{splitTambon DISTRICT_DETAIL.DISTRICT}}</td>
+                                        <td>{{splitAmphoe DISTRICT_DETAIL.AMPHOE}}</td>
+                                        <td>{{splitProvince DISTRICT_DETAIL.PROVINCE}}</td>
+
+                                        <td>{{_PROVIDERTYPE PROVIDERTYPE}}</td>
+                                        <td align="center">
+                                            <button class="btn btn-success btn-sm" id="viewcm" data-toggle="modal" data-target="#cmprofile">
+                                                <i class="fa fa-id-card-o" aria-hidden="true" style="font-size: 12px;"></i>
+                                            </button>
+                                        </td>
+                                        <td align="center">
+                                            <a href="#" id="check">
+                                                <img src="/ic-checkmark.png" style="width:30px">
+                                            </a>
+                                            <a href="#" id="cancel">
+                                                <img src="/ic-delete.png" style="width:30px">
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="cmprofile" role="dialog">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <!-- <div class="pull-right" style="position:relative;right:40px">
+                            <button type="button" id="printcm" class="btn btn-default btn-sm">
+                                <span class="glyphicon glyphicon-print" style="font-size:18px"> </span>&nbsp;&nbsp;พิมพ์
+                            </button>
+                        </div> -->
+                        <section style="height: 20px"></section>
+                        <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                            <span style="font-size:18px;font-weight:bold">
+                                ข้อมูลส่วนตัว
+                            </span>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="tbcmprofile">
+                                    <tr>
+                                        <td>
+                                            <b>เลขบัตรประชาขน</b>
+                                        </td>
+                                        <td>
+                                            {{profile.CID}}
+                                        </td>
+                                    </tr>
+                                </table>
+                                <img src="{{profile.IMG}}" width="150px" style="position:absolute;right:10%;top:0px;">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="tbcmprofile">
+                                    <tr>
+                                        <td>
+                                            <b>ชื่อ - นามสกุล</b>
+                                        </td>
+                                        <td>
+                                            {{profile.PRENAME}}{{profile.NAME}} {{profile.LNAME}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="tbcmprofile">
+                                    <tr>
+                                        <td>
+                                            <b>เพศ</b>
+                                        </td>
+                                        <td>
+                                            {{langsex profile.SEX}}
+                                        </td>
+                                        <td>
+                                            <b>วันเกิด</b>
+                                        </td>
+                                        <td>
+                                            {{briddate profile.BIRTH}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="tbcmprofile">
+                                    <tr>
+                                        <td>
+                                            <b>อีเมล</b>
+                                        </td>
+                                        <td>
+                                            {{profile.EMAIL}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="tbcmprofile">
+                                    <tr>
+                                        <td>
+                                            <b>เบอร์โทรติดต่อ</b>
+                                        </td>
+                                        <td>
+                                            {{profile.MOBILE}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                            <span style="font-size:18px;font-weight:bold">ข้อมูลหน่วยงาน</span>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="tbcmprofile">
+                                    <tr>
+                                        <td>
+                                            <b>รหัสหน่วยงาน</b>
+                                        </td>
+                                        <td>
+                                            {{profile.DISTRICT_DETAIL.CODE}}
+                                        </td>
+                                        <td>
+                                            <b>หน่วยงาน</b>
+                                        </td>
+                                        <td>
+                                            {{profile.DISTRICT_DETAIL.NAME}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="tbcmprofile">
+                                    <tr>
+                                        <td>
+                                            <b>ที่อยู่หน่วยงาน</b>
+                                        </td>
+                                        <td>
+                                            อ. {{splitAmphoe profile.DISTRICT_DETAIL.AMPHOE}} ต. {{splitTambon profile.DISTRICT_DETAIL.DISTRICT}} จ. {{splitProvince profile.DISTRICT_DETAIL.PROVINCE}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="tbcmprofile">
+                                    <tr>
+                                        <td>
+                                            <b>ประเภทบุคลากร</b>
+                                        </td>
+                                        <td>
+                                            {{_PROVIDERTYPE profile.PROVIDERTYPE}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <br>
+                        
+                      
+                        <br>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

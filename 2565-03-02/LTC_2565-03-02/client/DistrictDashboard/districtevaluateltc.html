@@ -1,0 +1,363 @@
+<template name="districtevaluateltc">
+    <div>
+        <nav class="navbar navbar-custom">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/">
+                        <img src="./LogoLTC180x100.png" height="55">
+                    </a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">
+                            <b>Long Term Care</b>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <section style="height: 3px"></section>
+                        <a href="/CMdashboard" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span> {{user}}</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/cmchangepwd">
+                                    <span class="glyphicon glyphicon-lock"></span> เปลี่ยนรหัสผ่าน</a>
+                            </li>
+                            <li>
+                                <a href="/logout">
+                                    <span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div style="margin-left:3%;margin-right:3%">
+            <ol class="breadcrumb">
+                <li class="active"><a href="/districtindex">หน้าแรก</a> /
+                    ประเมินตำบลที่มีระบบการส่งเสริมสุขภาพดูแลผู้สูงอายุระยะยาว (Long Term Care) LTC</li>
+
+            </ol>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div style="width:70%; height:20px; border-bottom: 1px solid black; text-align:left;">
+                        <span style="font-size:16px;font-weight:bold">สรุปภาพรวมตำบล LTC ของ{{user}}</span>
+                    </div>
+
+                    <br>
+                    <br>
+                    <table width="100%" class="hpctable">
+                        <tr>
+                            <td style="border-right:3px solid black">
+                                จำนวนตำบลทั้งหมด
+                                <span
+                                    style="font-weight: bold;color: blue;font-size: 18px">&nbsp;{{getDistDataALL_all}}&nbsp;</span>
+                                ตำบล &nbsp;&nbsp;
+                                <br>
+                                <br>
+                                จำนวนตำบลที่เข้าร่วมระบบ LTC ทั้งหมด
+                                <span
+                                    style="font-weight: bold;color: blue;font-size: 18px">&nbsp;{{getDistDataALL_joinAll}}&nbsp;</span>
+                                ตำบล &nbsp;&nbsp;
+                                <br>
+                                <br>
+                                จำนวนตำบลที่ผ่านเกณฑ์ LTC ทั้งหมด
+                                <span
+                                    style="font-weight: bold;color: blue;font-size: 18px">&nbsp;{{getDistDataALL_CriterioTrue}}&nbsp;</span>
+                                ตำบล &nbsp;&nbsp;
+                                <br>
+                                <br>
+                            </td>
+                            <td>
+                                ตำบลที่เข้าร่วมระบบ LTC ต่อ ตำบลทั้งหมด คิดเป็นร้อยละ
+                                <span
+                                    style="font-weight: bold;color: blue;font-size: 18px">&nbsp;{{getDistDataALL_joinPerSubdist}}&nbsp;</span>&nbsp;&nbsp;
+                                <br>
+                                <br>
+                                ตำบลที่ผ่านเกณฑ์ LTC ต่อ ตำบลที่เข้าร่วมระบบ LTC คิดเป็นร้อยละ
+                                <span
+                                    style="font-weight: bold;color: blue;font-size: 18px">&nbsp;{{getDistDataALL_CriterioTruePerJoin}}&nbsp;</span>&nbsp;&nbsp;
+                                <br>
+                                <br>
+                                ตำบลที่ผ่านเกณฑ์ LTC ต่อ ตำบลทั้งหมด คิดเป็นร้อยละ
+                                <span
+                                    style="font-weight: bold;color: blue;font-size: 18px">&nbsp;{{getDistDataALL_CriterioTruePerSubdist}}&nbsp;</span>&nbsp;&nbsp;
+                                <br>
+                                <br>
+                            </td>
+                        </tr>
+
+                    </table>
+
+                </div>
+
+                <div class="panel-body">
+                    <div style="width:70%; height:20px; border-bottom: 1px solid black; text-align:left;">
+                        <span style="font-size:16px;font-weight:bold">ประเมินผลตำบล Long Term Care </span>
+                    </div>
+                    <br>
+
+                    <table class="hpctable">
+                        <tr>
+
+                            <!-- <td>
+                                <select id="DistrictSelector" class="form-control">
+                                </select>
+                            </td> -->
+                            <td>
+                                <button class="btn btn-default" id="download"><span
+                                        class="glyphicon glyphicon-file"></span>&nbsp;ดาวน์โหลด
+                                    excel</button>
+                            </td>
+
+                        </tr>
+                    </table>
+                    <br>
+
+                    <table style="width: 100%;">
+                        <tr>
+
+                            <td align="right">
+                                <input type="text" class="form-control" style="width: 200px;" placeholder="ค้นหา"
+                                    id="find">
+                            </td>
+
+                        </tr>
+                    </table>
+                    <br>
+                    <br>
+                    <table class="table table-hover" id="tableSubDist" width="100%">
+                        <thead>
+                            <tr>
+                                <td rowspan="2"></td>
+                                <!-- <td rowspan="2"></td> -->
+                                <td colspan="9" class="text-center">4 องค์ประกอบตำบล LTC
+                                    <a href="#"><span style="font-size:20px" class="glyphicon glyphicon-book"
+                                            aria-hidden="true" id="des" data-toggle="modal"
+                                            data-target="#description"></span></a>
+                                </td>
+
+                                <td></td>
+                                <td rowspan="2"></td>
+                                <td rowspan="2"></td>
+                            </tr>
+                            <tr>
+                                <td class="text-center"><b></b></td>
+
+                                <td class="text-center"><b>1</b></td>
+                                <td class="text-center"><b>2</b></td>
+                                <td class="text-center"><b>3</b></td>
+                                <td class="text-center"><b>4</b></td>
+                                <td class="text-center"><b>ผลการประเมิน</b></td>
+                                <td class="text-center"><b>ปีที่ผ่านเกณฑ์</b></td>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each getDistDetail}}
+                            <tr id="view">
+                                <td><label style="padding-bottom: 20px;">[{{fullcode}}] {{subdistrict_name}}</label>
+                                </td>
+                                <!-- <td>
+                                    <label class="checkbox_blue slim_font" style="margin-left:10px;">
+                                        รอเข้าร่วม
+                                        <input type="checkbox" class="wait" id="wait_{{fullcode}}" name="checkbox"
+                                            checked='{{wait}}'>
+                                        <span class="checkmark"></span>
+
+                                    </label>
+                                </td> -->
+                                <td>
+                                    <label class="checkbox_blue slim_font" style="margin-left:20px;">
+                                        เข้าร่วมกองทุน LTC ปี
+                                        <input type="checkbox" class="join" id="join_{{fullcode}}" name="checkbox"
+                                            checked='{{Evaluate.join}}'>
+                                        <span class="checkmark"></span>
+
+                                    </label>
+                                    <select class="joinyear" id='joinyear_{{fullcode}}' value="{{Evaluate.join_year}}">
+                                        <option value="{{checkJoinYear_helper join_year}}" selected>
+                                            {{checkJoinYear_helper Evaluate.join_year}}</option>
+                                        <option value="ไม่ระบุ"
+                                            style="display: {{checkJoinYear_NO_helper Evaluate.join_year}}">
+                                            ไม่ระบุ</option>
+                                        {{#each getYear}}
+                                        <option value="{{year}}">{{year}}</option>
+                                        {{/each}}
+
+                                    </select>
+                                </td>
+                                <td>
+                                    <label class="checkbox_blue slim_font" style="margin-left:2px;">
+
+                                        <input type="checkbox" class="criterio_check1" name="criterio1_{{fullcode}}"
+                                            value="true" checked="{{Evaluate.c1}}">
+                                        <span class="checkmark"></span>
+
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox_blue slim_font" style="margin-left:2px;">
+
+                                        <input type="checkbox" class="criterio_check2" name="criterio2_{{fullcode}}"
+                                            value="true" checked="{{Evaluate.c2}}">
+                                        <span class="checkmark"></span>
+
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox_blue slim_font" style="margin-left:2px;">
+
+                                        <input type="checkbox" class="criterio_check3" name="criterio3_{{fullcode}}"
+                                            value="true" checked="{{Evaluate.c3}}">
+                                        <span class="checkmark"></span>
+
+                                    </label>
+                                </td>
+                                <td>
+                                    <label class="checkbox_blue slim_font" style="margin-left:2px;">
+
+                                        <input type="checkbox" class="criterio_check4" name="criterio4_{{fullcode}}"
+                                            value="true" checked="{{Evaluate.c4}}">
+                                        <span class="checkmark"></span>
+
+                                    </label>
+                                </td>
+                                <!-- <td>
+    
+                                    <label class="checkbox_blue slim_font" style="margin-left:20px;">
+                                        ผ่านเกณฑ์
+                                        <input type="radio" class="criterio_check" name="criterio_{{fullcode}}" value="true"
+                                            {{checkCriterio_TRUE_helper Evaluate}}>
+                                        <span class="checkmark"></span>
+    
+                                    </label>
+    
+                                </td>
+                                <td>
+                                    <label class="checkbox_blue slim_font" style="margin-left:20px;">
+                                        ไม่ผ่านเกณฑ์
+                                        <input type="radio" class="criterio_check" name="criterio_{{fullcode}}" value="false"
+                                            {{checkCriterio_FALSE_helper Evaluate}}>
+                                        <span class="checkmark"></span>
+    
+                                    </label>
+                                    <input type="radio" name="criterio_{{fullcode}}" value="null" style="display:none">
+                                </td> -->
+                                <td>
+
+                                    <div style="padding-bottom:5px;">
+                                        {{checkCriterio Evaluate.c1 Evaluate.c2 Evaluate.c3 Evaluate.c4}}
+                                    </div>
+
+                                </td>
+                                <td>
+
+                                    <select class="passyear" id='passyear_{{fullcode}}' value="{{Evaluate.pass_year}}">
+                                        <option value="{{checkPassYear_helper Evaluate.pass_year}}" selected>
+                                            {{checkJoinYear_helper Evaluate.pass_year}}</option>
+                                        <option value="ไม่ระบุ"
+                                            style="display: {{checkPassYear_NO_helper Evaluate.pass_year}}">
+                                            ไม่ระบุ</option>
+                                        {{#each getYear}}
+                                        <option value="{{year}}">{{year}}</option>
+                                        {{/each}}
+
+                                    </select>
+
+                                </td>
+                                <td>
+                                    <div style="padding-bottom:5px;">
+                                        <input type="text" class="remark form-control" id="remark_{{fullcode}}"
+                                            value="{{remark}}" placeholder="หมายเหตุ" style="width:160px">
+                                    </div>
+                                </td>
+
+                                <td>
+                                    <div style="padding-bottom:5px;padding-left:10px"><a href="#" id="cancel">
+                                            <img src="/ic-delete.png"
+                                                style="width:30px">
+                                        </a></div>
+                                </td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+
+
+                    </table>
+                    <table style="width: 100%;">
+                        <tr>
+                            <td align="left">
+                                <p>หน้า <input type="text" id="page" value="{{page}}"
+                                        style="width: 50px;text-align: right;">
+                                    / {{pagecount}} </p>
+                            </td>
+                            <td align="right">
+                                <div class="btn-group" role="group" aria-label="...">
+                                    <button id="first" class="btn btn-default">หน้าแรกสุด</button>
+                                    <button id="prev" class="btn btn-default">หน้าก่อนหน้า</button>
+                                    <button id="next" class="btn btn-default">หน้าต่อไป</button>
+                                    <button id="last" class="btn btn-default">หน้าท้ายสุด</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <br>
+                <br>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="modal fade" id="description" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <section style="height: 20px"></section>
+                    <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                        <span style="font-size:14px;font-weight:bold">
+                            ระบบการส่งเสริมสุขภาพดูแลผู้สูงอายุระยะยาว (Long Term Care) องค์ประกอบ 4 ข้อ ดังนี้
+                        </span>
+                    </div>
+                    <div class="row">
+
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <br>
+                            <!-- <p>1. มีระบบการประเมินคัดกรองปัญหาสุขภาพ และมีข้อมูลผู้สูงอายุ ที่จำ
+                                เป็นต้องได้รับการดูแลช่วยเหลือระยะยาว</p>
+                            <p>2. มีชมรมผู้สูงอายุผ่านเกณฑ์ชมรมผู้สูงอายุคุณภาพ</p>
+                            <p>3. มีผู้จัดการการดูแลผู้สูงอายุ (Care manager) ผู้ดูแลผู้สูงอายุ (Care giver)
+                                หรืออาสาสมัครดูแลผู้สูงอายุ</p>
+                            <p></p>4. มีบริการการดูแลสุขภาพผู้สูงอายุที่บ้านที่มีคุณภาพ (Home Health
+                            Care)จากสถานบริการสู่ชุมชนโดยบุคลากรสาธารณสุขและทีมสหสาขาวิชาชีพ
+                            <p>5. มีบริการส่งเสริมป้องกันทันตสุขภาพในระดับตำบล</p>
+                            <p>6. มีระบบการดูแลผู้สูงอายุ กลุ่มติดบ้าน กลุ่มติดเตียง โดยท้องถิ่น
+                                ชุมชนมีส่วนร่วมและมีแผนการดูแลผู้สูงอายุรายบุคคล (Care plan)</p>
+                            <p>7.มีคณะกรรมการบริหารจัดการดูแลผู้สูงอายุที่มีภาวะพึ่งพิงในชุมชนหรือคณะกรรมการกองทุนตำบล
+                            </p> -->
+                            <p>1.
+                                มีการประเมินคัดกรองปัญหาสุขภาพและมีข้อมูลผู้สูงอายุในการวางแผนการดูแลส่งเสริมสุขภาพผู้สูงอายุรายบุคคล
+                                (Care Plan )</p>
+                            <p>
+                                2. มีการสนับสนุนการดำเนินงานชมรมผู้สูงอายุผ่านเกณฑ์ชมรมผู้สูงอายุคุณภาพกรมอนามัย
+                                อย่างน้อยตำบลละ 1 ชมรม
+                            </p>
+                            <p>
+                                3. มีบริการดูแลสุขภาพผู้สูงอายุโดยทีมสหวิชาชีพ ภาคีเครือข่าย ท้องถิ่น
+                                และชุมชนอย่างมีส่วนร่วม
+                            </p>
+                            <p>
+                                4. มีระบบการส่งเสริมสุขภาพ /
+                                เฝ้าระวังด้านสิ่งแวดล้อมและป้องกันดูแลสุขภาพผู้สูงอายุในระดับตำบล
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

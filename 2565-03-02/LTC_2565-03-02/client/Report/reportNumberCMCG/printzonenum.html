@@ -1,0 +1,57 @@
+<template name="printzonenum">
+    <center>
+        <h3>รายงานจำนวนผู้ปฎิบัติงานในแต่ละเขต</h3>
+        <h5>วันที่ {{time}}</h5>
+
+        <br>
+        <div class="row">
+            <div class="col-md-12">
+                <table class="table-bordered" style="width:100%">
+                    <thead>
+                        <th class="text-center" style="background-color:#FCECE4;font-weight:bold;">เขต</th>
+                        <th class="text-center">CM</th>
+                        <th class="text-center">CG</th>
+                        <th class="text-center">CM:CG</th>
+                    </thead>
+                    <tbody>
+                        {{#each zonerep1}}
+                        <tr>
+                            <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                <a>{{zone}}</a>
+                            </td>
+                            <td align="center">{{dataded numcm}}</td>
+                            <td align="center">{{dataded numcg}}</td>
+                            <td align="center">{{CMCGRATIO numcg numcm}}</td>
+                        </tr>
+                        {{/each}} {{#each sumCMCG}}
+                        <tr>
+                            <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                <b>รวม</b>
+                            </td>
+                            <td align="center">
+                                <b>{{dataded numcm}}</b>
+                            </td>
+                            <td align="center">
+                                <b>{{dataded numcg}}</b>
+                            </td>
+                            <td align="center">{{CMCGRATIO numcg numcm}}</td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <canvas id="zonecm" style="width:70%;height:320px;"></canvas>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <canvas id="zonecg" style="width:70%;height:320px"></canvas>
+            </div>
+        </div>
+        <br>
+        <br>
+    </center>
+</template>

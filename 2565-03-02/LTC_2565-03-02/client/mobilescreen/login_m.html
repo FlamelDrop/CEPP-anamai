@@ -1,0 +1,71 @@
+<template name="login_m">
+    <div style="background-color: gray;background-size:cover;" id="showpic">
+        <nav class="navbar navbar-custom">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/">
+                        <img src="./LogoLTC180x100.png" height="55">
+                    </a>
+                    <b>Long Term Care</b>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/formregcm">
+                            <b>ลงทะเบียน CM</b> 
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <center>
+                <br>
+                <br>
+                <br>
+                <br>
+                <div class="container">
+                    <div id="loginbox" style="margin-top:50px;"
+                        class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                        <div class="panel panel-default"
+                            style="border-radius: 10px;box-shadow: 5px 5px 5px grey; opacity:0.85;height:40%;">
+                            <div class="panel-heading" style="background-color:#fff;">
+                                <center>
+                                    <div class="panel-title">
+                                        <div class="input-group">
+                                            <section style="height:10px"></section>
+                                            <span class="title-trace"
+                                                style="font-size:22px;font-weight: bold;">เข้าสู่ระบบ</span>
+                                        </div>
+                                    </div>
+                                </center>
+                            </div>
+                            <div style="padding-top:20px;" class="panel-body">
+                                <div style="margin-bottom: 10px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                                    <input id="username" type="text" class="form-control" value="">
+                                </div>
+                                <div style="margin-bottom: 10px" class="input-group">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                                    <input id="password" type="password" class="form-control" value="">
+                                </div>
+                                <div class="pull-right" style="font-size: 12px"><a href="/forget">ลืมรหัสผ่าน</a></div>
+                                <br>
+                                <div class="modal-footer">
+                                    <button id="submit" class="btn btn-default btncb"
+                                        style="width:100%;background:#1658DD;color: white">เข้าสู่ระบบ </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                </div>
+            </center>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        </div>
+    </div>
+</template>

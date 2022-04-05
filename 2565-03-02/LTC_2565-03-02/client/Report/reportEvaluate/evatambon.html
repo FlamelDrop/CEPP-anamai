@@ -1,0 +1,108 @@
+<template name="reportevatambon">
+    {{> indexregmenu}}
+    <div class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <a type="button" class="btn btn-default btn-sm" href="/reportevaamphoe"><span
+                        class="glyphicon glyphicon-chevron-left"></span>ย้อนกลับ
+                </a>
+                เกณฑ์ตำบล LTC รายตำบล
+                <span style="font-size: large;">เขตสุขภาพที่ {{zoneID}}</span> /
+                <span style="font-size: large;">จังหวัด {{provinceName}}</span> /
+                <span style="font-size: large;">อำเภอ {{amphoeName}}</span>
+
+                <button type="button" id="printrep" class="btn btn-default btn-sm pull-right">
+                    <span class="glyphicon glyphicon-print"></span> พิมพ์
+                </button>
+            </div>
+            <div class="panel-body">
+                <div style="margin-left:1%;margin-right:1%">
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table-bordered" style="width:100%">
+                                <thead>
+                                    <tr>
+                                        <th rowspan="2" class="text-center"
+                                            style="background-color:#FCECE4;font-weight:bold;">ตำบล
+                                        </th>
+                                        <th rowspan="2" class="text-center">ผ่าน</th>
+                                        <th rowspan="2" class="text-center">ไม่ผ่าน</th>
+                                        <th colspan="7" class="text-center">องค์ประกอบที่ไม่ผ่าน</th>
+                                    </tr>
+                                    <tr>
+                                        <td align="center"><b>1</b></td>
+                                        <td align="center"><b>2</b></td>
+                                        <td align="center"><b>3</b></td>
+                                        <td align="center"><b>4</b></td>
+                                        <td align="center"><b>5</b></td>
+                                        <td align="center"><b>6</b></td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each tambonInAmphoeAssessment}}
+                                        <tr>
+                                            <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                                {{tambonName}}
+                                            </td>
+                                            <td align="center">
+                                                <div {{verdictPassHidden}}>
+                                                    <span class="glyphicon glyphicon-ok"
+                                                        style="font-size:24px;color:green;" aria-hidden="true"></span>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <div {{verdictFailHidden}}>
+                                                    <span class="glyphicon glyphicon-remove"
+                                                        style="font-size:24px;color:red;" aria-hidden="true"></span>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <div {{c1Hidden}}>
+                                                    <span class="glyphicon glyphicon-remove"
+                                                        style="font-size:24px;color:red;" aria-hidden="true"></span>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <div {{c2Hidden}}>
+                                                    <span class="glyphicon glyphicon-remove"
+                                                        style="font-size:24px;color:red;" aria-hidden="true"></span>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <div {{c3Hidden}}>
+                                                    <span class="glyphicon glyphicon-remove"
+                                                        style="font-size:24px;color:red;" aria-hidden="true"></span>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <div {{c4Hidden}}>
+                                                    <span class="glyphicon glyphicon-remove"
+                                                        style="font-size:24px;color:red;" aria-hidden="true"></span>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <div {{c5Hidden}}>
+                                                    <span class="glyphicon glyphicon-remove"
+                                                        style="font-size:24px;color:red;" aria-hidden="true"></span>
+                                                </div>
+                                            </td>
+                                            <td align="center">
+                                                <div {{c6Hidden}}>
+                                                    <span class="glyphicon glyphicon-remove"
+                                                        style="font-size:24px;color:red;" aria-hidden="true"></span>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

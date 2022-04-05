@@ -1,0 +1,90 @@
+<template name="viewcpsimpleprint">
+    <div style="font-size: 14px;width: 900px">
+        <center>
+            <br>
+            <br>
+            <b>แผนการดูแลรายบุคคลเพื่อเสนอต่อคณะอนุกรรมการสนับสนุนการจัดบริการดูแลระยะยาวสำหรับผู้สูงอายุที่มีภาวะพึ่งพิงพิจารณาสนับสนุน <br>  งบบริการสาธารณสุขสำหรับผู้สูงอายุที่มีภาวะพึ่งพิง (อัตราการชดเชยค่าบริการ เหมาจ่าย/ราย/ปี)</b>
+            <br>
+            <br>
+        </center>
+        <table border="1" class="careplan" style="width: 900px">
+            <tr bgcolor="#EEEEEE">
+                <td class="col-md-3">
+                    <b>ชื่อ</b> <span style="color: black ">{{show.eldername}}</span>
+                    <br>
+                    <b> เลขบัตรประจำตัวประชน</b> <span style="color: black ">{{show.cid}}</span>
+                    <br>
+                </td>
+                <td class="col-md-3">
+                    <b>ที่อยู่</b>
+                    <span style="color: black ">{{show.fulladdress}}</span>
+                    <br> <b>หมายเลขโทรศัพท์</b> <span style="color: black ">{{newline show.phone}}</span>
+                    <br>
+                </td>
+                <td class="col-md-3">
+                    <b>วันที่จัดทำ</b> <span style="color: black ">{{briddate show.createDate}}</span>
+                </td>
+            </tr>
+            <tr bgcolor="#EEEEEE">
+                <td class="col-md-3">
+                    <b>วันเกิด</b><span style="color: black ">{{briddate show.bird}}</span> (<b>อายุ </b><span style="color: black "> {{getage show.bird}} </span> <b>ปี</b>)
+                    <br>
+                </td>
+                <td class="col-md-6" colspan="2">
+                    <b>วินิจฉัย : </b><span style="color: black ">{{ show.diagnose}}</span>
+                </td>
+            </tr>
+            <tr bgcolor="#CFCFCF">
+                <td class="col-md-3">
+                    <b>สถานะสุขภาพ/งบประมาณเหมาจ่ายรายปี่ที่ขอรับการสนับสนุน</b>
+                </td>
+                <td class="col-md-3">
+                    <b>ประเด็นปัญหา/ความต้องการ</b>
+                </td>
+                <td class="col-md-3">
+                    <b>เป้าหมายการดูแล</b>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-3" rowspan="3">
+                    <br>
+                    <br>
+                    <b>เป็นผู้มีภาวะพึ่งพิงจัดอยู่ในกลุ่มที่ </b> <span style="color: black "> {{show.group}} </span>
+                    <br>
+                    <br>
+                    <b>ขอรับการสนับสนุนงบประมาณเหมาจ่ายรายปีเป็นจำนวนเงิน </b> <span style="color: black "> {{comma show.moneySuport}} </span> <b> บาท</b>
+                    <br>
+                </td>
+                <td class="col-md-3">
+                    <b>สภาพชีวิต : </b> <span style="color: black ">{{listcomma show.policySupport.living}}</span>
+                    <br> <b>คำร้องเรียนหลัก : </b> <span style="color: black ">{{listcomma show.policySupport.complaint}}</span>
+                    <br> <b>การรับรู้ : </b> <span style="color: black ">{{listcomma show.policySupport.recognition}}</span>
+                    <br> <b>การคบหาสมาคม : </b> <span style="color: black ">{{listcomma show.policySupport.social}}</span>
+                    <br> <b>การสื่อสาร : </b> <span style="color: black ">{{listcomma show.policySupport.talk}}</span>
+                    <br> <b>การขับถ่าย : </b> <span style="color: black ">{{listcomma show.policySupport.excretion}}</span>
+                    <br> <b>การรับประทานอาหาร : </b> <span style="color: black ">{{listcomma show.policySupport.eat}}</span>
+                    <br> <b>การดูแล : </b> <span style="color: black ">{{listcomma show.policySupport.suport}}</span>
+                    <br> <b>ผู้ให้การดูแล : </b> <span style="color: black ">{{listcomma show.policySupport.caretaker}}</span>
+                    <br>
+                </td>
+                <td class="col-md-3">
+                    <b>ระยะสั้น</b>
+                    <br>
+                    <span style="color: black ">{{listbr show.help.short}}</span>
+          
+                    <b>ระยะยาว</b>
+                    <br>
+                    <span style="color: black ">{{listbr show.help.long}}</span>
+                </td>
+            </tr>
+            <tr bgcolor="#CFCFCF">
+                <td class="col-md-3"><b>การดูแล</b></td>
+                <td class="col-md-3"><b>ข้อควรระวังในการให้บริการ</b></td>
+            </tr>
+            <tr>
+                <td class="col-md-3"><span style="color: black ">{{listbr show.care}}</span></td>
+                <td class="col-md-3"><span style="color: black ">{{listbr show.caution}}</span></td>
+            </tr>
+        </table>
+    </div>
+</template>

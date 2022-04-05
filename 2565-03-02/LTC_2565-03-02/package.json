@@ -1,0 +1,27 @@
+{
+  "name": "anamai",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.49",
+    "@fortawesome/fontawesome-free": "^5.12.0",
+    "captchapng": "0.0.1",
+    "chart.js": "^2.9.4",
+    "cron": "^1.6.0",
+    "datatables.net": "^1.10.16",
+    "datatables.net-bs": "^1.10.16",
+    "datatables.net-buttons": "^1.6.1",
+    "datatables.net-buttons-dt": "^1.5.1",
+    "datatables.net-responsive": "^2.2.3",
+    "datatables.net-responsive-bs": "^2.2.3",
+    "geojson-dissolve": "^3.1.0",
+    "jquery": "^1.9.1",
+    "jszip": "^3.1.5",
+    "meteor-node-stubs": "^0.3.2",
+    "node": "^11.5.0",
+    "nodemailer": "^4.4.2",
+    "smtp-connection": "^4.0.2"
+  }
+}

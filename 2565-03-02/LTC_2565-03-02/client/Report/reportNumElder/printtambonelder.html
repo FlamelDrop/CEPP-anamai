@@ -1,0 +1,57 @@
+<template name="printtambonelder">
+        <center>
+            <h3>รายงานจำนวนผู้สูงอายุภาวะพึงพิงในแต่ละตำบล</h3>
+            <h5>วันที่ {{time}}</h5>
+            <br>
+            <br>
+            <div class="row">
+    
+                <div class="col-md-12">
+                    <div id="graph-container">
+                        <canvas id="zonecm" style="width:100%;height:320px;"></canvas>
+                    </div>
+    
+                </div>
+                <div class="col-md-12">
+                    <table class="table-bordered" style="width:100%">
+                        <thead>
+                            <th class="text-center" style="background-color:#FCECE4;font-weight:bold;">ตำบล</th>
+                            <th class="text-center">กลุ่มที่ 1</th>
+                            <th class="text-center">กลุ่มที่ 2</th>
+                            <th class="text-center">กลุ่มที่ 3</th>
+                            <th class="text-center">กลุ่มที่ 4</th>
+                            <th class="text-center">ไม่มีกลุ่ม</th>
+                            <th class="text-center">รวม</th>
+                        </thead>
+                        <tbody>
+                            {{#each zonerep1}}
+                            <tr>
+                                <td align="center" style="background-color:#FCECE4;font-weight:bold;">{{z}}</td>
+                                <td align="center">{{dataded g1}}</td>
+                                <td align="center">{{dataded g2}}</td>
+                                <td align="center">{{dataded g3}}</td>
+                                <td align="center">{{dataded g4}}</td>
+                                <td align="center">{{dataded g5}}</td>
+                                <td align="center">{{sumElderReport g1 g2 g3 g4 g5}}</td>
+                            </tr>
+                            {{/each}}
+                            {{#each sumCMCG}}
+                            <tr>
+                                <td align="center" style="background-color:#FCECE4;font-weight:bold;"><b>รวม</b></td>
+                                <td align="center"><b>{{dataded g1}}</b></td>
+                                <td align="center"><b>{{dataded g2}}</b></td>
+                                <td align="center"><b>{{dataded g3}}</b></td>
+                                <td align="center"><b>{{dataded g4}}</b></td>
+                                <td align="center"><b>{{dataded g5}}</b></td>
+                                <td align="center"><b>{{sumElderReport g1 g2 g3 g4 g5}}</b></td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+    
+            </div>
+            <br>
+            <br>
+        </center>
+    </template>

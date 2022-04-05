@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'THKoHo';
+    src: url('th_koho-webfont.eot');
+    src: url('th_koho-webfont.eot?#iefix') format('embedded-opentype'),
+         url('th_koho-webfont.woff') format('woff'),
+         url('th_koho-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.th_koho{
+   font-family: 'THKoHo', sans-serif;
+}

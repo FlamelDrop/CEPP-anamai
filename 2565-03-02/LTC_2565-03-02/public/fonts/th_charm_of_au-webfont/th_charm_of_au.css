@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'THCharmofAU';
+    src: url('th_charm_of_au-webfont.eot');
+    src: url('th_charm_of_au-webfont.eot?#iefix') format('embedded-opentype'),
+         url('th_charm_of_au-webfont.woff') format('woff'),
+         url('th_charm_of_au-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.th_charm_of_au{
+   font-family: 'THCharmofAU', serif;
+}

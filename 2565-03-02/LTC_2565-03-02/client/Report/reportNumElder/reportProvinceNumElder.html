@@ -1,0 +1,84 @@
+<template name="reportprovincenumelder">
+    <div>
+        {{> indexregmenu}}
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a type="button" class="btn btn-default btn-sm" href="/reportnumelder"><span class="glyphicon glyphicon-chevron-left"></span>ย้อนกลับ
+                    </a>
+                    รายงานจำนวนผู้สูงอายุที่มีภาวะพึ่งพิงรายจังหวัดในเขต{{zone}}
+                    <button type="button" id="printrep" class="btn btn-default btn-sm pull-right">
+                        <span class="glyphicon glyphicon-print"></span> พิมพ์
+                    </button>
+                </div>
+                <div class="panel-body">
+                    <div style="margin-left:1%;margin-right:1%">
+                        <br>
+                        <div class="row">
+
+                            <div id="container-zonecm">
+                                <canvas id="zonecm" style="width:100%;height:320px;"></canvas>
+                            </div>
+                            <div class="col-md-12">
+                                <br>
+                                <table class="table-bordered" style="width:100%">
+                                    <thead>
+                                        <th class="text-center" style="background-color:#FCECE4;font-weight:bold;">จังหวัด</th>
+                                        <th class="text-center">กลุ่มที่ 1</th>
+                                        <th class="text-center">กลุ่มที่ 2</th>
+                                        <th class="text-center">กลุ่มที่ 3</th>
+                                        <th class="text-center">กลุ่มที่ 4</th>
+                                        {{#if isNhso}}
+
+                                        {{else}}
+                                        <th class="text-center">ไม่มีกลุ่ม</th>
+                                        {{/if}}
+                                        <th class="text-center">รวม</th>
+                                    </thead>
+                                    <tbody>
+                                        {{#each zonerep1}}
+                                        <tr>
+                                            <td align="center" style="background-color:#FCECE4;font-weight:bold;"><a
+                                                    href="/reportamphoenumelder" id="viewprovince">{{z}}</a></td>
+                                            <td align="center">{{dataded g1}}</td>
+                                            <td align="center">{{dataded g2}}</td>
+                                            <td align="center">{{dataded g3}}</td>
+                                            <td align="center">{{dataded g4}}</td>
+
+                                            {{#if isNhso}}
+
+                                            {{else}}
+                                            <td align="center">{{dataded g5}}</td>
+                                            {{/if}}
+                                            <td align="center">{{sumElderReport g1 g2 g3 g4 g5}}</td>
+                                        </tr>
+                                        {{/each}}
+                                        {{#each sumCMCG}}
+                                        <tr>
+                                            <td align="center" style="background-color:#FCECE4;font-weight:bold;"><b>รวม</b></td>
+                                            <td align="center"><b>{{dataded g1}}</b></td>
+                                            <td align="center"><b>{{dataded g2}}</b></td>
+                                            <td align="center"><b>{{dataded g3}}</b></td>
+                                            <td align="center"><b>{{dataded g4}}</b></td>
+                                            {{#if isNhso}}
+
+                                            {{else}}
+                                            <td align="center">{{dataded g5}}</td>
+                                            {{/if}}
+                                            <td align="center"><b>{{sumElderReport g1 g2 g3 g4 g5}}</b></td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+</template>

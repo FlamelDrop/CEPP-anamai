@@ -1,0 +1,84 @@
+<template name="simplecpfirst">
+    {{> menu}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <!-- <div class="panel-heading">ค้นหาข้อมูลผู้สูงอายุ</div> -->
+                    <div class="panel-body">
+                        <center>
+                            <h4>ค้นหาผู้สูงอายุ</h4>
+                            <div class="row">
+                                <div class="input-group col-md-4">
+                                    <input type="text" class="form-control font14" id="cidinput" placeholder="เลขบัตรประชาชน" value="3500400368641">
+                                    <span class="input-group-btn">
+                                    <button class="btn btn-secondary" type="button" id="click">ค้นหา</button>
+                            </span>
+                                </div>
+                            </div>
+                        </center>
+                        <hr> {{#if show}}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">ข้อมูลส่วนตัว</div>
+                                    <div class="panel-body">
+                                        <b>ชื่อ</b> {{showdetail.eldername}} <b> เลขบัตรประจำตัวประชน</b> {{showdetail.cid}}
+                                        <br>
+                                        <br><b>วันเกิด</b> {{longformatdate showdetail.bird}} <b>อายุ</b> {{getage showdetail.bird}}
+                                        <br>
+                                        <br>
+                                        <br>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="panel panel-default">
+                                    <div class="panel-heading">ที่อยู่</div>
+                                    <div class="panel-body">
+                                        {{showdetail.fulladdress}}
+                                        <br>
+                                        <br>
+                                        <table width="100%" border="0">
+                                            <tr>
+                                                <td><b>ที่อยู่ปัจจุบัน</b></td>
+                                                <td width="400">
+                                                    <table width="100%">
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" class="form-control input" id="nowaddress">
+                                                            </td>
+                                                            <td width="50">
+                                                                <a href="#" class="ss" id="nowaddressbtn">คัดลอก</a>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <br>
+                                            <tr>
+                                                <td><b>หมายเลขโทรศัพท์</b></td>
+                                                <td>
+                                                    <input type="text" id="phone" class="input">
+                                                </td>
+                                            </tr>
+                                        </table>
+                                        <br>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <center>
+                            <div class="pull-center">
+                                <button type="button" class="button blue next" style="font-size:16px">ถัดไป</button>
+                            </div>
+                        </center>
+                        <br> {{/if}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

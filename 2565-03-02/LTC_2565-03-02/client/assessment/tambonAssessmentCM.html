@@ -1,0 +1,216 @@
+<!-- client\assessment\tambonAssessmentCM.html -->
+
+<template name="tambonAssessmentCM">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <section style="height: 10px"></section>
+                    <div class="pull-left">
+                        <b style="font-size: 18px;">ประเมินตำบลที่มีระบบการส่งเสริมสุขภาพดูแลผู้สูงอายุระยะยาว (Long
+                            Term Care)</b>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+
+            <table class="table table-hover " id=""
+                style="width:80%;padding: 50px;margin-left: auto; margin-right: auto;">
+                <thead>
+                    <tr>
+                        <td colspan="11" class="text-center" style="font-size: large;"><b>6 องค์ประกอบตำบล
+                                LTC</b>
+                            <a href="#"><span style="font-size:20px" class="glyphicon glyphicon-book" aria-hidden="true"
+                                    id="des" data-toggle="modal" data-target="#description6"></span></a>
+                        </td>
+
+                        <td></td>
+                    </tr>
+                    <tr style="font-size: large;">
+                        <td class="text-center" style="width: 200px;"><b>ตำบล</b></td>
+                        <td class="text-center" style="min-width: 250px;"><b>เข้าร่วมกองทุน</b></td>
+                        <td class="text-center" style="width: 150px;"><b>ปีงบประมาณ<br />ที่ประเมิน</b></td>
+                        <td class="text-center" style="width: 70px;"><b>1</b></td>
+                        <td class="text-center" style="width: 70px;"><b>2</b></td>
+                        <td class="text-center" style="width: 70px;"><b>3</b></td>
+                        <td class="text-center" style="width: 70px;"><b>4</b></td>
+                        <td class="text-center" style="width: 70px;"><b>5</b></td>
+                        <td class="text-center" style="width: 70px;"><b>6</b></td>
+                        <td class="text-center" style="min-width: 120px;"><b>ผลการประเมิน</b></td>
+                        <td class="text-center" style="min-width: 120px;"><b>หมายเหตุ</b></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each currentData}}
+                        <tr id="{{ID}}_row">
+                            <td id="tambonIdName_{{ID}}"><label style="padding-bottom: 20px;">[{{{ID}}}]
+                                    {{name}}</label>
+                            </td>
+                            <td class="text-center">
+                                <!--
+                                        <label class="checkbox_blue slim_font" style="margin-left:20px;" >
+                                            เข้าร่วมกองทุน LTC ปี
+                                            <input type="checkbox" class="join update_tambol_data" id="attend_{{ID}}"
+                                                name="checkbox" checked='{{attend}}' hidden>
+                                            <span class="checkmark"></span>
+
+                                        </label>-->
+                                <span> เข้าร่วมกองทุน LTC ปี
+                                    <select class="joinyear update_tambol_data" id='joinyear_{{ID}}'>
+                                        {{{joinYearOptions}}}
+                                    </select></span>
+                            </td>
+                            <td class="text-center">
+                                <select class="assessyear update_tambol_data" id='assessyear_{{ID}}'>
+                                    {{{assessYearOptions}}}
+                                </select>
+
+                            </td>
+                            <td class="text-center">
+                                <label class="checkbox_blue slim_font text-center" style="margin-left:2px;">
+                                    <input type="checkbox" id="c1_{{ID}}" class="criterio_check1  update_tambol_data"
+                                        name="c1_{{ID}}" value="true" checked="{{c1}}" {{c1Check}}>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+                            <td class="text-center">
+                                <label class="checkbox_blue slim_font" style="margin-left:2px;">
+                                    <input type="checkbox" id="c2_{{ID}}" class="criterio_check2 update_tambol_data"
+                                        name="c2_{{ID}}" value="true" checked="{{c2}}" {{c2Check}}>
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+                            <td class="text-center">
+                                <label class="checkbox_blue slim_font" style="margin-left:2px;">
+
+                                    <input type="checkbox" id="c3_{{ID}}" {{c3Check}}
+                                        class="criterio_check3 update_tambol_data" name="c3_{{ID}}" value="true"
+                                        checked="{{c3}}">
+                                    <span class="checkmark"></span>
+
+                                </label>
+                            </td>
+                            <td class="text-center">
+                                <label class="checkbox_blue slim_font text-center" style="margin-left:2px;">
+                                    <input type="checkbox" id="c4_{{ID}}" {{c4Check}}
+                                        class="criterio_check4 update_tambol_data" name="c4_{{ID}}" value="true"
+                                        checked="{{c4}}">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+                            <td class="text-center">
+                                <label class="checkbox_blue slim_font text-center" style="margin-left:2px;">
+                                    <input type="checkbox" id="c5_{{ID}}" {{c5Check}}
+                                        class="criterio_check5 update_tambol_data" name="c5_{{ID}}" value="true"
+                                        checked="{{c5}}">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+                            <td class="text-center">
+                                <label class="checkbox_blue slim_font text-center" style="margin-left:2px;">
+                                    <input type="checkbox" id="c6_{{ID}}" {{c6Check}}
+                                        class="criterio_check6 update_tambol_data" name="c6_{{ID}}" value="true"
+                                        checked="{{c6}}">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </td>
+
+                            <td class="text-center">
+                                <div id="verdict_{{ID}}" style="padding-bottom:5px;{{verdictStyle verdict}}">
+                                    {{verdict}}
+                                </div>
+                            </td>
+
+                            <td>
+                                <div style="padding-bottom:5px;">
+                                    <input id="remark_{{ID}}" type="text" {{remarkCheck}}
+                                        class="remark form-control  update_tambol_data" value="{{remark}}"
+                                        placeholder="หมายเหตุ" style="width:160px">
+                                </div>
+                            </td>
+
+                        </tr>
+
+                    {{/each}}
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="description6" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+
+                    <section style="height: 20px"></section>
+                    <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                        <span style="font-size: 1.2em;font-weight:bold">
+                            ระบบการส่งเสริมสุขภาพดูแลผู้สูงอายุระยะยาว (Long Term Care) องค์ประกอบ 6 ข้อ ดังนี้
+                        </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <br>
+                            <ol><strong>1.</strong>
+                                ผู้สูงอายุทุกคนในชุมชนได้รับการประเมินคัดกรองปัญหาสุขภาพขั้นพื้นฐานตามชุด
+                                สิทธิประโยชน์ผ่าน Blue Book Application กรมอนามัย
+                                <br>
+                                <ul>-
+                                    ประเมินผู้สูงอายุและผู้มีภาวะพึ่งพิงตามกลุ่มศักยภาพตามความสามารถในการประกอบกิจวัตรประจำวัน
+                                    (Barthel Activities of Daily Living: ADL) ทุกราย รอบ 9 เดือน และรอบ 12 เดือน</ul>
+                                <ul>- ประเมินผู้สูงอายุและผู้มีภาวะพึ่งพิงตามกลุ่มศักยภาพตามความสามารถในการ
+                                    ประกอบกิจวัตรประจำวัน (Barthel Activities of Daily Living: ADL) ทุกราย
+                                    รอบ 9 เดือน และรอบ 12 เดือน
+                                </ul>
+                                <ul>- ประเมินสุขภาพและคัดครองกลุ่มอาการผู้สูงอายุ 9 ข้อ (โดยคณะกรรมการพัฒนา
+                                    เครื่องมือคัดกรอง และประเมินสุขภาพผู้สูงอายุ กระทรวงสาธารณสุข)
+                                </ul>
+                            </ol>
+                            <ol><strong>2.</strong>
+                                ผู้สูงอายุและผู้ที่มีภาวะพึ่งพิงที่ผ่านการประเมินคัดกรองและมีปัญหาด้านสุขภาพ
+                                ได้รับการดูแลและวางแผนการส่งเสริมดูแลสุขภาพรายบุคคล (Care Plan)</ol>
+
+                            <ol><strong>3.</strong> มีระบบเฝ้าระวังด้านส่งเสริมสุขภาพและอนามัยสิ่งแวดล้อม
+                                ในเชิงป้องกันการดูแล
+                                ผู้สูงอายุและผู้มีภาวะพึ่งพิงในระดับตำบล ได้แก่
+                                <ul>- มีการดูแลส่งเสริมด้านทันตสุขภาพในผู้สูงอายุ </ul>
+                                <ul>-
+                                    มีมาตรการส่งเสริมสุขภาพเชิงป้องกันตามสถานการณ์การระบาดและควบคุมโรค
+                                    ในกลุ่มผู้สูงอายุ และผู้ที่มีภาวะพึ่งพิงในระดับตำบล</ul>
+                                <ul>- มีการประเมินด้านสิ่งแวดล้อมเช่น ที่อยู่อาศัย ระบบสาธารณูปโภค การจัดการขยะ
+                                    ติดเชื้อที่เอื้อต่อการดำรงชีวิตของกลุ่มผู้สูงอายุและผู้ที่มีภาวะพึ่งพิงในระดับตำบล
+                                    เป็นต้น</ul>
+                            </ol>
+
+                            <ol><strong>4.</strong> มี Care Manager /ทีมสหวิชาชีพ /หมอครอบครัว /Caregiver
+                                /อาสาสมัครบริบาล
+                                ท้องถิ่น /อาสาสมัครสาธารณสุขประจำหมู่บ้าน และแกนนำผู้สูงอายุลงเยี่ยม
+                                ผู้สูงอายุและผู้ที่มีภาวะพึ่งพิงในชุมชนตามแผนการส่งเสริมดูแลสุขภาพรายบุคคล
+                                (Care Plan) </ol>
+
+                            <ol><strong>5.</strong> มีการรายงานผลการประเมินตามกลุ่มศักยภาพตามความสามารถในการประกอบ
+                                กิจวัตรประจำวัน (Barthel Activities of Daily Living: ADL) ของผู้สูงอายุและผู้
+                                ที่มีภาวะพึ่งพิงรอบ 9 เดือนและรอบ 12 เดือนดีขึ้นในลักษณะของการเปลี่ยนกลุ่ม
+                                จาก
+                                <ul>- กลุ่มติดเตียงมาเป็นกลุ่มติดบ้าน</ul>
+                                <ul>- กลุ่มติดบ้านมาเป็นกลุ่มสังคม</ul>
+                            </ol>
+                            <ol><strong>6.</strong> มีระบบการบันทึกข้อมูลผ่านระบบโปรแกรม Long Term Care (3C) ประกอบด้วย
+                                <ul>- ข้อมูลการขึ้นทะเบียน CM /CG /และการจัดทำ Care Plan</ul>
+                                <ul>- ข้อมูลการประเมินตำบลตามเกณฑ์ 6 องค์ประกอบทั้งพื้นที่ใหม่ /พื้นที่ที่ทำการ
+                                    ประเมินและรับรองซ้ำ(RE– Accreditation) ภายในระยะเวลา 3 ปี</ul>
+                            </ol>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>

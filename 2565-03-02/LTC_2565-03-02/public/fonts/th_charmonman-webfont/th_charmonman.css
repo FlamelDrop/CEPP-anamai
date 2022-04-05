@@ -1,0 +1,25 @@
+@font-face {
+    font-family: 'THCharmonman';
+    src: url('th_charmonman_bold-webfont.eot');
+    src: url('th_charmonman_bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('th_charmonman_bold-webfont.woff') format('woff'),
+         url('th_charmonman_bold-webfont.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'THCharmonman';
+    src: url('th_charmonman-webfont.eot');
+    src: url('th_charmonman-webfont.eot?#iefix') format('embedded-opentype'),
+         url('th_charmonman-webfont.woff') format('woff'),
+         url('th_charmonman-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+.th_charmonman{
+   font-family: 'THCharmonman', serif;
+}

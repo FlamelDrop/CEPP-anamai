@@ -1,0 +1,21 @@
+Template.mapcmcg.onRendered(function () {
+
+    //var mymap = L.map('mapid').setView([51.505, -0.09], 13);
+    Meteor.call('getAllGEOLOCATION', function (err, result) {
+        var map = L.map('mapid').setView([18.5890945821, 99.62348212], 13);
+        L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+            maxZoom: 12,
+            attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+                '<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+                'Imagery © <a href="http://mapbox.com">Mapbox</a>',
+            id: 'mapbox.light'
+        }).addTo(map);
+        console.log(result)
+        L.geoJSON(result, {
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup('<h1>' + feature.properties.prov_nam_t + '</h1><p><h4>' + feature.properties.amphoe_t + ' ' + feature.properties.tam_nam_t + '</h4></p>');
+            }
+        }).addTo(map);
+    });
+
+});

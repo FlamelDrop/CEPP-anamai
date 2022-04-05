@@ -1,0 +1,345 @@
+<template name="adl_m">
+
+    <nav class="navbar navbar-custom">
+        <div class="container">
+            <div class="navbar-header">
+
+
+                <div class="logo-center navbar-brand">
+                    <a href="/CMDashboard_m"><img src="./LogoLTC180x100.png" height="55"
+                            style="position: relative;bottom: 15px;right: 10px;"></a>
+                   
+                </div>
+                <!-- <ul class="list-inline visible-xs navmenu-mobile" style="">
+                                <li><a href="#">docs</a></li>
+                                <li><a href="#">help</a></li>
+                            </ul> -->
+            </div>
+        </div>
+    </nav>
+    <div class="adlform">
+        <div class="clean-form card" style="margin: 0;">
+            <div class="header">
+                <div class="left"></div>
+                <div class="center"></div>
+                <div class="right">
+                    <!-- <a class="info-button">
+                                <i class="material-icons" style="font-size: 30px;">info_outline</i>
+                            </a> -->
+                </div>
+            </div>
+            <div class="body">
+                <div class="font-medium-lager center" style="margin-bottom: 18px; ">แบบประเมิน ADL</div>
+                <form class="multiple-pages-form" id="s-rick_osm">
+                    <div class="page">
+                        <div class="font-medium-lager">
+                            1. รับประทานอาหารเมื่อเตรียมสำรับไว้ให้เรียบร้อยต่อหน้า
+                        </div>
+                        <div class="answer-box">
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl1_1" name="answer1" value="0"/>
+                                    <label for="adl1_1">ไม่สามารถตักอาหารเข้าปากได้</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl1_2" name="answer1" value="1"/>
+                                    <label for="adl1_2">ตักอาหารเองได้ แต่ต้องมีคนช่วย เช่น
+                                        ช่วยได้ช้อนตักเตรียมไว้ให้หรือตัดเป็นชิ้นเล็กๆไว้ล่วงหน้า</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl1_3" name="answer1" value="2"/>
+                                    <label for="adl1_3">ตักอาหารและช่วยตัวเองได้เป็นปกติ</label>
+                                </div>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="font-medium-lager">
+                            2. ล้างหน้า หวีผม แปรงฟัน โกนหนวด ในระยะเวลา 24-48 ชั่วโมงที่ผ่านมา
+                        </div>
+                        <div class="answer-box">
+
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl2_1" name="answer2" value="0"/>
+                                    <label for="adl2_1">ต้องการความช่วยเหลือ</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl2_3" name="answer2" value="1"/>
+                                    <label for="adl2_3">ทำเองได้ (รวมทั้งที่ทำได้เอง ถ้าเตรียมอุปกรณ์ไว้ให้)</label>
+                                </div>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="font-medium-lager">
+                            3. ลุกนั่งจากที่นอน หรือเตียงไปยังเก้าอี้
+                        </div>
+                        <div class="answer-box">
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl3_1" name="answer3" value="0"/>
+                                    <label for="adl3_1">ไม่สามารถนั่งได้ (นั่งแล้วจะล้มเสมอ)
+                                        หรือต้องใช้คนสองคนช่วยกันยกขึ้น</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl3_2" name="answer3" value="1"/>
+                                    <label for="adl3_2">ต้องการความช่วยเหลืออย่างมากจึงจะนั่งได้
+                                        เช่นต้องใช้คนที่แข็งแรงหรือมีทักษะ 1
+                                        คนหรือใช้คนทั่วไป 2 คนพยุงหรือดันขึ้นมาจึงจะนั่งอยู่ได้</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl3_3" name="answer3" value="2"/>
+                                    <label for="adl3_3">ต้องการความช่วยเหลือบ้าง เช่น บอกให้ทำตามหรือช่วยพยุงเล็กน้อง
+                                        หรือต้องมีคนดูแลเพื่อความปลอดภัย</label>
+                                </div>
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl3_4" name="answer3" value="3"/>
+                                    <label for="adl3_4">ทำเองได้</label>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="font-medium-lager">
+                            4. ใช้ห้องน้ำ
+                        </div>
+                        <div class="answer-box">
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl4_1" name="answer4" value="0"/>
+                                    <label for="adl4_1">ช่วยตัวเองไม่ได้</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl4_2" name="answer4" value="1"/>
+                                    <label for="adl4_2">ทำเองได้บ้าง (อย่างน้อยทำความสะอาดตัวเองได้หลังจากเสร็จธุระ)
+                                        แต่ต้องการความช่วยเหลือในบางสิ่ง</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl4_3" name="answer4" value="2"/>
+                                    <label for="adl4_3">ช่วยตัวเองได้ดี (ขึ้นนั่งและลงจากโภส้วมเองได้
+                                        ทำความสะอาดได้เรียบร้อยหลังจากเสร็จธุระ ถอดใส่เสื้อผ้าได้เรียบร้อย)</label>
+                                </div>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="font-medium-lager">
+                            5. การเคลื่อนที่ภายในห้องหรือบ้าน
+                        </div>
+                        <div class="answer-box">
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl5_1" name="answer5" value="0"/>
+                                    <label for="adl5_1">เคลื่อนที่ไปไหนไม่ได้</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl5_2" name="answer5" value="1"/>
+                                    <label for="adl5_2">ต้องใช้รถเข็นช่วยตัวเอง ให้เคลื่อนที่ได้เอง (ไม่ต้องมี
+                                        คนเข็นให้)และจะจ้องเข้าออกมุมห้อง หรือประตูได้</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl5_3" name="answer5" value="2"/>
+                                    <label for="adl5_3">เดินหรือเคลื่อนที่โดยมีคนช่วย เช่น
+                                        พยุงหรือบอกให้ทำามหรือต้องให้
+                                        ความสนในดูแลเพื่อความปลอดภัย</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl5_4" name="answer5" value="3"/>
+                                    <label for="adl5_4">เดินหรือเคลื่อนที่เองได้</label>
+                                </div>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="font-medium-lager">
+                            6. การสวมใส่เสื้อผ้า
+                        </div>
+                        <div class="answer-box">
+
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl6_1" name="answer6" value="0"/>
+                                    <label for="adl6_1">ต้องมีคนสวมใส่ให้ช่วนตัเองแทบไม่ได้ หรือได้น้อย</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl6_2" name="answer6" value="1"/>
+                                    <label for="adl6_2">ช่วยตัวเองได้ประมาณร้อยละ 50 ที่เหลือต้องมีคนช่วย</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl6_3" name="answer6" value="2"/>
+                                    <label for="adl6_3">ช่วยตัวเองได้ดี (รวมทั้งการติดกระดุม รูดซิป
+                                        หรือใช้เสื้อผ้าที่ดัดแปลงให้เหมาะสมก็ได้)</label>
+                                </div>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="font-medium-lager">
+                            7. การขึ้นลงบันได 1 ชั้น
+                        </div>
+                        <div class="answer-box">
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl7_1" name="answer7" value="0"/>
+                                    <label for="adl7_1">ไม่สามารถทำได้</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl7_2" name="answer7" value="1"/>
+                                    <label for="adl7_2">ต้องการคนช่วย</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl7_3" name="answer7" value="2"/>
+                                    <label for="adl7_3">ขึ้นลงได้เอง (ถ้าต้องใช้เครื่องช่วยเดิน เช่น walker
+                                        จะต้องเอาชึ้นลงได้ด้วย)</label>
+                                </div>
+
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="font-medium-lager">
+                            8. การอาบน้ำ
+                        </div>
+                        <div class="answer-box">
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl8_1" name="answer8" value="0"/>
+                                    <label for="adl8_1">ต้องมีคนช่วยหรือทำให้</label>
+                                </div>
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl8_2" name="answer8" value="1"/>
+                                    <label for="adl8_2">อาบน้ำเองได้</label>
+                                </div>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="font-medium-lager">
+                            9. การกลั้นการถ่ายอุจจาระในระยะเวลา 1 สัปดาห์ที่ผ่านมา
+                        </div>
+                        <div class="answer-box">
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl9_1" name="answer9" value="0"/>
+                                    <label for="adl9_1">กลั้นไม่ได้ หรือต้องการการสวนอุจจาระอยู่เสมอ</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl9_2" name="answer9" value="1"/>
+                                    <label for="adl9_2">กลั้นไม่ได้บางครั้ง (เกิน 1 ครั้งต่อสัปดาห์</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl9_3" name="answer9" value="2"/>
+                                    <label for="adl9_3">กลั้นได้เป็นปกติ</label>
+                                </div>
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="page">
+                        <div class="font-medium-lager">
+                            10. การกลั้นปัสสาวะในระยะ 1 สัปดาห์ที่ผ่านมา
+                        </div>
+                        <div class="answer-box">
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl10_1" name="answer10" value="0"/>
+                                    <label for="adl10_1">กลั้นไม่ได้ หรือใส่สายสวน
+                                        ปัสสาวัแต่ไม่สามารถดูแลตัวเองได้</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl10_2" name="answer10" value="1"/>
+                                    <label for="adl10_2">กลั้นไม่ได้บางครั้ง (ไม่เกินวันละ 1 ครั้ง)</label>
+                                </div>
+
+                            </p>
+                            <p>
+                                <div class="checkbox icheck-primary">
+                                    <input type="checkbox" id="adl10_3" name="answer10" value="2"/>
+                                    <label for="adl10_3">กลั้นได้เป็นปกติ</label>
+                                </div>
+
+                            </p>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="footer">
+                <div class="pages-controller">
+                    <button class="waves-effect waves-light btn blue-grey" style="font-size: 18px;"
+                        command="cancel">ยกเลิก</button>
+                    <button class="waves-effect waves-light btn" style="font-size: 18px;"
+                        command="prev">ย้อนกลับ</button>
+                    <div class="page-display font-medium-lager"></div>
+                    <button class="waves-effect waves-light btn" style="font-size: 18px;" command="next">ถัดไป</button>
+                    <button class="waves-effect waves-light btn green" style="font-size: 18px;"
+                        command="confirm">ยืนยัน</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</template>

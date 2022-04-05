@@ -1,0 +1,37 @@
+<template name="cmLeftMenu">
+    <ul class="nav navbar-nav navbar-right">
+
+        <li class="dropdown">
+            <section style="height: 3px"></section>
+            <a href="/CMdashboard" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-user"></span> {{showname}}</a>  
+                <!-- <span class="badge" style="color:red">&nbsp;</span> -->
+            <ul class="dropdown-menu">
+                <li>
+
+                    <a href="/CMdashboard" id="viewProfile">
+                        <span class="glyphicon glyphicon-home"></span>
+                        ข้อมูลส่วนตัว
+                    </a>
+                </li>
+                <li>
+                    <a href="/editaccount">
+                        <span class="glyphicon glyphicon-cog"></span> แก้ไขข้อมูลส่วนตัว</a>
+                </li>
+                <li>
+                    <a href="/addhosp">
+                        <span class="glyphicon glyphicon-plus"></span> เพิ่มหน่วยบริการ</a>
+                </li>
+                <li>
+                    <a href="/cmRequestChange">
+                        <span class="glyphicon glyphicon-transfer"></span> ขอย้ายหน่วยงานหลัก</a>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <a href="/logout">
+                        <span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</template>

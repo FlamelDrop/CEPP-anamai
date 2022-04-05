@@ -1,0 +1,125 @@
+<template name="printcpsimple_sign">
+    <div style="font-size: 14px;width: 900px">
+        <center>
+            <br>
+            <b>แผนการดูแลรายบุคคลเพื่อเสนอต่อคณะอนุกรรมการสนับสนุนการจัดบริการดูแลระยะยาวสำหรับผู้สูงอายุที่มีภาวะพึ่งพิงพิจารณาสนับสนุน <br>  งบบริการสาธารณสุขสำหรับผู้สูงอายุที่มีภาวะพึ่งพิง (อัตราการชดเชยค่าบริการ เหมาจ่าย/ราย/ปี)</b>
+            <br>
+            <br>
+        </center>
+        <table border="1" class="careplan" style="width: 900px">
+            <tr bgcolor="#EEEEEE">
+                <td class="col-md-3">
+                    <b>ชื่อ</b> <span style="color: black ">{{datasimplecp.PRENAME}}{{datasimplecp.NAME}} {{datasimplecp.LNAME}}</span>
+                    <br>
+                    <b> เลขบัตรประจำตัวประชน</b> <span style="color: black ">{{datasimplecp.CID}}</span>
+                    <br>
+                </td>
+                <td class="col-md-3">
+                    <b>ที่อยู่</b>
+                    <span style="color: black ">{{newline datasimplecp.CURRENTADDRESS}}</span>
+                    <br> <b>หมายเลขโทรศัพท์(ที่ติดต่อ)</b> <span style="color: black ">{{datasimplecp.PHONE}}</span>
+                    <br>
+                </td>
+                <td class="col-md-3">
+                    <b>วันที่จัดทำ</b> <span style="color: black ">{{briddate datasimplecp.CREATEDATE}}</span>
+                </td>
+            </tr>
+            <tr bgcolor="#EEEEEE">
+                <td class="col-md-3">
+                    <b>เกิดวันที่</b><span style="color: black ">{{briddate datasimplecp.BIRTHDATE}}</span> <br> (<b>อายุ </b><span style="color: black "> {{getage datasimplecp.BIRTHDATE}} </span> <b>ปี</b>)
+                    <br>
+                </td>
+                <td class="col-md-6" colspan="2">
+                    <b>วินิจฉัย : </b><span style="color: black ">ADL={{datasimplecp.ADL}}, TAI={{datasimplecp.TAI}}</span>
+                    <br>
+                    <b>ข้อมูลสุขภาพเบื้องต้น : </b><span style="color: black ">{{listcomma datasimplecp.HEALTH}}</span>
+                </td>
+            </tr>
+            <tr bgcolor="#CFCFCF">
+                <td class="col-md-3">
+                    <b>สถานะสุขภาพ/งบประมาณเหมาจ่ายรายปี่ที่ขอรับการสนับสนุน</b>
+                </td>
+                
+                <td class="col-md-3">
+                    <b>ประเด็นปัญหา/ความต้องการ</b>
+                </td>
+                <td class="col-md-3">
+                    <b>การดูแล</b>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-3">
+                    <b>เป็นผู้มีภาวะพึ่งพิงจัดอยู่ในกลุ่มที่ </b> <span style="color: black "> {{datasimplecp.GRUOP}} </span>
+                    <br>
+                    <br>
+                    <b>ขอรับการสนับสนุนงบประมาณเหมาจ่ายรายปีเป็นจำนวนเงิน </b> <span style="color: black "> {{comma datasimplecp.RERHEADPAY}} </span> <b> บาท</b>
+                    <br>
+                    {{#if datasimplecp.moneysupport_detail}}
+                    <b>โดยมีรายละเอียดดังนี้</b> {{datasimplecp.moneysupport_detail}}
+                    <br>
+                    {{/if}}
+                </td>
+                
+                <td class="col-md-3">
+                    {{listbr datasimplecp.PATIENT}}
+                </td>
+                <td class="col-md-3" rowspan="3">
+                    <b>การดูแลพยาบาลทั่วไป</b><br>
+                    {{listbr datasimplecp.GeneralNursingCare}}
+                    <b>การดูแลพยาบาลเฉพาะ</b><br>
+                    {{listbr datasimplecp.SpecialNursingCare}}
+                    <b>การดูแลช่วยเหลือด้านสังคม</b><br>
+                    {{listbr datasimplecp.SocialNursingCare}}
+                    <b>การดูแลช่วยเหลือด้านสิ่งแวดล้อม</b><br>
+                    {{listbr datasimplecp.EnvironmentalNursingCare}}
+                    
+                </td>
+            </tr>
+            <tr bgcolor="#CFCFCF">
+                <td class="col-md-3"><b>ข้อควรระวังในการให้บริการ</b></td>
+                <td class="col-md-3"><b>เป้าหมายการดูแล</b></td>
+            </tr>
+            <tr>
+                <td class="col-md-3">{{listbr datasimplecp.CAUTION}}</td>
+                <td class="col-md-3" style="font-size: 13px">
+                    <b>ระยะสั้น</b>
+                    <br>
+                    <span style="color: black ">{{SHOTTERMNEEDlist datasimplecp.SHOTTERMNEED}}</span>
+                    <br>
+                    <b>ระยะยาว</b>
+                    <br>
+                    <span style="color: black ">{{listbr datasimplecp.LONGTERMNEED}}</span>
+                </td>
+                 
+            </tr>
+            <tr>
+                <td class="col-md-3"><b>ผู้จัดทำ Care plan </b> {{datasimplecp.CREATEBYNAME}}</td>
+                <td class="col-md-3" colspan="2"><b>ข้าพเจ้าเห็นชอบกับการปฏิบัติตาม Care plan นี้ (ญาติ/ผู้ป่วย) </b></td>
+            </tr>
+        </table>
+        <br>
+        <table border="0" class="careplan" style="width: 900px">
+            <tr>
+                <td>
+                    <b>ลงชื่อ..........................................................................ผู้ปฎิบัติงาน (CM) </b><br><div style="height:10px"></div>
+                    <b>&nbsp;&nbsp;&nbsp;&nbsp;(................................................................................)</b><br><div style="height:10px"></div>
+                    
+                </td>
+                <td>
+                    <b>ลงชื่อ..........................................................................อปท. </b><br><div style="height:10px"></div>
+                    <b>&nbsp;&nbsp;&nbsp;&nbsp;(................................................................................)</b>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>ลงชื่อ...........................................................................เจ้าหน้าที่การเงิน </b><br><div style="height:10px"></div>
+                    <b>&nbsp;&nbsp;&nbsp;&nbsp;(................................................................................)</b>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <br>
+
+    <br>
+</template>

@@ -1,0 +1,128 @@
+<template name="forget">
+	<div style="background-color: #E5E8E8;background-size:cover;" id="showpic">
+		<nav class="navbar navbar-custom">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a href="/">
+						<img src="./LogoLTC180x100.png" height="55">
+					</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li>
+						<a href="/logout">
+							<b>Long Term Care</b>
+						</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<b>ลืมรหัสผ่าน</b>
+				</div>
+				<div class="panel-body">
+					<div class="container">
+						<center>
+							{{#if otp}} {{#if forgetOK}}
+							<div class="row">
+								<div class="col-sm-3">
+									<table width="100%">
+										<tr>
+											<td width="120">
+												<b>ชื่อผู้ใช้งาน</b>
+											</td>
+											<td>
+												<input type="text" id="username" class="form-control" value="{{forgetOK}}" disabled>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<section style="height: 15px"></section>
+							<div class="row">
+								<div class="col-sm-3">
+									<table width="100%">
+										<tr>
+											<td width="120">
+												<b>รหัสผ่าน</b>
+											</td>
+											<td>
+												<input type="password" id="password" class="form-control" placeholder="">
+											</td>
+										</tr>
+									</table>
+								</div>
+								<div class="col-sm-3">
+									<table width="100%">
+										<tr>
+											<td width="120">
+												<b>ยืนยันรหัสผ่าน</b>
+											</td>
+											<td>
+												<input type="password" id="passwordq" class="form-control" placeholder="">
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+							<div class="row">
+								<section style="height: 20px"></section>
+								<center>
+									<a class="btn btn-primary " id="save">
+										<span class="glyphicon glyphicon-floppy-disk"></span> &nbsp; บันทึก
+									</a>
+								</center>
+							</div>
+							{{else}}
+							<table>
+								<tr>
+									เราส่งรหัสยืนยัน6หลักในอีเมลล์ท่านแล้ว (อาจจะอยู่ในอีเมล์ขยะ)
+								</tr>
+								<section style="height: 5px"></section>
+								<tr>
+									<td>
+										<input id="otp" class="form-control" placeholder="รหัส 6 หลัก" />
+									</td>
+								</tr>
+								<section style="height: 5px"></section>
+								<tr align="center">
+									<button class="btn btn-success" id="otpcheck" style="width:200px">ต่อไป</button>
+								</tr>
+								<section style="height: 5px"></section>
+								<tr align="center">
+									<button class="btn btn-primary" id="resendemail" style="width:200px">ส่งรหัสผ่านใหม่อีกครั้ง</button>
+								</tr>
+							</table>
+							{{/if}} {{else}}
+							<table>
+								<tr>
+									<td align="right">
+										<b>เลขประจำตัวประชาชน</b> &nbsp;&nbsp;</td>
+									<td>
+										<input type="text" id="cid" class="form-control">
+									</td>
+								</tr>
+								<section style="height: 5px"></section>
+								<tr>
+									<td align="right">
+										<b>E-mail ที่ใช้สมัคร</b> &nbsp;&nbsp;</td>
+									<td>
+										<input type="text" id="mail" class="form-control">
+									</td>
+								</tr>
+								<section style="height: 5px"></section>
+								<tr>
+									<td colspan="2" align="center">
+										<button class="btn btn-primary" id="next">ต่อไป</button>
+									</td>
+								</tr>
+							</table>
+							{{/if}}
+						</center>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</template>

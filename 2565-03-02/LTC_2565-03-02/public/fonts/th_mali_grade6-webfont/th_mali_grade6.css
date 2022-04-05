@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'THMaliGrade6';
+    src: url('th_mali_grade6-webfont.eot');
+    src: url('th_mali_grade6-webfont.eot?#iefix') format('embedded-opentype'),
+         url('th_mali_grade6-webfont.woff') format('woff'),
+         url('th_mali_grade6-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+.th_mali_grade6{
+   font-family: 'THMaliGrade6', sans-serif;
+}

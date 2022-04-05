@@ -1,0 +1,441 @@
+<template name="admin">
+    <div>
+        <nav class="navbar navbar-custom">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/"><img src="./LogoLTC180x100.png" height="55"></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/"><b>Long Term Care</b></a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <section style="height: 3px"></section>
+                        <a href="/CMdashboard" class="dropdown-toggle" data-toggle="dropdown"><span
+                                class="glyphicon glyphicon-user"></span> {{user}}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <br>
+
+        <div class="container">
+
+            <div class="panel with-nav-tabs panel-default">
+                <div class="panel-heading">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-user active"><a href="#tab1primary" data-toggle="tab">จัดการ USERNAME</a></li>
+                        <li class="nav-cm"><a href="#tab2primary" data-toggle="tab">จัดการ CM</a></li>
+                        <li class="nav-cg"><a href="#tab3primary" data-toggle="tab">จัดการ CG</a></li>
+                        <li class="nav-elder"><a href="#tab4primary" data-toggle="tab">จัดการผู้สูงอายุ</a></li>
+                        <li class="disabled pull-right" style="padding-top:10px;font-weight:bold;">
+                            <!--ผู้สูงอายุ{{nameCen}} {{#each countAllElder}} {{title}} <b style="color:blue">{{numelder}}</b> ราย {{/each}} รวมทั้งหมด  <b style="color:blue">{{countSumElder}}</b>ราย -->
+                        </li>
+                    </ul>
+
+                </div>
+                <div class="panel-body">
+                    <div class="tab-content">
+                        <div class="tab-pane fade in active" id="tab1primary">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <b>จัดการ USERNAME</b>
+                                </div>
+                                <div class="panel-body">
+                                    <div style="padding-left: 20px;padding-right: 20px">
+                                        <div class="row">
+                                            <table style="width: 100%;">
+                                                <tr>
+                                                    <td align="right">
+                                                        <input type="text" class="form-control" style="width: 200px;"
+                                                            placeholder="ค้นหา" id="find">
+                                                    </td>
+                                                </tr>
+                                            </table><br>
+                                            <table id="mytablex" class="table table-primary table-bordered ">
+                                                <thead>
+                                                    <tr bgcolor="#E6E6E6">
+                                                        <th>USERNAME</th>
+                                                        <th style="width: 100px">PASSWORD</th>
+                                                        <th>ระดับผู้ใช้งาน</th>
+                                                        <th>วันที่สร้าง</th>
+                                                        <th>เข้าใช้งานล่าสุดเมื่อ</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {{#each list}}
+                                                    <tr>
+                                                        <td>{{USERNAME}}</td>
+                                                        <td style="width: 100px;">
+                                                            <center>
+                                                                <button type="button" class="btn btn-primary btn-sm"
+                                                                    id="viewpass">
+                                                                    <b><span class="fa fa-eye"></span></b>
+                                                                </button>
+                                                            </center>
+                                                        </td>
+                                                        <td>{{RULE}}</td>
+                                                        <td>{{formatdatetime CREATEDATE}}</td>
+                                                        <td>{{formatdatetime LAST_VISIT}}</td>
+                                                    </tr>
+                                                    {{/each}}
+                                                </tbody>
+                                            </table>
+                                            <table style="width: 100%;">
+                                                <tr>
+                                                    <td align="left">
+                                                        <p>หน้า <input type="text" id="page" value="{{pageuser}}"
+                                                                style="width: 50px;text-align: right;">
+                                                            / {{pagecountuser}} </p>
+                                                    </td>
+                                                    <td align="right">
+                                                        <div class="btn-group" role="group" aria-label="...">
+                                                            <button id="first"
+                                                                class="btn btn-default">หน้าแรกสุด</button>
+                                                            <button id="prev"
+                                                                class="btn btn-default">หน้าก่อนหน้า</button>
+                                                            <button id="next" class="btn btn-default">หน้าต่อไป</button>
+                                                            <button id="last"
+                                                                class="btn btn-default">หน้าท้ายสุด</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="tab-pane fade" id="tab2primary">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <b>ตัวกรอง CM</b>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div style="padding-left: 20px;padding-right: 20px">
+                                        <table>
+                                            <tr>
+                                                <td>ปีงบประมาณ</td>
+                                                <td>&nbsp;&nbsp;</td>
+                                                <td>
+                                                    <select class="form-control pull-right" id="yearselect" style="width: 200px;">
+                                                        <option value="2559">2559</option>
+                                                        <option value="2560">2560</option>
+                                                        <option value="2561">2561</option>
+                                                        <option value="2562">2562</option>
+                                                        <option value="2563">2563</option>
+                                                        <option value="2564">2564</option>
+                                                        <option value="2565">2565</option>
+                                                        <option value="2566">2566</option>
+                                                        <option value="2567">2567</option>
+                                                        <option value="2568">2568</option>
+                                                        <option value="2569">2569</option>
+                                                        <option value="2570">2570</option>
+                                                    </select>
+                                                </td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td>จังหวัด</td>
+                                                <td>&nbsp;&nbsp;</td>
+                                                <td>
+                                                    <select class="form-control pull-right" id="provinceselect" style="width: 200px;">
+                                                        <option value="all">ทั้งหมด</option>
+                                                        {{#each province_list}}
+                                                        <option value="{{province_name}}">{{province_name}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                            </tr>
+                                            <br>
+                                            <tr>
+                                                <td>อำเภอ</td>
+                                                <td>&nbsp;&nbsp;</td>
+                                                <td>
+                                                    <select class="form-control pull-right" id="amphoeselect" style="width: 200px;">
+                                                        <option value="all">ทั้งหมด</option>
+                                                        {{#each district_list}}
+                                                            <option value="{{district_name}}">{{district_name}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </td>
+                                                <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                <td>ตำบล</td>
+                                                <td>&nbsp;&nbsp;</td>
+                                                <td>
+                                                    <select class="form-control pull-right" id="districtselect" style="width: 200px;">
+                                                        <option value="all">ทั้งหมด</option>
+                                                        {{#each subdistrict_list}}
+                                                        <option value="{{subdistrict_name}}">{{subdistrict_name}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </td>
+                                                <td>&nbsp;&nbsp;</td>
+                                                
+            
+                                            </tr>
+                                            <br>
+                                            <tr>
+                                                <td>รายชื่อ CM</td>
+                                                <td>&nbsp;&nbsp;</td>
+                                                <td>
+                                                    <input class="form-control" id="searchCM" style="width: 200px;">
+                                                </td>
+                                                <td>&nbsp;&nbsp;</td>
+                                                <td>
+                                                    <button class="btn btn-primary" id="CM_find">ค้นหา</button>
+                                                </td>
+            
+                                            </tr>
+                                        </table>
+                                        <br>
+                                        <br>
+                                        <table id="mytable" class="table table-primary table-bordered ">
+                                            <thead>
+                                                <tr bgcolor="#E6E6E6">
+                                                    <th>ชื่อ</th>
+                                                    <th>หน่วยบริการ</th>
+                                                    <th>เขต</th>
+                                                    <th>แก้ไข</th>
+                                                    <th>ลบ</th>
+                                                    <th>อนุมัติ</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {{#each getDistDetail}}
+                                                <tr>
+                                                    <td>{{PRENAME}}{{NAME}} {{LNAME}}</td>
+                                                    <td>{{#if HOSPCODE.NAME}}{{HOSPCODE.NAME}}{{else}}{{DLACODE.NAME}}{{/if}}</td>
+                                                    <td>{{#if HOSPCODE.NAME}}{{HOSPCODE.AMPHOE}}{{else}}{{DLACODE.DISTRICT}}{{/if}}</td>
+                                                    <td align="center">
+                                                        <button class="btn btn-info btn-sm" id="editCM">
+                                                            <i class="fa fa-wrench" aria-hidden="true" style="font-size: 12px;"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td align="center">
+                                                        <button class="btn btn-danger btn-sm" id="removeCM">
+                                                            <i class="glyphicon glyphicon-trash" aria-hidden="true" style="font-size: 12px;"></i>
+                                                        </button>
+                                                    </td>
+                                                    <td align="center">
+                                                        <button class="btn btn-success btn-sm" id="viewcm" data-toggle="modal" data-target="#cmprofile">
+                                                            <i class="fa fa-id-card-o" aria-hidden="true" style="font-size: 12px;"></i>
+                                                        </button>
+                                                    </td>
+                                                </tr>
+                                                {{/each}}
+                                            </tbody>
+                                        </table>
+                                        <table style="width: 100%;">
+                                            <tr>
+                                                <td align="left">
+                                                    <p>หน้า <input type="text" id="page" value="{{page}}" style="width: 50px;text-align: right;">
+                                                        / {{pagecount}} </p>
+                                                </td>
+                                                <td align="right">
+                                                    <div class="btn-group" role="group" aria-label="...">
+                                                        <button id="CM_first" class="btn btn-default">หน้าแรกสุด</button>
+                                                        <button id="CM_prev" class="btn btn-default">หน้าก่อนหน้า</button>
+                                                        <button id="CM_next" class="btn btn-default">หน้าต่อไป</button>
+                                                        <button id="CM_last" class="btn btn-default">หน้าท้ายสุด</button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="tab3primary">
+                                    <div class="panel panel-primary">
+                                        <div class="panel-heading">
+                                            <b>ตัวกรอง CG</b>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div style="padding-left: 20px;padding-right: 20px">
+                                            <table>
+                                                <tr>
+                                                    <td>ปีงบประมาณ</td>
+                                                    <td>&nbsp;&nbsp;</td>
+                                                    <td>
+                                                        <select class="form-control pull-right" id="CG_yearselect" style="width: 200px;">
+                                                            <option value="2559">2559</option>
+                                                            <option value="2560">2560</option>
+                                                            <option value="2561">2561</option>
+                                                            <option value="2562">2562</option>
+                                                            <option value="2563">2563</option>
+                                                            <option value="2564">2564</option>
+                                                            <option value="2565">2565</option>
+                                                            <option value="2566">2566</option>
+                                                            <option value="2567">2567</option>
+                                                            <option value="2568">2568</option>
+                                                            <option value="2569">2569</option>
+                                                            <option value="2570">2570</option>
+                                                        </select>
+                                                    </td>
+                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                    <td>จังหวัด</td>
+                                                    <td>&nbsp;&nbsp;</td>
+                                                    <td>
+                                                        <select class="form-control pull-right" id="CG_provinceselect" style="width: 200px;">
+                                                            <option value="all">ทั้งหมด</option>
+                                                            {{#each CG_province_list}}
+                                                            <option value="{{province_name}}">{{province_name}}</option>
+                                                            {{/each}}
+                                                        </select>
+                                                    </td>
+                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                </tr>
+                                                <br>
+                                                <tr>
+                                                    <td>อำเภอ</td>
+                                                    <td>&nbsp;&nbsp;</td>
+                                                    <td>
+                                                        <select class="form-control pull-right" id="CG_amphoeselect" style="width: 200px;">
+                                                            <option value="all">ทั้งหมด</option>
+                                                            {{#each CG_district_list}}
+                                                                <option value="{{district_name}}">{{district_name}}</option>
+                                                            {{/each}}
+                                                        </select>
+                                                    </td>
+                                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                                    <td>ตำบล</td>
+                                                    <td>&nbsp;&nbsp;</td>
+                                                    <td>
+                                                        <select class="form-control pull-right" id="CG_districtselect" style="width: 200px;">
+                                                            <option value="all">ทั้งหมด</option>
+                                                            {{#each CG_subdistrict_list}}
+                                                            <option value="{{subdistrict_name}}">{{subdistrict_name}}</option>
+                                                            {{/each}}
+                                                        </select>
+                                                    </td>
+                                                    <td>&nbsp;&nbsp;</td>
+                                                    
+                
+                                                </tr>
+                                                <br>
+                                                <tr>
+                                                    <td>รายชื่อ CG</td>
+                                                    <td>&nbsp;&nbsp;</td>
+                                                    <td>
+                                                        <input class="form-control" id="searchCG" style="width: 200px;">
+                                                    </td>
+                                                    <td>&nbsp;&nbsp;</td>
+                                                    <td>
+                                                        <button class="btn btn-primary" id="CG_find">ค้นหา</button>
+                                                    </td>
+                
+                                                </tr>
+                                            </table>
+                                            <br>
+                                            <br>
+                                            <table id="mytable" class="table table-primary table-bordered ">
+                                                <thead>
+                                                    <tr bgcolor="#E6E6E6">
+                                                        <th>ชื่อ</th>
+                                                        <th>หน่วยบริการ</th>
+                                                        <th>เขต</th>
+                                                        <th>แก้ไข</th>
+                                                        <th>ลบ</th>
+                                                        <th>อนุมัติ</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {{#each CG_getDistDetail}}
+                                                    <tr>
+                                                        <td>{{PRENAME}}{{NAME}} {{LNAME}}</td>
+                                                        <td>{{#if HOSPCODE.NAME}}{{HOSPCODE.NAME}}{{else}}{{DLACODE.NAME}}{{/if}}</td>
+                                                        <td>{{#if HOSPCODE.NAME}}{{HOSPCODE.AMPHOE}}{{else}}{{DLACODE.DISTRICT}}{{/if}}</td>
+                                                        <td align="center">
+                                                            <button class="btn btn-info btn-sm" id="editCG">
+                                                                <i class="fa fa-wrench" aria-hidden="true" style="font-size: 12px;"></i>
+                                                            </button>
+                                                        </td>
+                                                        <td align="center">
+                                                            <button class="btn btn-danger btn-sm" id="removeCM">
+                                                                <i class="glyphicon glyphicon-trash" aria-hidden="true" style="font-size: 12px;"></i>
+                                                            </button>
+                                                        </td>
+                                                        <td align="center">
+                                                            <button class="btn btn-success btn-sm" id="viewcm" data-toggle="modal" data-target="#cmprofile">
+                                                                <i class="fa fa-id-card-o" aria-hidden="true" style="font-size: 12px;"></i>
+                                                            </button>
+                                                        </td>
+                                                    </tr>
+                                                    {{/each}}
+                                                </tbody>
+                                            </table>
+                                            <table style="width: 100%;">
+                                                <tr>
+                                                    <td align="left">
+                                                        <p>หน้า <input type="text" id="page" value="{{CG_page}}" style="width: 50px;text-align: right;">
+                                                            / {{CG_pagecount}} </p>
+                                                    </td>
+                                                    <td align="right">
+                                                        <div class="btn-group" role="group" aria-label="...">
+                                                            <button id="CG_first" class="btn btn-default">หน้าแรกสุด</button>
+                                                            <button id="CG_prev" class="btn btn-default">หน้าก่อนหน้า</button>
+                                                            <button id="CG_next" class="btn btn-default">หน้าต่อไป</button>
+                                                            <button id="CG_last" class="btn btn-default">หน้าท้ายสุด</button>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        </div>
+                                        </div>
+                                </div> -->
+                            <div class="tab-pane fade in" id="tab2primary">
+                                {{> admincm }}
+                            </div>    
+                            <div class="tab-pane fade in" id="tab3primary">
+                                {{> admincg }}
+                            </div> 
+                            <div class="tab-pane fade in" id="tab4primary">
+                                {{> adminelderly }}
+                            </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <center>
+                        <b>แสดงรหัสผ่าน</b>
+                    </center>
+                </div>
+                <div class="modal-body">
+                    <center>
+                        <table>
+                            <tr>
+                                <td>
+                                    <input type="text" id="password" class="form-control" style="width: 250px">
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" id="edit">
+                                        <b><span class="fa fa-edit"> </span>&nbsp;แก้ไข</b>
+                                    </button>
+                                </td>
+                                <td>&nbsp;</td>
+                                <td>
+                                    <button type="button" class="btn btn-danger " data-dismiss="modal">
+                                        <b><span class="fa fa-close"> </span>&nbsp;ปิด</b>
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </center>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

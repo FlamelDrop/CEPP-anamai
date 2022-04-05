@@ -1,0 +1,362 @@
+<template name="viewcp">
+    {{> menu}}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="panel panel-primary">
+                    <!-- <div class="panel-heading">
+                        <b>Care Plan - {{show.eldername}} ({{show.cid}})</b>
+                    </div> -->
+                    <div class="panel-body">
+                        <center>
+                            <div class="pull-right">
+                                <button type="button" style="width: 130px;height: 40px;" class="button blue ptintcp"><b>พิมพ์</b></button>
+                            </div>
+                        </center>
+                        <br>
+                        <br>
+                        <br>
+                        <center>
+                            <b>แผนพยาบาลดูแล (Care Plan) ฉบับที่ </b> {{show.cpset}}
+                            <b>วันที่</b> &nbsp; {{formatdate show.createDate}}
+                            <br>
+                            <b>หน่วยบริการ</b>&nbsp;&nbsp;&nbsp; {{show.cmservice}} ({{show.cmservice_code}}) &nbsp; อ.&nbsp;{{show.cmdistrict}} &nbsp;จ.&nbsp;{{show.cmprovince}}
+                            <br>
+                        </center>
+                        <table border="1" class="careplan" style="font-size: 12px;">
+                            <tr bgcolor="">
+                                <td class="col-md-3">
+                                    <b>ชื่อ</b> <span style="color: blue ">{{show.eldername}}</span>
+                                    <br>
+                                    <b> เลขบัตรประจำตัวประชาชน</b> <span style="color: blue ">{{show.cid}}</span>
+                                    <br>
+                                </td>
+                                <td class="col-md-3">
+                                    <b>ที่อยู่</b>
+                                    <span style="color: blue ">{{show.fulladdress}}</span>
+                                    <br> <b>หมายเลขโทรศัพท์</b> <span style="color: blue ">{{newline show.phone}}</span>
+                                    <br>
+                                </td>
+                                <td class="col-md-3">
+                                    <b>วันที่จัดทำ</b> <span style="color: blue ">{{briddate show.createDate}}</span>
+                                    <br>
+                                    <b>วินิจฉัย </b> <span style="color: blue ">{{show.diagnose}}</span>
+                                    <br> <b>ผู้สูงอายุภาวะพึงพิงกลุ่มที่</b>&nbsp;&nbsp;<span style="color: blue ">{{show.group}}</span>
+                                    <br> <b>ภาวะสมองเสื่อม</b>&nbsp;&nbsp;<span style="color: blue ">{{#if show.mmst}}พบภาวะสมองเสื่อม{{else}}ไม่พบภาวะสมองเสื่อม{{/if}}</span>
+                                    <br> <b>ผู้ป่วยระยะสุดท้าย</b>&nbsp;&nbsp;<span style="color: blue ">{{#if show.pallative}}เป็นผู้ป่วยระยะสุดท้าย{{else}}ไม่เป็นเป็นผู้ป่วยระยะสุดท้าย{{/if}}</span> {{#if show.pallative}}
+                                    <br><b>ผู้วินิจฉัย</b>&nbsp;&nbsp;<span style="color: blue ">{{show.doctor}}</span>{{/if}}
+                                </td>
+                            </tr>
+                            <tr bgcolor="">
+                                <td class="col-md-3">
+                                    <b>แนวคิดของผู้ใช้บริการและครอบครัวที่มีต่อการดำรงชีวิต</b>
+                                    <br><span style="color: blue ">{{listbr show.patient}}</span>
+                                </td>
+                                <td class="col-md-3">
+                                    <b>แนวนโยบายการให้ความช่วยเหลือโดยรวม (รวมถึงเป้าหมายระยะยาว)</b>
+                                    <br>
+                                    <span style="color: blue ">{{listbr show.help.long}}</span>
+                                </td>
+                                <td class="col-md-3">
+                                    <b>ข้อควรระวังในการให้บริการ</b>
+                                    <br>
+                                    <span style="color: blue ">{{listbr show.caution}}</span>
+                                </td>
+                            </tr>
+                            <tr bgcolor="">
+                                <td class="col-md-3">
+                                    <b>ประเด็นปัญหา(ความต้องการ)</b>
+                                    <br>
+                                    <b>สภาพชีวิต : </b> <span style="color: blue ">{{listcomma show.policySupport.living}}</span>
+                                    <br> <b>คำร้องเรียนหลัก : </b> <span style="color: blue ">{{listcomma show.policySupport.complaint}}</span>
+                                    <br> <b>การรับรู้ : </b> <span style="color: blue ">{{listcomma show.policySupport.recognition}}</span>
+                                    <br> <b>การคบหาสมาคม : </b> <span style="color: blue ">{{listcomma show.policySupport.social}}</span>
+                                    <br> <b>การสื่อสาร : </b> <span style="color: blue ">{{listcomma show.policySupport.talk}}</span>
+                                    <br> <b>การขับถ่าย : </b> <span style="color: blue ">{{listcomma show.policySupport.excretion}}</span>
+                                    <br> <b>การรับประทานอาหาร : </b> <span style="color: blue ">{{listcomma show.policySupport.eat}}</span>
+                                    <br> <b>การดูแล : </b> <span style="color: blue ">{{listcomma show.policySupport.suport}}</span>
+                                    <br> <b>ผู้ให้การดูแล : </b> <span style="color: blue ">{{listcomma show.policySupport.caretaker}}</span>
+                                </td>
+                                <td class="col-md-3">
+                                    <table width="100%" border="0">
+                                        <tr>
+                                            <td>
+                                                <b>เป้าหมายการดำรงชีวิต (เป้าหมายระยะสั้น) </b>
+                                                <br>
+                                                <span style="color: blue ">{{listbr show.help.short}}</span>
+                                            </td>
+                                            <td>
+                                                <b>วันบรรลุเป้าหมาย</b>
+                                                <br>
+                                                <span style="color: blue ">{{show.goalDate}}</span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                                <td class="col-md-3">
+                                    <b>บริการนอกเหนือรายสัปดาห์ (รวมการช่วยเหลือของครอบครัวและinformal)</b>
+                                    <br>
+                                    <span style="color: blue ">{{listbr show.other}}</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">
+                                    <table class="table table-bordered cpshow " border="1">
+                                        <tr>
+                                            <td rowspan="18" width="40">
+                                                <img src="week.JPG">
+                                            </td>
+                                            <td width="70" align="center" bgcolor="#f0f0f0" style="font-weight: bold;">เวลา</td>
+                                            <td width="100" align="center" bgcolor="#f0f0f0" style="font-weight: bold;">จันทร์</td>
+                                            <td width="100" align="center" bgcolor="#f0f0f0" style="font-weight: bold;">อังคาร</td>
+                                            <td width="100" align="center" bgcolor="#f0f0f0" style="font-weight: bold;">พุธ</td>
+                                            <td width="100" align="center" bgcolor="#f0f0f0" style="font-weight: bold;">พฤหัสบดี</td>
+                                            <td width="100" align="center" bgcolor="#f0f0f0" style="font-weight: bold;">ศุกร์</td>
+                                            <td width="100" align="center" bgcolor="#f0f0f0" style="font-weight: bold;">เสาร์</td>
+                                            <td width="100" align="center" bgcolor="#f0f0f0" style="font-weight: bold;">อาทิตย์</td>
+                                            <td width="190" align="center" bgcolor="#f0f0f0" style="font-weight: bold;">กิจกรรมหลักในการดำรงชีวิต</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">6.00 น.</td>
+                                            <td>{{show.carePlan.mon6}} {{show.carePlan.mon6a}}</td>
+                                            <td>{{show.carePlan.tue6}} {{show.carePlan.tue6a}}</td>
+                                            <td>{{show.carePlan.wed6}} {{show.carePlan.wed6a}}</td>
+                                            <td>{{show.carePlan.thu6}} {{show.carePlan.thu6a}}</td>
+                                            <td>{{show.carePlan.fri6}} {{show.carePlan.fri6a}}</td>
+                                            <td>{{show.carePlan.sat6}} {{show.carePlan.sat6a}}</td>
+                                            <td>{{show.carePlan.sun6}} {{show.carePlan.sun6a}}</td>
+                                            <td>{{show.carePlan.other6}} {{show.carePlan.other6a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">7.00 น.</td>
+                                            <td>{{show.carePlan.mon7}} {{show.carePlan.mon7a}} </td>
+                                            <td>{{show.carePlan.tue7}} {{show.carePlan.tue7a}} </td>
+                                            <td>{{show.carePlan.wed7}} {{show.carePlan.wed7a}} </td>
+                                            <td>{{show.carePlan.thu7}} {{show.carePlan.thu7a}} </td>
+                                            <td>{{show.carePlan.fri7}} {{show.carePlan.fri7a}} </td>
+                                            <td>{{show.carePlan.sat7}} {{show.carePlan.sat7a}} </td>
+                                            <td>{{show.carePlan.sun7}} {{show.carePlan.sun7a}} </td>
+                                            <td>{{show.carePlan.other7}} {{show.carePlan.other7a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">8.00 น.</td>
+                                            <td>{{show.carePlan.mon8}} {{show.carePlan.mon8a}}</td>
+                                            <td>{{show.carePlan.tue8}} {{show.carePlan.tue8a}}</td>
+                                            <td>{{show.carePlan.wed8}} {{show.carePlan.wed8a}}</td>
+                                            <td>{{show.carePlan.thu8}} {{show.carePlan.thu8a}}</td>
+                                            <td>{{show.carePlan.fri8}} {{show.carePlan.fri8a}}</td>
+                                            <td>{{show.carePlan.sat8}} {{show.carePlan.sat8a}}</td>
+                                            <td>{{show.carePlan.sun8}} {{show.carePlan.sun8a}}</td>
+                                            <td>{{show.carePlan.other8}} {{show.carePlan.other8a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">9.00 น.</td>
+                                            <td>{{show.carePlan.mon9}} {{show.carePlan.mon9a}}</td>
+                                            <td>{{show.carePlan.tue9}} {{show.carePlan.tue9a}}</td>
+                                            <td>{{show.carePlan.wed9}} {{show.carePlan.wed9a}}</td>
+                                            <td>{{show.carePlan.thu9}} {{show.carePlan.thu9a}}</td>
+                                            <td>{{show.carePlan.fri9}} {{show.carePlan.fri9a}}</td>
+                                            <td>{{show.carePlan.sat9}} {{show.carePlan.sat9a}}</td>
+                                            <td>{{show.carePlan.sun9}} {{show.carePlan.sun9a}}</td>
+                                            <td>{{show.carePlan.other9}} {{show.carePlan.other9a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">10.00 น.</td>
+                                            <td>{{show.carePlan.mon10}} {{show.carePlan.mon10a}}</td>
+                                            <td>{{show.carePlan.tue10}} {{show.carePlan.tue10a}}</td>
+                                            <td>{{show.carePlan.wed10}} {{show.carePlan.wed10a}}</td>
+                                            <td>{{show.carePlan.thu10}} {{show.carePlan.thu10a}}</td>
+                                            <td>{{show.carePlan.fri10}} {{show.carePlan.fri10a}}</td>
+                                            <td>{{show.carePlan.sat10}} {{show.carePlan.sat10a}}</td>
+                                            <td>{{show.carePlan.sun10}} {{show.carePlan.sun10a}}</td>
+                                            <td>{{show.carePlan.other10}} {{show.carePlan.other10a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">11.00 น.</td>
+                                            <td>{{show.carePlan.mon11}} {{show.carePlan.mon11a}}</td>
+                                            <td>{{show.carePlan.tue11}} {{show.carePlan.tue11a}}</td>
+                                            <td>{{show.carePlan.wed11}} {{show.carePlan.wed11a}}</td>
+                                            <td>{{show.carePlan.thu11}} {{show.carePlan.thu11a}}</td>
+                                            <td>{{show.carePlan.fri11}} {{show.carePlan.fri11a}}</td>
+                                            <td>{{show.carePlan.sat11}} {{show.carePlan.sat11a}}</td>
+                                            <td>{{show.carePlan.sun11}} {{show.carePlan.sun11a}}</td>
+                                            <td>{{show.carePlan.other11}} {{show.carePlan.other11a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">12.00 น.</td>
+                                            <td>{{show.carePlan.mon12}} {{show.carePlan.mon12a}}</td>
+                                            <td>{{show.carePlan.tue12}} {{show.carePlan.tue12a}}</td>
+                                            <td>{{show.carePlan.wed12}} {{show.carePlan.wed12a}}</td>
+                                            <td>{{show.carePlan.thu12}} {{show.carePlan.thu12a}}</td>
+                                            <td>{{show.carePlan.fri12}} {{show.carePlan.fri12a}}</td>
+                                            <td>{{show.carePlan.sat12}} {{show.carePlan.sat12a}}</td>
+                                            <td>{{show.carePlan.sun12}} {{show.carePlan.sun12a}}</td>
+                                            <td>{{show.carePlan.other12}} {{show.carePlan.other12a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">13.00 น.</td>
+                                            <td>{{show.carePlan.mon13}} {{show.carePlan.mon13a}}</td>
+                                            <td>{{show.carePlan.tue13}} {{show.carePlan.tue13a}}</td>
+                                            <td>{{show.carePlan.wed13}} {{show.carePlan.wed13a}}</td>
+                                            <td>{{show.carePlan.thu13}} {{show.carePlan.thu13a}}</td>
+                                            <td>{{show.carePlan.fri13}} {{show.carePlan.fri13a}}</td>
+                                            <td>{{show.carePlan.sat13}} {{show.carePlan.sat13a}}</td>
+                                            <td>{{show.carePlan.sun13}} {{show.carePlan.sun13a}}</td>
+                                            <td>{{show.carePlan.other13}} {{show.carePlan.other13a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">14.00 น.</td>
+                                            <td>{{show.carePlan.mon14}} {{show.carePlan.mon14a}}</td>
+                                            <td>{{show.carePlan.tue14}} {{show.carePlan.tue14a}}</td>
+                                            <td>{{show.carePlan.wed14}} {{show.carePlan.wed14a}}</td>
+                                            <td>{{show.carePlan.thu14}} {{show.carePlan.thu14a}}</td>
+                                            <td>{{show.carePlan.fri14}} {{show.carePlan.fri14a}}</td>
+                                            <td>{{show.carePlan.sat14}} {{show.carePlan.sat14a}}</td>
+                                            <td>{{show.carePlan.sun14}} {{show.carePlan.sun14a}}</td>
+                                            <td>{{show.carePlan.other14}} {{show.carePlan.other14a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">15.00 น.</td>
+                                            <td>{{show.carePlan.mon15}} {{show.carePlan.mon15a}}</td>
+                                            <td>{{show.carePlan.tue15}} {{show.carePlan.tue15a}}</td>
+                                            <td>{{show.carePlan.wed15}} {{show.carePlan.wed15a}}</td>
+                                            <td>{{show.carePlan.thu15}} {{show.carePlan.thu15a}}</td>
+                                            <td>{{show.carePlan.fri15}} {{show.carePlan.fri15a}}</td>
+                                            <td>{{show.carePlan.sat15}} {{show.carePlan.sat15a}}</td>
+                                            <td>{{show.carePlan.sun15}} {{show.carePlan.sun15a}}</td>
+                                            <td>{{show.carePlan.other15}} {{show.carePlan.other15a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">16.00 น.</td>
+                                            <td>{{show.carePlan.mon16}} {{show.carePlan.mon16a}}</td>
+                                            <td>{{show.carePlan.tue16}} {{show.carePlan.tue16a}}</td>
+                                            <td>{{show.carePlan.wed16}} {{show.carePlan.wed16a}}</td>
+                                            <td>{{show.carePlan.thu16}} {{show.carePlan.thu16a}}</td>
+                                            <td>{{show.carePlan.fri16}} {{show.carePlan.fri16a}}</td>
+                                            <td>{{show.carePlan.sat16}} {{show.carePlan.sat16a}}</td>
+                                            <td>{{show.carePlan.sun16}} {{show.carePlan.sun16a}}</td>
+                                            <td>{{show.carePlan.other16}} {{show.carePlan.other16a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">17.00 น.</td>
+                                            <td>{{show.carePlan.mon17}} {{show.carePlan.mon17a}}</td>
+                                            <td>{{show.carePlan.tue17}} {{show.carePlan.tue17a}}</td>
+                                            <td>{{show.carePlan.wed17}} {{show.carePlan.wed17a}}</td>
+                                            <td>{{show.carePlan.thu17}} {{show.carePlan.thu17a}}</td>
+                                            <td>{{show.carePlan.fri17}} {{show.carePlan.fri17a}}</td>
+                                            <td>{{show.carePlan.sat17}} {{show.carePlan.sat17a}}</td>
+                                            <td>{{show.carePlan.sun17}} {{show.carePlan.sun17a}}</td>
+                                            <td>{{show.carePlan.other17}} {{show.carePlan.other17a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">18.00 น.</td>
+                                            <td>{{show.carePlan.mon18}} {{show.carePlan.mon18a}}</td>
+                                            <td>{{show.carePlan.tue18}} {{show.carePlan.tue18a}}</td>
+                                            <td>{{show.carePlan.wed18}} {{show.carePlan.wed18a}}</td>
+                                            <td>{{show.carePlan.thu18}} {{show.carePlan.thu18a}}</td>
+                                            <td>{{show.carePlan.fri18}} {{show.carePlan.fri18a}}</td>
+                                            <td>{{show.carePlan.sat18}} {{show.carePlan.sat18a}}</td>
+                                            <td>{{show.carePlan.sun18}} {{show.carePlan.sun18a}}</td>
+                                            <td>{{show.carePlan.other18}} {{show.carePlan.other18a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">19.00 น.</td>
+                                            <td>{{show.carePlan.mon19}} {{show.carePlan.mon19a}}</td>
+                                            <td>{{show.carePlan.tue19}} {{show.carePlan.tue19a}}</td>
+                                            <td>{{show.carePlan.wed19}} {{show.carePlan.wed19a}}</td>
+                                            <td>{{show.carePlan.thu19}} {{show.carePlan.thu19a}}</td>
+                                            <td>{{show.carePlan.fri19}} {{show.carePlan.fri19a}}</td>
+                                            <td>{{show.carePlan.sat19}} {{show.carePlan.sat19a}}</td>
+                                            <td>{{show.carePlan.sun19}} {{show.carePlan.sun19a}}</td>
+                                            <td>{{show.carePlan.other19}} {{show.carePlan.other19a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">20.00 น.</td>
+                                            <td>{{show.carePlan.mon20}} {{show.carePlan.mon20a}}</td>
+                                            <td>{{show.carePlan.tue20}} {{show.carePlan.tue20a}}</td>
+                                            <td>{{show.carePlan.wed20}} {{show.carePlan.wed20a}}</td>
+                                            <td>{{show.carePlan.thu20}} {{show.carePlan.thu20a}}</td>
+                                            <td>{{show.carePlan.fri20}} {{show.carePlan.fri20a}}</td>
+                                            <td>{{show.carePlan.sat20}} {{show.carePlan.sat20a}}</td>
+                                            <td>{{show.carePlan.sun20}} {{show.carePlan.sun20a}}</td>
+                                            <td>{{show.carePlan.other20}} {{show.carePlan.other20a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">21.00 น.</td>
+                                            <td>{{show.carePlan.mon21}} {{show.carePlan.mon21a}}</td>
+                                            <td>{{show.carePlan.tue21}} {{show.carePlan.tue21a}}</td>
+                                            <td>{{show.carePlan.wed21}} {{show.carePlan.wed21a}}</td>
+                                            <td>{{show.carePlan.thu21}} {{show.carePlan.thu21a}}</td>
+                                            <td>{{show.carePlan.fri21}} {{show.carePlan.fri21a}}</td>
+                                            <td>{{show.carePlan.sat21}} {{show.carePlan.sat21a}}</td>
+                                            <td>{{show.carePlan.sun21}} {{show.carePlan.sun21a}}</td>
+                                            <td>{{show.carePlan.other21}} {{show.carePlan.other21a}}</td>
+                                        </tr>
+                                        <tr>
+                                            <td bgcolor="#f0f0f0" style="font-weight: bold;">22.00 น.</td>
+                                            <td>{{show.carePlan.mon22}} {{show.carePlan.mon22a}}</td>
+                                            <td>{{show.carePlan.tue22}} {{show.carePlan.tue22a}}</td>
+                                            <td>{{show.carePlan.wed22}} {{show.carePlan.wed22a}}</td>
+                                            <td>{{show.carePlan.thu22}} {{show.carePlan.thu22a}}</td>
+                                            <td>{{show.carePlan.fri22}} {{show.carePlan.fri22a}}</td>
+                                            <td>{{show.carePlan.sat22}} {{show.carePlan.sat22a}}</td>
+                                            <td>{{show.carePlan.sun22}} {{show.carePlan.sun22a}}</td>
+                                            <td>{{show.carePlan.other22}} {{show.carePlan.other22a}}</td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3" class="col-md-9">
+                                    <table border="0" width="100%">
+                                        <tr>
+                                            <td width="50%">
+                                                <b>ผู้จัดทำ Care Plan</b>
+                                                <br>
+                                                <br> {{show.cmname}} ({{show.cmservice}} อ.&nbsp;{{show.cmdistrict}} &nbsp;จ.&nbsp;{{show.cmprovince}})
+                                            </td>
+                                            <td>
+                                                <b>ข้าพเจ้าเห็นชอบกับการปฎิบัติตาม Care Plan นี้</b><br>
+                                                <section style="height: 10px"></section>
+                                                 1) .............................................................................................. (ผู้ป่วย/ญาติ) วดป ...........................................
+                                                <br><br>
+                                                 2) .............................................................................................. (ผู้ป่วย/ญาติ) วดป ...........................................
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-md-5" colspan="3">
+                                    <b>ค่าใช้จ่ายในการให้บริการ</b>
+                                    <br> ๑. ค่าใช้จ่ายในการดูแล CG จำนวนค่างานสัปดาห์ละ
+                                    <span style="color: blue ">{{ show.p1}}</span> ชั่วโมง เดือนละ
+                                    <span style="color: blue ">{{ show.p2}}</span> ชั่วโมง(ชั่วโมงละ
+                                    <span style="color: blue ">{{comma  show.p3}}</span> บาท)เป็นเงิน
+                                    <span style="color: blue ">{{comma  show.p4}}</span> บาทระยะเวลา
+                                    <span style="color: blue ">{{ show.p5}}</span> เดือนรวมเป็นเงิน
+                                    <span style="color: blue ">{{comma  show.p6}}</span> บาท
+                                    <br> &nbsp;ค่าใช้จ่ายติดตาม เดือนละ
+                                    <span style="color: blue ">{{ show.p7}}</span> ครั้ง ครั้งละ
+                                    <span style="color: blue ">{{ show.p8}}</span> ชั่วโมง (ชั่วโมงละ
+                                    <span style="color: blue ">{{ show.p9}}</span> บาท) เป็นเงิน
+                                    <span style="color: blue ">{{comma  show.p10}}</span> บาท ระยะเวลา
+                                    <span style="color: blue ">{{ show.p11}}</span> เดือน รวมเป็นเงิน
+                                    <span style="color: blue ">{{comma  show.p12}}</span> บาท
+                                    <br> ๒. ค่าวัสดุของใช้เช่น ผ้าอ้อมผู้ใหญ่
+                                    <span style="color: blue ">{{comma  show.p13}}</span> บาท อุปกรณ์ทำแผล
+                                    <span style="color: blue ">{{comma  show.p14}}</span> บาท
+                                    <br>
+                                    <br>
+                                    <b>สรุปรวมค่าใช้จ่ายทั้งสิ้น รวมเป็นเงิน </b>
+                                    <span style="color: blue ">{{comma  show.p15}}</span>
+                                    <b> บาท</b>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,366 @@
+<template name="approvecg">
+    <div>
+        <nav class="navbar navbar-custom">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/">
+                        <img src="./LogoLTC180x100.png" height="55">
+                    </a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">
+                            <b>Long Term Care</b>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <section style="height: 3px"></section>
+                        <a href="/CMdashboard" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span> จังหวัด{{user}}</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/cmchangepwd">
+                                    <span class="glyphicon glyphicon-lock"></span> เปลี่ยนรหัสผ่าน</a>
+                            </li>
+                            <li>
+                                <a href="/logout">
+                                    <span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <ol class="breadcrumb">
+                <li>
+                    <a href="province">หน้าแรก</a>
+                </li>
+                <li class="active">ยืนยัน CG</li>
+            </ol>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <table>
+                        <tr>
+                            <td style="font-size: 17px;font-weight: bold;">รายชื่อ CG รออนุมัติ</td>
+                            <td style="font-size: 14px;">&nbsp;&nbsp;(ทั้งหมด {{count}} คน)</td>
+                        </tr>
+                    </table>
+                    <div class="container">
+                        <br>
+                        <div class="col-md-11">
+                            <table id="mytable" class="table table-hover table-bordered" width="100%" style="font-size: 13px">
+                                <thead>
+                                    <tr bgcolor="#E6E6E6">
+                                        <th id="0">เลขบัตรประชาชน</th>
+                                        <th id="1">คำนำหน้า</th>
+                                        <th id="2">ชื่อ</th>
+                                        <th id="3">นามสกุล</th>
+                                        <th id="4">ชื่อ - สกุล</th>
+                                        <th id="5">เพศ</th>
+                                        <th id="6">อายุ</th>
+                                        <th id="7">ที่อยู่</th>
+
+                                        <th id="8">เบอร์โทรติดต่อ</th>
+                                        <th id="9">อีเมลล์</th>
+                                        <th id="10">รหัสหน่วยบริการ / อปท.</th>
+                                        <th id="11">หน่วยบริการ / อปท.</th>
+                                        <th id="12">ตำบล</th>
+                                        <th id="13">อำเภอ</th>
+                                        <th id="14">จังหวัด</th>
+
+                                        <th id="15">วันที่อบรม</th>
+                                        <th id="16">วันที่ต้องได้รับการฟื้นฟูศักยภาพ</th>
+                                        <th id="17">อบรมโดย</th>
+                                        <th id="18">หลักสูตร</th>
+                                        <th id="19">ตำบลที่ปฎิบัติงาน</th>
+
+                                        <th id="20" align="center">รายละเอียด</th>
+                                        <th id="21" width="60px">อนุมัติ</th>
+                                        <th id="22">ระดับการศึกษา</th>
+                                        <th id="23">ตําแหน่งที่ปฏิบัติงานปัจจุบัน</th>
+                                        <th id="24">ลักษณะการปฏิบัติงาน</th>
+                                        <th id="25">ศูนย์เขตอนามัยที่</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each list}}
+                                    <tr>
+                                        <td>{{CID}}</td>
+                                        <td>{{PRENAME}}</td>
+                                        <td>{{NAME}}</td>
+                                        <td>{{LNAME}}</td>
+                                        <td>{{PRENAME}}{{NAME}} {{LNAME}}</td>
+                                        <td>{{langsex SEX}}</td>
+                                        <td>{{getage BIRTH}}</td>
+                                        <td id="">{{ADDRESS}}</td>
+                                        <td>{{MOBILE}}</td>
+                                        <td>{{EMAIL}}</td>
+                                        {{#if HOSPCODE}}
+                                        <td>{{HOSPCODE.CODE}}</td>
+                                        <td>{{HOSPCODE.NAME}}</td>
+                                        <td>{{splitTambon HOSPCODE.DISTRICT}}</td>
+                                        <td>{{splitAmphoe HOSPCODE.AMPHOE}}</td>
+                                        <td>{{splitProvince HOSPCODE.PROVINCE}}</td>
+                                        {{else}}
+                                        <td>{{DLACODE.CODE}}</td>
+                                        <td>{{DLACODE.NAME}}</td>
+                                        <td>{{splitTambon DLACODE.DISTRICT}}</td>
+                                        <td>{{splitAmphoe DLACODE.AMPHOE}}</td>
+                                        <td>{{splitProvince DLACODE.PROVINCE}}</td>
+                                        {{/if}}
+                                        <td>{{formatdate TRAINING_DATE}}</td>
+                                        <td id="">{{formatdate EXPIREDATE}}</td>
+                                        <td>{{RTRAINING_CENTER_ID_CG TRAINING_CENTER_ID}}</td>
+                                        <td>{{TRAININGHOUR}}</td>
+                                        <td>ต. {{TAMBON.DISTRICT}} อ. {{TAMBON.AMPHOE}} จ. {{TAMBON.PROVINCE}}</td>
+
+                                        <td align="center">
+                                            <button class="btn btn-success btn-sm" id="viewcg" data-toggle="modal" data-target="#cgprofile">
+                                                <i class="fa fa-id-card-o" aria-hidden="true" style="font-size: 12px;"></i>
+                                            </button>
+                                        </td>
+                                        <td align="center">
+                                            <a href="#" id="check">
+                                                <img src="/ic-checkmark.png" style="width:30px">
+                                            </a>
+                                            <a href="#" id="cancel">
+                                                <img src="/ic-delete.png" style="width:30px">
+                                            </a>
+                                        </td>
+                                        <td>{{EDUCATION}}</td>
+                                        <td>{{POSITIONCODE}}</td>
+                                        <td>{{CGSTATE_ACTIVE STATE_ACTIVE}}</td>
+                                        <td>{{zone}}</td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="cgprofile" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div class="pull-right" style="position:relative;right:40px">
+                        <button type="button" id="printcg" class="btn btn-default btn-sm">
+                            <span class="glyphicon glyphicon-print" style="font-size:18px"> </span>&nbsp;&nbsp;พิมพ์
+                        </button>
+                    </div>
+                    <section style="height: 20px"></section>
+                    <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                        <span style="font-size:18px;font-weight:bold">
+                            ข้อมูลส่วนตัว
+                        </span>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="tbcmprofile">
+                                <tr>
+                                    <td>
+                                        <b>เลขบัตรประชาขน</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.CID}}
+                                    </td>
+                                </tr>
+                            </table>
+                            <img src="{{profilecg.IMG}}" width="150px" style="position:absolute;right:10%;top:0px;">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="tbcmprofile">
+                                <tr>
+                                    <td>
+                                        <b>ชื่อ</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.PRENAME}}{{profilecg.NAME}}
+                                    </td>
+                                    <td>
+                                        <b>นามสกุล</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.LNAME}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="tbcmprofile">
+                                <tr>
+                                    <td>
+                                        <b>เพศ</b>
+                                    </td>
+                                    <td>
+                                        {{langsex profilecg.SEX}}&nbsp;&nbsp;&nbsp;
+                                    </td>
+                                    <td>
+                                        <b>วันเกิด</b>
+                                    </td>
+                                    <td>
+                                        {{briddate profilecg.BIRTH}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="tbcmprofile">
+                                <tr>
+                                    <td>
+                                        <b>ที่อยู่</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.ADDRESS}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="tbcmprofile">
+                                <tr>
+                                    <td>
+                                        <b>เบอร์โทรติดต่อ</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.MOBILE}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                        <span style="font-size:18px;font-weight:bold">
+                            ข้อมูลหน่วยงาน
+                        </span>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="tbcmprofile">
+                                {{#if profilecg.HOSPCODE}}
+                                <tr>
+                                    <td>
+                                        <b>รหัสหน่วยงาน</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.HOSPCODE.CODE}}
+                                    </td>
+                                    <td>
+                                        <b>หน่วยงาน</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.HOSPCODE.NAME}}
+                                    </td>
+                                </tr>
+                                {{else}}
+                                <tr>
+                                    <td>
+                                        <b>รหัสอปท</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.DLACODE.CODE}}
+                                    </td>
+                                    <td>
+                                        <b>อปท.</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.DLACODE.NAME}}
+                                    </td>
+                                </tr>
+                                {{/if}}
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="tbcmprofile">
+                                <tr>
+                                    <td>
+                                        <b>ตำบลที่ปฏิบัติงาน</b>
+                                    </td>
+                                    <td>
+                                        ต. {{profilecg.TAMBON.DISTRICT}} อ. {{profilecg.TAMBON.AMPHOE}} จ. {{profilecg.TAMBON.PROVINCE}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                        <span style="font-size:18px;font-weight:bold">
+                            ข้อมูลอบรม
+                        </span>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="tbcmprofile">
+                                <tr>
+                                    <td>
+                                        <b>อบรมโดย</b>
+                                    </td>
+                                    <td>
+                                        {{RTRAINING_CENTER_ID_CG profilecg.TRAINING_CENTER_ID}}
+                                    </td>
+                                    <td>
+                                        <b>วันที่เข้าอบรม</b>
+                                    </td>
+                                    <td>
+                                        {{briddate profilecg.TRAINING_DATE}}
+                                    </td>
+                                    <td>
+                                        <b>หลักสูตร</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.TRAININGHOUR}}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                            <span style="font-size:18px;font-weight:bold">
+                                            ค่าตอบแทน
+                                        </span>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table class="tbcmprofile">
+                                    <tr>
+                                        <td>
+                                            {{profilecg.salary}} บาทต่อ{{profilecg.salaryUnit}}
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div> -->
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

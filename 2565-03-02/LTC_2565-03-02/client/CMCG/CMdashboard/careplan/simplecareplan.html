@@ -1,0 +1,464 @@
+<template name="simplecareplan">
+    <div>
+        <nav class="navbar navbar-custom" style="font-size: 14px;">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <div class="navbar-header">
+                        <a href="/"><img src="./LogoLTC180x100.png" height="55"></a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/"><b>Long Term Care</b></a></li>
+                    </ul>
+                </ul>
+                {{> cmLeftMenu}}
+                <!-- <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <section style="height: 3px"></section>
+                        <a href="/CMdashboard" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+                            {{showname}}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/editaccount"><span class="glyphicon glyphicon-cog"></span> แก้ไขข้อมูลส่วนตัว</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a></li>
+                        </ul>
+                    </li>
+                </ul> -->
+            </div>
+        </nav>
+        <br>
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a class="btn btn-default btn-sm" href="/careplanhistory"><span class="glyphicon glyphicon-chevron-left"></span>
+                        ถอยกลับ</a>
+                    <b>แผนการดูแลรายบุคคลเพื่อเสนอต่อคณะอนุกรรมการ ฯ Long Term Care ตำบล</b>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <b>วินิจฉัย</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="t1">
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>ADL : &nbsp;</td>
+                                    <td>
+                                        <select id="ADL" placeholder="เลือก ..." class="form-control" style="width: 100px;">
+                                            <option value="0">0</option>
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                            <option value="6">6</option>
+                                            <option value="7">7</option>
+                                            <option value="8">8</option>
+                                            <option value="9">9</option>
+                                            <option value="10">10</option>
+                                            <option value="11" selected>11</option>
+                                            <option value=">11">>11</option>
+                                        </select>
+                                    </td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>TAI : &nbsp;</td>
+                                    <td>
+                                        <select id="TAI" placeholder="เลือก ..." class="form-control" style="width: 100px;">
+                                            <option selected>-</option>
+                                            <option value="B3">B3</option>
+                                            <option value="C2">C2</option>
+                                            <option value="C3">C3</option>
+                                            <option value="C4">C4</option>
+                                            <option value="I3">I3</option>
+                                            <option value="I2">I2</option>
+                                            <option value="I1">I1</option>
+                                        </select>
+                                    </td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>เป็นผู้มีภาวะพึ่งพิงจัดอยู่ในกลุ่มที่ : &nbsp;</td>
+                                    <td>
+                                        <select id="adlgroup" placeholder="เลือก ..." class="form-control" style="width: 100px;">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                        </select>
+                                    </td>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>วันที่จัดทำ : &nbsp;</td>
+                                    <td>
+                                        <input type="text" class="form-control" id="cpdate" style="width:130px">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>ข้อมูลสุขภาพเบื้องต้น (ถ้ามี)</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table width="100%">
+                                <tr>
+                                    <td width="3%"></td>
+                                    <td>
+                                        <input type="text" id="healelder" style="width: 90%;" class="form-control">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>สถานะสุขภาพ/งบประมาณเหมาจ่ายรายปีที่ขอรับการสนับสนุน</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>ขอรับการสนับสนุนงบประมาณเหมาจ่ายรายปีเป็นจำนวนเงิน &nbsp;</td>
+                                    <td>
+                                        <input type="number" id="moneysubport" style="width: 100px;" class="form-control">
+                                    </td>
+                                    <td>&nbsp; บาท </td>
+                                </tr>
+                            </table>
+                            <section style="height: 10px"></section>
+                            <table>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>รายละเอียด (ถ้ามี) &nbsp;</td>
+                                    <td>
+                                        <input type="text" id="moneysupport_detail" style="width: 700px;" class="form-control">
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>ประเด็นปัญหา/ความต้องการ</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table width="100%">
+                                <tr>
+                                    <td width="3%">&nbsp;</td>
+                                    <td>
+                                        <select id="patient" multiple placeholder="เลือก ..." style="width: 90%">
+                                            <optgroup label="ความสามารถด้านเศรษฐกิจและสังคม">
+                                                {{#each D}}
+                                                <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                {{/each}}
+                                            </optgroup>
+                                            <optgroup label="ความสามารถด้านร่างกาย">
+                                                {{#each E}}
+                                                <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                {{/each}}
+                                            </optgroup>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>เป้าหมายการดูแล</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>เป้าหมายการดำรงชีวิตระยะสั้น (น้อยกว่า 3 เดือน)</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table style="width: 90%">
+                                <tr>
+                                    <td width="5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <table border="0" class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th width="70%">เป้าหมาย</th>
+                                                    <th>ระยะเวลา</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+
+                                                {{#each shorttarget}}
+                                                <tr>
+
+                                                    <td>{{SHOTTERMNEED}}</td>
+                                                    <td>{{SHOTTERMNEEDNUM}} {{SHOTTERMNEEDDATE}}</td>
+                                                    <td>
+                                                        <button type="button" class="btn btn-danger btn-sm" id="remove">
+                                                            <span class="glyphicon glyphicon-trash"></span>
+                                                        </button>
+                                                    </td>
+
+                                                </tr>
+                                                {{/each}}
+                                                <tr>
+                                                    <td>
+                                                        <select id="shortProblem" placeholder="เลือก...">
+
+                                                            {{#each F}}
+                                                            <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                            {{/each}}
+                                                        </select>
+                                                    </td>
+                                                    <td colspan="2">
+                                                        <table>
+                                                            <tr>
+                                                                <td>
+                                                                    <select id="numtarget" class="form-control" style="width: 100px">
+                                                                        <option value="1">1</option>
+                                                                        <option value="2">2</option>
+                                                                        <option value="3">3</option>
+                                                                        <option value="4">4</option>
+                                                                        <option value="5">5</option>
+                                                                        <option value="6">6</option>
+                                                                        <option value="7">7</option>
+                                                                        <option value="8">8</option>
+                                                                        <option value="9">9</option>
+                                                                        <option value="10">10</option>
+                                                                        <option value="11">11</option>
+                                                                        <option value="12">12</option>
+                                                                        <option value="13">13</option>
+                                                                        <option value="14">14</option>
+                                                                        <option value="15">15</option>
+                                                                        <option value="16">16</option>
+                                                                        <option value="17">17</option>
+                                                                        <option value="18">18</option>
+                                                                        <option value="19">19</option>
+                                                                        <option value="20">20</option>
+                                                                        <option value="21">21</option>
+                                                                        <option value="22">22</option>
+                                                                        <option value="23">24</option>
+                                                                        <option value="25">25</option>
+                                                                        <option value="26">26</option>
+                                                                        <option value="27">27</option>
+                                                                        <option value="28">28</option>
+                                                                        <option value="29">29</option>
+                                                                        <option value="30">30</option>
+                                                                        <option value="31">31</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>
+                                                                    <select id="tpyetarget" class="form-control" style="width: 100px">
+                                                                        <option value="วัน">วัน</option>
+                                                                        <option value="สัปดาห์">สัปดาห์</option>
+                                                                        <option value="เดือน">เดือน</option>
+                                                                    </select>
+                                                                </td>
+                                                                <td>&nbsp;</td>
+                                                                <td id="add">
+                                                                    <button class="btn btn-info ">
+                                                                        <span class="glyphicon glyphicon-plus"></span>
+                                                                    </button>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>แนวนโยบายการให้ความช่วยเหลือโดยรวม(เป้าหมายระยะยาว)</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table width="100%">
+                                <tr>
+                                    <td width="5%">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <table width="95%" border="0">
+                                            <tr>
+                                                <td width="150">
+                                                    เป้าหมาย
+                                                </td>
+                                                <td colspan="3">
+                                                    <select id="longProblem" multiple placeholder="เลือก ..." style="width: 95%">
+                                                        {{#each B}}
+                                                        <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            &nbsp;&nbsp;&nbsp;&nbsp;<b>การดูแล</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table width="95%">
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td><b>General Nursing Care (การดูแลพยาบาลทั่วไป)</b></td>
+                                </tr>
+                                <tr>
+                                    <td width="5%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <select id="care1" multiple placeholder="เลือก ..." style="width: 95%">
+                                            {{#each care1}}
+                                            <option value="{{CARETYPE}}">{{CARETYPE}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td><b>Special Nursing Care(การดูแลพยาบาลเฉพาะ)</b></td>
+                                </tr>
+                                <tr>
+                                    <td width="5%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <select id="care2" multiple placeholder="เลือก ..." style="width: 95%">
+                                            {{#each care2}}
+                                            <option value="{{CARETYPE}}">{{CARETYPE}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td><b>Social Support Care (การดูแลช่วยเหลือด้านสังคม)</b></td>
+                                </tr>
+                                <tr>
+                                    <td width="5%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <select id="care3" multiple placeholder="เลือก ..." style="width: 95%">
+                                            {{#each care3}}
+                                            <option value="{{CARETYPE}}">{{CARETYPE}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td><b>Environmental Support Care (การดูแลช่วยเหลือด้านสิ่งแวดล้อม)</b></td>
+                                </tr>
+                                <tr>
+                                    <td width="5%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <select id="care4" multiple placeholder="เลือก ..." style="width: 95%">
+                                            {{#each care4}}
+                                            <option value="{{CARETYPE}}">{{CARETYPE}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>ข้อควรระวังในการให้บริการ</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table width="100%">
+                                <tr>
+                                    <td width="4%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <table width="100%">
+                                            <tr>
+                                                <td>
+                                                    <select id="warnningService" multiple placeholder="เลือก ..." style="width: 90%">
+                                                        {{#each C}}
+                                                        <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                        {{/each}}
+                                                    </select>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br><br>
+                    <center>
+                        <div class="pull-center">
+                            <button type="button" class="button blue twostep">ถัดไป</button>
+                        </div>
+                    </center>
+                    <br><br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <b>
+                        <p class="modal-title">ต้องการทำ Care Plan เพื่อใช้ปฏิบัติงานต่อหรือไม่</p>
+                    </b>
+                </div>
+                <div class="modal-body">
+                    <table width="100%">
+                        <tr>
+                            <td align="center">
+                                <button class="btn btn-success gotofullcp" id="gotofullcp" data-dismiss="modal" style="width: 400px">
+                                    ใช่ ต้องการทำ Care Plan เพื่อใช้ปฏิบัติงาน
+                                </button>
+                            </td>
+                        </tr>
+                        <br>
+                        <tr>
+                            <td align="center">
+                                <button class="btn btn-default next" id="savesimple" style="width: 400px">
+                                    ยังไม่ทำ ต้องการทำ Care Plan เพื่อใช้ปฏิบัติงานทีหลัง
+                                </button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

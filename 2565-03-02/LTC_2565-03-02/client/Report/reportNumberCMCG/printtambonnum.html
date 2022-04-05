@@ -1,0 +1,59 @@
+<template name="printtambonnum">
+        <center>
+            <h3>รายงานจำนวนผู้ปฎิบัติงานรายตำบลในอำเภอ {{zone}} </h3>
+            <h5>วันที่ {{time}}</h5>
+    
+            <br>
+            <br>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table-bordered" style="width:100%;">
+                        <thead>
+                            <th class="text-center" style="background-color:#FCECE4;font-weight:bold">ตำบล</th>
+                            <th class="text-center">CM หน่วยบริการ</th>
+                            <th class="text-center">CM อปท</th>
+                            <th class="text-center">CG หน่วยบริการ</th>
+                            <th class="text-center">CG อปท</th>
+                            <th class="text-center">CM:CG</th>
+                        </thead>
+                        <tbody>
+                            {{#each zonerep1}}
+                            <tr>
+                                <td align="center" style="background-color:#FCECE4;font-weight:bold;">{{tambon}}</td>
+                                <td align="center">{{dataded num_cm_hosp}}</td>
+                                <td align="center">{{dataded num_cm_dla}}</td>
+                                <td align="center">{{dataded num_cg_hosp}}</td>
+                                <td align="center">{{dataded num_cg_dla}}</td>
+                                <td align="center">{{CMCGRATIO_PROVINCE num_cm_hosp num_cm_dla num_cg_hosp num_cg_dla}}</td>
+                            </tr>
+                            {{/each}}
+    
+                            {{#each sumCMCG}}
+                            <tr>
+                                <td align="center" style="background-color:#FCECE4;font-weight:bold;">
+                                    <b>รวม</b>
+                                </td>
+                                <td align="center">{{dataded num_cm_hosp}}</td>
+                                <td align="center">{{dataded num_cm_dla}}</td>
+                                <td align="center">{{dataded num_cg_hosp}}</td>
+                                <td align="center">{{dataded num_cg_dla}}</td>
+                                <td align="center">{{CMCGRATIO_PROVINCE num_cm_hosp num_cm_dla num_cg_hosp
+                                    num_cg_dla}}</td>
+                            </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <canvas id="zonecm" style="width:100%;height:320px;"></canvas>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <canvas id="zonecg" style="width:100%;height:320px;"></canvas>
+                </div>
+            </div>
+        </center>
+    </template>

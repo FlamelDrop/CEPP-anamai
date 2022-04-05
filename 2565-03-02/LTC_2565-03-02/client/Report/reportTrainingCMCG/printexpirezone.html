@@ -1,0 +1,79 @@
+<template name="printexpirezone">
+    <center>
+            {{#if datatable}}
+            <center> <b>จำนวน {{personexpiry}} ที่ต้องได้รับการพื้นฟู ในปีงบประมาณ {{yearex}} {{textSelect}}</b></center>
+            {{/if}}
+        <br>
+        <br>
+        <div class="row">
+            <div class="col-md-6">
+                <div style="padding-left: 10px;padding-right: 10px;">
+                    <div id="graph-container">
+                            <canvas id="zonecm" style="width:100%;height:320px;"></canvas>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-6">
+                {{#if datatable}}
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr>
+                            <th>พื้นที่</th>
+                            <th>ต.ค.{{subminThYear minThYear}}</th>
+                            <th>พ.ย.{{subminThYear minThYear}}</th>
+                            <th>ธ.ค.{{subminThYear minThYear}}</th>
+                            <th>ม.ค.{{minThYear}}</th>
+                            <th>ก.พ.{{minThYear}}</th>
+                            <th>มี.ค.{{minThYear}}</th>
+                            <th>เม.ย.{{minThYear}}</th>
+                            <th>พ.ค.{{minThYear}}</th>
+                            <th>มิ.ย.{{minThYear}}</th>
+                            <th>ก.ค.{{minThYear}}</th>
+                            <th>ส.ค.{{minThYear}}</th>
+                            <th>ก.ย.{{minThYear}}</th>
+                            <th>รวม</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each datatable}}
+                            <tr>
+                                <td>{{province}}</td>
+                                <td>{{Intcomma oct}}</td>
+                                <td>{{Intcomma nov}}</td>
+                                <td>{{Intcomma dec}}</td>
+                                <td>{{Intcomma jan}}</td>
+                                <td>{{Intcomma fab}}</td>
+                                <td>{{Intcomma mar}}</td>
+                                <td>{{Intcomma api}}</td>
+                                <td>{{Intcomma may}}</td>
+                                <td>{{Intcomma jun}}</td>
+                                <td>{{Intcomma jul}}</td>
+                                <td>{{Intcomma aug}}</td>
+                                <td>{{Intcomma sep}}</td>
+                                <td>{{Intcomma sum}}</td>
+                            </tr>
+                        {{/each}}
+                        <tr style="background-color:#E3E3E3">
+                            <td><b>{{datatableobjsum.province}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.oct}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.nov}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.dec}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.jan}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.fab}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.mar}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.api}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.may}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.jun}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.jul}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.aug}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.sep}}</b></td>
+                            <td><b>{{Intcomma datatableobjsum.sum}}</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+                {{/if}}
+            </div>
+        </div>
+    </center>
+</template>

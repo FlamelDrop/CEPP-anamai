@@ -1,0 +1,214 @@
+<template name="printprofilecg">
+    <div class="container">
+        <section style="height: 20px"></section>
+        <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+            <span style="font-size:18px;font-weight:bold">
+                ข้อมูลส่วนตัว
+            </span>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="tbcmprofile">
+                    <tr>
+                        <td>
+                            <b>เลขบัตรประชาขน</b>
+                        </td>
+                        <td>
+                            {{profilecg.CID}}
+                        </td>
+                    </tr>
+                </table>
+                <img src="{{profilecg.IMG}}" width="150px" style="position:absolute;right:10%;top:0px;">
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="tbcmprofile">
+                    <tr>
+                        <td>
+                            <b>ชื่อ</b>
+                        </td>
+                        <td>
+                            {{profilecg.PRENAME}}{{profilecg.NAME}}
+                        </td>
+                        <td>
+                            <b>นามสกุล</b>
+                        </td>
+                        <td>
+                            {{profilecg.LNAME}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="tbcmprofile">
+                    <tr>
+                        <td>
+                            <b>เพศ</b>
+                        </td>
+                        <td>
+                            {{langsex profilecg.SEX}}&nbsp;&nbsp;&nbsp;
+                        </td>
+                        <td>
+                            <b>วันเกิด</b>
+                        </td>
+                        <td>
+                            {{briddate profilecg.BIRTH}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="tbcmprofile">
+                    <tr>
+                        <td>
+                            <b>ที่อยู่</b>
+                        </td>
+                        <td>
+                            {{profilecg.ADDRESS}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="tbcmprofile">
+                    <tr>
+                        <td>
+                            <b>เบอร์โทรติดต่อ</b>
+                        </td>
+                        <td>
+                            {{profilecg.MOBILE}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+            <span style="font-size:18px;font-weight:bold">
+                ข้อมูลหน่วยงาน
+            </span>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="tbcmprofile">
+                    {{#if profilecg.HOSPCODE}}
+                                <tr>
+                                    <td>
+                                        <b>รหัสหน่วยงาน</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.HOSPCODE.CODE}}
+                                    </td>
+                                    <td>
+                                        <b>หน่วยงาน</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.HOSPCODE.NAME}}
+                                    </td>
+                                </tr>
+                                {{else}}
+                                <tr>
+                                    <td>
+                                        <b>รหัสอปท</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.DLACODE.CODE}}
+                                    </td>
+                                    <td>
+                                        <b>อปท.</b>
+                                    </td>
+                                    <td>
+                                        {{profilecg.DLACODE.NAME}}
+                                    </td>
+                                </tr>
+                                {{/if}}
+                </table>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="tbcmprofile">
+                    <tr>
+                        <td>
+                            <b>ตำบลที่ปฏิบัติงาน</b>
+                        </td>
+                        <td>
+                            {{profilecg.tanbonname}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <br>
+        <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+            <span style="font-size:18px;font-weight:bold">
+                ข้อมูลอบรม
+            </span>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="tbcmprofile">
+                    <tr>
+                        <td>
+                            <b>อบรมโดย</b>
+                        </td>
+                        <td>
+                            {{RTRAINING_CENTER_ID_CG profilecg.TRAINING_CENTER_ID}}
+                        </td>
+                        <td>
+                            <b>วันที่เข้าอบรม</b>
+                        </td>
+                        <td>
+                            {{briddate profilecg.TRAINING_DATE}}
+                        </td>
+                        <td>
+                            <b>หลักสูตร</b>
+                        </td>
+                        <td>
+                            {{profilecg.TRAININGHOUR}}
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        {{#if profilecg.EXPIREDATEHISTORY}}
+        <div class="row">
+            <div class="col-sm-12">
+                
+                <!-- <br> -->
+                <table class="tbcmprofile">
+                    <tr valign="top">
+                        <td><b>ประวัติการการฟื้นฟูศักยภาพ</b></td>
+                        <td>
+                            <table>
+                                    {{#each profilecg.EXPIREDATEHISTORY}}
+                                    <tr>
+                                        <td>ครั้งที่ {{explusone @index}} วันที่ {{formatdate DATE}} โดย {{RTRAINING_CENTER_ID TRAINING_CENTER_ID}}</td>
+                                    </tr>
+                                    {{/each}}
+                            </table>
+                        </td>
+                    </tr>
+                    
+                </table>
+            </div>
+        </div><br>
+        {{/if}}
+        <br>
+    </div>
+</template>

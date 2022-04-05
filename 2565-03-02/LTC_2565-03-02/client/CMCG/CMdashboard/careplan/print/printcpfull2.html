@@ -1,0 +1,209 @@
+<template name="printcpfull2">
+    <!-- <span class="pull-right">{{datasimplecp.CAREPLANID}}</span> -->
+    <br>
+    <center style="font-size: 20px">
+        <b>แผนพยาบาลดูแล (Care Plan) ฉบับที่ </b> {{datasimplecp.COPY}}
+        <b>วันที่</b> {{formatdate datasimplecp.CREATEDATE}}
+        <br>
+        <b>หน่วยบริการ</b>&nbsp; {{HOSPCODE.name}}
+        <br>
+    </center>
+    <table border="1" class="careplan" style="font-size: 18px;width: 1100px">
+        <tr bgcolor="">
+            <td class="col-md-3">
+                <b>ชื่อ</b> <span style="color: black ">{{datasimplecp.PRENAME}}{{datasimplecp.NAME}}
+                    {{datasimplecp.LNAME}}</span>
+                <br>
+                <b> เลขบัตรประจำตัวประชาชน</b> <span style="color: black ">{{datasimplecp.CID}}</span>
+                <br>
+            </td>
+            <td class="col-md-3">
+                <b>ที่อยู่</b>
+                <span style="color: black ">{{datasimplecp.CURRENTADDRESS}}</span>
+                <br> <b>หมายเลขโทรศัพท์</b> <span style="color: black ">{{datasimplecp.PHONE}}</span>
+                <br>
+            </td>
+            <td class="col-md-3">
+                <b>จัดทำวันที่</b> <span style="color: black ">{{briddate datasimplecp.CREATEDATE}}</span>
+                <br>
+                <b>วินิจฉัย : </b><span style="color: black ">ADL={{datasimplecp.ADL}}, TAI={{datasimplecp.TAI}}</span>
+                <br> <b>ผู้สูงอายุภาวะพึงพิงกลุ่มที่</b>&nbsp;&nbsp;<span
+                    style="color: black ">{{datasimplecp.GRUOP}}</span>
+                <br>
+                <b>ข้อมูลสุขภาพเบื้องต้น : </b><span style="color: black ">{{listcomma datasimplecp.HEALTH}}</span>
+            </td>
+        </tr>
+        <tr bgcolor="">
+            <td class="col-md-3">
+                <b>แนวคิดของผู้ใช้บริการและครอบครัวที่มีต่อการดำรงชีวิต</b>
+                <br>
+                {{#if datasimplecp.IDEAELDER}}
+                    <b>ผู้สูงอายุ</b>
+                    <br> {{listbr datasimplecp.IDEAELDER}}
+                {{/if}}
+                {{#if datasimplecp.IDEARELATIVE}}
+                    <b>ญาติ</b>
+                    <br> {{listbr datasimplecp.IDEARELATIVE}}
+                {{/if}}
+            </td>
+            <td class="col-md-3">
+                <b>แนวนโยบายการให้ความช่วยเหลือโดยรวม (รวมถึงเป้าหมายระยะยาว)</b>
+                <br>
+                <span style="color: black ">{{listbr datasimplecp.LONGTERMNEED}}</span>
+            </td>
+            <td class="col-md-3">
+                <b>ข้อควรระวังในการให้บริการ</b>
+                <br>
+                <span style="color: black ">{{listbr datasimplecp.CAUTION}}</span>
+            </td>
+        </tr>
+        <tr bgcolor="">
+            <td class="col-md-3">
+                <b>ประเด็นปัญหาและความต้องการในการดำรงชีวิต</b>
+                <br> {{listbr datasimplecp.PATIENT}}
+            </td>
+            <td class="col-md-3">
+                <b>เป้าหมายในการดำรงชีวิต (เป้าหมายระยะสั้นภายใน 3 เดือน)</b>
+                <br>
+                <span style="color: black ">{{SHOTTERMNEEDlist datasimplecp.SHOTTERMNEED}}</span>
+            </td>
+            <td class="col-md-3">
+                <b>บริการนอกเหนือรายสัปดาห์ (รวมการช่วยเหลือของครอบครัวและinformal)</b>
+                <br>
+                {{#if datasimplecp.MEDICALEQUIPMENT}}
+                    <b>อุปกรณ์ทางการแพทย์</b>
+                    <br> {{listbr datasimplecp.MEDICALEQUIPMENT}}
+                {{/if}}
+                {{#if datasimplecp.OTHERPHYSIC}}
+                    <b>กายอุปกรณ์</b>
+                    <br> {{listbr datasimplecp.OTHERPHYSIC}}
+                {{/if}}
+                {{#if datasimplecp.OTHERSERVICE}}
+                    <b>บริการอื่นๆ</b>
+                    <br> {{listbr datasimplecp.OTHERSERVICE}}
+                {{/if}}
+            </td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <section style="height: 10px;"></section>
+                <center>
+                    <b style="font-size: 13px">กำหนดการ การช่วยเหลือของครอบครัวและการช่วยเหลือประเภท Informal</b>
+                    <section style="width: 97%;height: 1px;background-color: black"></section>
+                    <table class="table table-striped " style="width: 97%;">
+                        <thead>
+                            <tr>
+                                <th width="35%">
+                                    กิจกรรม
+                                </th>
+                                <th width="15%">
+                                    ความถี่
+                                </th>
+                                <th width="5%" style="text-align: center;">
+                                    จ.
+                                </th>
+                                <th width="5%" style="text-align: center;">
+                                    อ.
+                                </th>
+                                <th width="5%" style="text-align: center;">
+                                    พ
+                                </th>
+                                <th width="5%" style="text-align: center;">
+                                    พฤ
+                                </th>
+                                <th width="5%" style="text-align: center;">
+                                    ศ
+                                </th>
+                                <th width="5%" style="text-align: center;">
+                                    ส
+                                </th>
+                                <th width="5%" style="text-align: center;">
+                                    อ
+                                </th>
+                                <th width="15%">
+                                    ผู้รับผิดชอบ
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {{#each listcare}}
+                                <tr>
+                                    <td>
+                                        {{ACTIVITY}}
+                                    </td>
+                                    <td>
+                                        {{ADMIN}}
+                                    </td>
+                                    <td align="center">
+                                        {{#if MON}}
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        {{/if}}
+                                    </td>
+                                    <td align="center">
+                                        {{#if TUE}}
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        {{/if}}
+                                    </td>
+                                    <td align="center">
+                                        {{#if WED}}
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        {{/if}}
+                                    </td>
+                                    <td align="center">
+                                        {{#if THU}}
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        {{/if}}
+                                    </td>
+                                    <td align="center">
+                                        {{#if FRI}}
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        {{/if}}
+                                    </td>
+                                    <td align="center">
+                                        {{#if SAT}}
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        {{/if}}
+                                    </td>
+                                    <td align="center">
+                                        {{#if SUN}}
+                                            <span class="glyphicon glyphicon-ok"></span>
+                                        {{/if}}
+                                    </td>
+                                    <td>
+                                        {{CAREGIVER}}
+                                    </td>
+                                </tr>
+                            {{/each}}
+                        </tbody>
+                    </table>
+                </center>
+            </td>
+        </tr>
+        <tr>
+            <td class="col-md-3">
+                <b>กิจกรรมหลักในการดำรงชีวิต</b><br>
+                {{listbr datasimplecp.ACTIVITYBASE}}
+            </td>
+            <td colspan="2" class="col-md-6">
+                <b>ผู้จัดทำ </b> {{datasimplecp.CREATEBYNAME}} <br>
+                <b>ผู้รับผิดชอบ </b> {{datasimplecp.CGNAME}}
+                {{#if datasimplecp.CGWORKHOUR}}
+                    <b>ระยะเวลาที่ caregiver ดูแลผู้สูงอายุไม่น้อยกว่า</b>&nbsp;{{datasimplecp.CGWORKHOUR}} ชั่วโมง
+                    {{datasimplecp.CGWORKMIN}}นาที/{{datasimplecp.CGWORKFREQ}}
+                {{/if}}
+                <br><br>
+                <b>ข้าพเจ้าเห็นชอบกับการปฎิบัติตาม Care Plan นี้</b>
+                <br>
+                <section style="height: 15px"></section>
+                1)
+                ..............................................................................................................................................
+                (ผู้ป่วย/ญาติ) วดป ............................................................
+                <br>
+                <section style="height: 15px"></section> 2)
+                ..............................................................................................................................................
+                (ผู้ป่วย/ญาติ) วดป ............................................................
+            </td>
+        </tr>
+    </table>
+
+</template>

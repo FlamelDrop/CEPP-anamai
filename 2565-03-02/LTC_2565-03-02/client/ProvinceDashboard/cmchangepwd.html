@@ -1,0 +1,79 @@
+<template name="cmchangepwd">
+	<div style="background-color: #E5E8E8;background-size:cover;" id="showpic">
+        <nav class="navbar navbar-custom">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/"><img src="./LogoLTC180x100.png" height="55"></a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/"><b>Long Term Care</b></a></li>
+                </ul>
+               <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <section style="height: 3px"></section>
+                        <a href="/CMdashboard" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>{{user}}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/cmchangepwd"><span class="glyphicon glyphicon-lock"></span> เปลี่ยนรหัสผ่าน</a></li>
+                            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+        	<ol class="breadcrumb">
+                <li><a href="#" id="back">หน้าแรก</a></li>
+                <li class="active">เปลี่ยนรหัสผ่าน</li>
+            </ol>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="container">
+                    	<div class="row">
+                            <div class="col-sm-3">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="120"><b>ชื่อผู้ใช้งาน</b></td>
+                                        <td>
+                                            <input type="text" id="username" class="form-control" value="{{username}}" disabled>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <section style="height: 15px"></section>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="120"><b>รหัสผ่าน</b></td>
+                                        <td>
+                                            <input type="password" id="password" class="form-control" placeholder="">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-sm-3">
+                                <table width="100%">
+                                    <tr>
+                                        <td width="120"><b>ยืนยันรหัสผ่าน</b></td>
+                                        <td>
+                                            <input type="password" id="passwordq" class="form-control" placeholder="">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <section style="height: 20px"></section>
+                            <center>
+                                <a class="btn btn-primary " id="save">
+                                <span class="glyphicon glyphicon-floppy-disk"></span> &nbsp; บันทึก
+                            </a>
+                            </center>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

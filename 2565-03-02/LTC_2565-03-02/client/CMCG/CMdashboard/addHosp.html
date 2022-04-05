@@ -1,0 +1,228 @@
+<template name="addHosp">
+    <nav class="navbar navbar-custom" style="font-size: 14px;">
+        <div class="container-fluid">
+            <ul class="nav navbar-nav">
+                <div class="navbar-header">
+                    <a href="/">
+                        <img src="./LogoLTC180x100.png" height="55">
+                    </a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">
+                            <b>Long Term Care</b>
+                        </a>
+                    </li>
+
+                    <li>
+
+                        <a href="#" id="viewCG">
+                            <i class="fa fa-file" style="font-size:16px"></i>
+                            <b>&nbsp;Care Giver</b>
+                        </a>
+                    </li>
+                    <li>
+
+                        <a href="#" id="viewElder" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-file" style="font-size:16px"></i>
+                            <b>&nbsp;ผู้สูงอายุทั้งหมด</b>
+                        </a>
+                        <!-- <ul class="dropdown-menu">
+    
+                                </ul> -->
+                    </li>
+                    <li>
+                        <a href="#" id="viewBetterElder">
+                            <i class="fa fa-file" style="font-size:16px"></i>
+                            <b>&nbsp;ผู้สูงอายุดีขึ้น</b>
+                        </a>
+                    </li>
+                    <li class="divider"></li>
+                    <li>
+                        <a href="#" id="viewDeathElder">
+                            <i class="fa fa-file" style="font-size:16px"></i>
+                            <b>&nbsp;ผู้สูงอายุเสียชีวิต</b>
+
+                        </a>
+                    </li>
+
+                </ul>
+            </ul>
+            <!-- <ul class="nav navbar-nav navbar-right">
+    
+                        <li class="dropdown">
+                            <section style="height: 3px"></section>
+                            <a href="/CMdashboard" class="dropdown-toggle" data-toggle="dropdown">
+                                <span class="glyphicon glyphicon-user"></span> {{showname}}</a>
+                            <ul class="dropdown-menu">
+                                <li>
+    
+                                    <a href="#" id="viewProfile">
+                                        <span class="glyphicon glyphicon-home"></span>
+                                        ข้อมูลส่วนตัว
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/editaccount">
+                                        <span class="glyphicon glyphicon-cog"></span> แก้ไขข้อมูลส่วนตัว</a>
+                                </li>
+                                <li>
+                                    <a href="/addhosp">
+                                        <span class="glyphicon glyphicon-plus"></span> เพิ่มหน่วยบริการ</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="/logout">
+                                        <span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul> -->
+            {{> cmLeftMenu}}
+        </div>
+    </nav>
+    <div></div>
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <a class="btn btn-primary btn-sm" href="/CMdashboard">
+                    <span class="glyphicon glyphicon-chevron-left"></span> ถอยกลับ</a>&nbsp;&nbsp;
+                <b>เพิ่มหน่วยบริการ CM</b>
+            </div>
+            <div class="panel-body">
+                <div class="container">
+                    <section style="height: 15px"></section>
+                    <div style="width:90%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                        <span style="font-size:18px;font-weight:bold">
+                            ข้อมูลหน่วยงาน
+                        </span>
+                    </div>
+                    <section style="height: 15px"></section>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td width="120px">
+                                        <b>เลือกหน่วยงาน</b> &nbsp;</td>
+                                    <td>
+                                        <label class="radio-inline">
+                                            <input type="radio" id="radio_company" name="optradio">สถานบริการ</label>
+                                        <label class="radio-inline">
+                                            <input type="radio" id="radio_dla" name="optradio">อปท.</label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 15px"></section>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <table width="100%" border="0" class="addHospTable">
+                                <tr>
+                                    <td width="550">
+
+                                        {{#if switchCompany}}
+
+                                        {{> select_company_addhosp}}
+                                        {{else}}
+
+                                        {{> select_dla_addhosp}}
+                                        {{/if}}
+                                        {{Namehos}}
+                                    </td>
+                                    <td>
+                                        <a class="btn btn-success " id="add">
+                                            <span class="glyphicon glyphicon-plus"></span> &nbsp; เพิ่ม
+                                        </a>
+                                        <div></div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+
+
+
+                        <!-- <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                            <center>
+                               
+                            </center>
+                        </div> -->
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="width:95%">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>รหัส</th>
+                                        <th>หน่วยบริการ</th>
+                                        <th class="text-center">สถานะการอนุมัติ</th>
+                                        <th class="text-center">พิจรณาเมื่อ</th>
+                                        <th class="text-center">หมายเหตุ</th>
+                                        <th class="text-center">ยกเลิก</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each listCompany}}
+                                    <tr>
+                                        <td>{{CODE}}</td>
+                                        <td>{{NAME}}</td>
+                                        <td class="text-center">{{SECONDARY_HOSP_STATUS approve}}</td>
+                                        <td class="text-center">{{formatdate approveAt}}</td>
+                                        <td>{{remark}}</td>
+                                        <td class="text-center">
+                                            <a href="#" id="remove"><span class="glyphicon glyphicon-remove"
+                                                    aria-hidden="true" style="font-size:18px"></span></a>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    {{#if haveData}}
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            <div class="text-center">
+                                <a class="btn btn-primary " id="save">
+                                    <span class="glyphicon glyphicon-floppy-disk"></span> &nbsp; บันทึก
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</template>
+
+<template name="select_dla_addhosp">
+    <table width="100%" border="0">
+        <tr>
+            <td width="80">
+                <b>
+                    <div style="height:5px"></div>อปท.
+                </b> &nbsp;</td>
+            <td width="410">
+                <select id="dla" class="dla" style="width: 410px" placeholder="พิมพ์เพื่อค้นหา">
+                </select>
+            </td>
+        </tr>
+    </table>
+</template>
+<template name="select_company_addhosp">
+    <table width="100%" border="0">
+        <tr>
+            <td width="100">
+                <b>
+                    <div style="height:5px"></div>หน่วยงาน
+                </b> &nbsp;</td>
+            <td width="450">
+                <select id="companyName" class="companyName" style="width: 450px" placeholder="พิมพ์เพื่อค้นหา">
+                </select>
+            </td>
+        </tr>
+    </table>
+</template>

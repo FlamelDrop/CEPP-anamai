@@ -1,0 +1,226 @@
+<template name="careplanhistory">
+    <div>
+        <nav class="navbar navbar-custom" style="font-size: 14px;">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <div class="navbar-header">
+                        <a href="/"><img src="./LogoLTC180x100.png" height="55"></a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/"><b>Long Term Care</b></a></li>
+                    </ul>
+                </ul>
+                {{> cmLeftMenu}}
+                <!-- <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <section style="height: 3px"></section>
+                        <a href="/CMdashboard" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+                            {{showname}}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/editaccount"><span class="glyphicon glyphicon-cog"></span> แก้ไขข้อมูลส่วนตัว</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a></li>
+                        </ul>
+                    </li>
+                </ul> -->
+            </div>
+        </nav>
+        <br>
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a class="btn btn-default btn-sm" href="/CMdashboard"><span
+                            class="glyphicon glyphicon-chevron-left"></span>
+                        ถอยกลับ</a>
+                    <b>แผนการดูแลรายบุคคล</b>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <section style="height: 10px"></section>
+                            <div class="pull-left">
+                                <b style="font-size: 18px;">ประวัติการทำ Careplan ของ {{nameelder}}</b>
+                            </div>
+                            <div class="pull-right">
+                                <button type="button" class="button blue create" id="add">
+                                    <b>เพิ่ม Careplan</b>
+                                </button>
+                                <button type="button" class="button blue" id="copy_cp">
+                                    <b>คัดลอก Careplan</b>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <br> {{#if listCpHistory}}
+                        <div class="row">
+                            <div class="col-md-12">
+                                <table class="table table-striped">
+                                    <thead>
+                                        <tr valign="center">
+                                            <td><b></b></td>
+                                            <td><b>ฉบับที่</b></td>
+                                            <td><b>รหัส Careplan</b></td>
+                                            <td><b>จัดทำวันที่</b></td>
+                                            <td><b>ผู้จัดทำ</b></td>
+                                            <td align="center"><b>แผนดูแลเพื่อเสนอต่อคณะอนุกรรมการ ฯ</b></td>
+                                            <td align="center"><b>แผนดูแลเพื่อใช้ปฏิบัติงาน</b></td>
+                                            <td align="center"><b>แก้ไข</b></td>
+                                            <td align="center"><b>ลบ</b></td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each listCpHistory}}
+                                            <tr>
+                                                <td>
+                                                    <label class="checkbox_blue slim_font" style="margin-left:20px;">
+                                                        <input type="radio" name="b1_1" id="{{_id}}" value="{{_id}}">
+                                                        <span class="checkmark"></span>
+                                                    </label>
+                                                </td>
+                                                <td>
+                                                    <!-- ฉบับที่ -->
+                                                    {{COPY}}
+                                                </td>
+                                                <td style="text-align:center">
+                                                    <!--  รหัส Careplan -->
+                                                    {{#if COPYFROM}}
+                                                        <span style="color:red">คัดลอกจาก {{copyFrom}}</span>
+                                                    {{else}}
+                                                        <span>-</span>
+                                                    {{/if}}
+                                                </td>
+                                                <td><a href="#" id="editdate">{{formatdate CREATEDATE}}</a></td>
+                                                <td>{{CREATEBYNAME}}</td>
+                                                <td align="center">
+                                                    <button type="button" class="btn btn-success btn-sm"
+                                                        id="printsimple">
+                                                        <b><span class="fa fa-book" style="font-size: 20px"></span></b>
+                                                    </button>
+                                                </td>
+                                                <td align="center">
+                                                    {{#if fullcp}}
+                                                        <button type="button" class="btn btn-success btn-sm"
+                                                            id="printfull">
+                                                            <b><span class="fa fa-book"
+                                                                    style="font-size: 20px"></span></b>
+                                                        </button>
+                                                    {{else}}
+                                                        <button type="button" class="btn btn-warning btn-sm"
+                                                            id="addfull">
+                                                            <b><span class="fa fa-pencil"
+                                                                    style="font-size: 20px"></span></b>
+                                                        </button>
+                                                    {{/if}}
+                                                </td>
+                                                <td align="center">
+                                                    <button type="button" class="btn btn-warning btn-sm" id="edit">
+                                                        <b><span class="fa fa-cog" style="font-size: 20px"></span></b>
+                                                    </button>
+                                                </td>
+                                                <td align="center">
+                                                    <button type="button" class="btn btn-danger btn-sm" id="remove">
+                                                        <b><span class="fa fa-trash" style="font-size: 20px"></span></b>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    {{else}}
+                        <center>ไม่พบข้อมูล Careplan</center>
+                    {{/if}}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="e_datecp" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <section style="height: 20px"></section>
+                    <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                        <span style="font-size:18px;font-weight:bold">
+                            แก้ไขวันที่จัดทำ
+                        </span>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table width="60%">
+                                <tr>
+                                    <td width="20%">
+                                        <b>วันที่จัดทำ</b>
+                                    </td>
+                                    <td width="60%">
+                                        <input type="text" class="form-control" id="cpdate" style="width:80%">
+                                    </td>
+                                    <td width="20%">
+
+                                        <button type="button" class="btn btn-primary" id="s_cpdate">บันทึก</button>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="m_budgetYear" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <section style="height: 20px"></section>
+                    <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                        <span style="font-size:18px;font-weight:bold">
+                            ปีงบประมาณที่ผู้สูงอายุได้รับงบจาก สปสช.
+                        </span>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table width="50%">
+                                <tr>
+                                    <td width="20%">
+                                        <b>ปีงบประมาณ</b>
+                                    </td>
+                                    <td width="40%">
+                                        <select id="byear" class="form-control">
+                                            <option value="2558">2558</option>
+                                            <option value="2559">2559</option>
+                                            <option value="2560">2560</option>
+                                            <option value="2561">2561</option>
+                                            <option value="2562">2562</option>
+                                            <option value="2563">2563</option>
+                                            <option value="2564">2564</option>
+                                            <option value="2565">2565</option>
+                                            <option value="2566">2566</option>
+                                            <option value="2567">2567</option>
+                                            <option value="2568">2568</option>
+                                            <option value="2569">2569</option>
+                                            <option value="2570">2570</option>
+                                        </select>
+
+                                    </td>
+                                    <td> &nbsp;&nbsp;&nbsp;</td>
+                                    <td width="20%">
+
+                                        <button type="button" class="btn btn-primary" id="next">ต่อไป</button>
+
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

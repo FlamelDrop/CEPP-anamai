@@ -1,0 +1,372 @@
+<template name="province">
+    <div>
+        <nav class="navbar navbar-custom">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a href="/">
+                        <img src="./LogoLTC180x100.png" height="55">
+                    </a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="/">
+                            <b>Long Term Care</b>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <section style="height: 3px"></section>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-user"></span> จังหวัด{{user}}</a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="/cmchangepwd">
+                                    <span class="glyphicon glyphicon-lock"></span> เปลี่ยนรหัสผ่าน</a>
+                            </li>
+                            <li>
+                                <a href="/logout">
+                                    <span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <ol class="breadcrumb">
+                <li class="active">หน้าแรก / 
+                    <!--<a href="/provinceevaluateltc">ประเมินตำบล</a> / -->
+                    <a                    href="/tambon_assessment">ประเมินตำบล (6 องค์ประกอบ)</a></li>
+            </ol>
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div style="width:70%; height:20px; border-bottom: 1px solid black; text-align:left;">
+                        <span
+                            style="font-size:16px;font-weight:bold">ระบบการดูแลระยะยาวด้านสาธารณสุขสำหรับผู้สูงอายุที่มีภาวะพึ่งพิง
+                            (Long Term Care) จังหวัด{{user}}</span>
+                    </div>
+                    <br>
+                    <table width="100%" class="hpctable">
+                        <tr>
+                            <td class="paddingLeft">
+                                จำนวน CG รออนุมัติทั้งหมด
+                                <span
+                                    style="font-weight: bold;color: blue;font-size: 18px">&nbsp;{{countcg}}&nbsp;</span>
+                                คน &nbsp;&nbsp;
+                                <a href="/approvecg" class="btn btn-default btn-sm">
+                                    <b>ตรวจสอบ</b>
+                                </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <br>
+                                <br>
+                            </td>
+                            <td  class="paddingLeft">
+                                จำนวน CM ที่ขอเพิ่มหน่วยบริการ&nbsp;
+                                <span
+                                    style="font-weight: bold;color: blue;font-size: 18px">&nbsp;{{dataded countSecondayHosp}}&nbsp;คน</span>
+                                <a href="/provinceapprovehosp" class="btn btn-default btn-sm">
+                                    <b>ตรวจสอบ</b>
+                                </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                <br>
+                                <br>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td  class="paddingLeft">
+                                
+                                   
+                                        จำนวน CG ที่ต้องฟื้นฟูศักยภาพทั้งหมด&nbsp;
+                                        <span style="font-weight: bold;color: blue;font-size: 18px">&nbsp;{{dataded
+                                                getZonelistApproveCGex}}&nbsp;</span> คน&nbsp;&nbsp;
+                                        
+                                            <a href="/provinceapprovecgex"
+                                                class="btn btn-default btn-sm"><b>ตรวจสอบ</b></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                                                <br>
+                                                <br>
+                            </td>
+                            <td  class="paddingLeft">
+                                <!-- <table style="width: 100%">
+                                    <tr>
+                                        <td>จำนวน CM ที่ต้องฟื้นฟูศักยภาพทั้งหมด&nbsp;</td>
+                                        <td><span style="font-weight: bold;color: blue;font-size: 18px">&nbsp;{{dataded
+                                                getZonelistApproveCMex}}&nbsp;คน</span></td>
+                                        <td>
+                                            &nbsp;&nbsp;<a href="/hpcapprovecmex"
+                                                class="btn btn-default btn-sm"><b>ตรวจสอบ</b></a>
+                                        </td>
+                                    </tr>
+                                </table> -->
+                                <br>
+                                <br>
+                            </td>
+                        </tr>
+                        <tr valign="buttom">
+                            <td  class="paddingLeft" style="border-right:3px solid black">
+                                <div style="width:70%; height:20px; border-bottom: 1px solid black; text-align:left;">
+                                    <span style="font-size:16px;font-weight:bold">ลักษณะการปฏิบัติงาน CG</span>
+                                </div>
+                                <br>
+                                <div style="width: 400px;height: 370px">
+                                    <canvas id="myChartCG" style="width: 400px;height: 370px"></canvas>
+                                </div>
+                                <br>
+                                <br>
+
+
+                            </td>
+                            <td  class="paddingLeft">
+                                <div style="width:70%; height:20px; border-bottom: 1px solid black; text-align:left;">
+                                    <span style="font-size:16px;font-weight:bold">ลักษณะการปฏิบัติงาน CM</span>
+                                </div>
+                                <br>
+                                <div style="width: 400px;height: 370px">
+                                    <canvas id="myChartCM" style="width: 400px;height: 370px"></canvas>
+                                </div>
+                                <br>
+                                <br>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            
+                            <td style="border-right:3px solid black">
+                                <center>
+                                <table class="subhpctable" width="380px">
+                                    <tr style="font-weight: bold;color: black">
+                                        <td align="right"> ทั้งหมด</td>
+                                        <td align="center"
+                                            style="font-weight: bold;color: black;font-size: 18px;width: 70px">
+                                            &nbsp;{{ countTypecg.all}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="allcg">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="padding-left: 6% !important;">
+                                            <section style="width: 100%;background-color: gray;height: 1px"></section>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color: green">
+                                        <td align="right">ดูแลผู้สูงอายุตาม Care Plan</td>
+                                        <td align="center" style="font-weight: bold;font-size: 18px;">
+                                            &nbsp;{{ countTypecg.active}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="activecg">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color: #0092ff">
+                                        <td align="right"> ยังไม่มีผู้สูงอายุในความดูแล</td>
+                                        <td align="center" style="font-weight: bold;color: #0092ff;font-size: 18px;">
+                                            &nbsp;{{ countTypecg.nonactiove}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="nonactivecg">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color: #ff00ff">
+                                        <td align="right"> ต้องได้รับการฟื้นฟูศักยภาพ</td>
+                                        <td align="center" style="font-weight: bold;color: #ff00ff;font-size: 18px;">
+                                            &nbsp;{{ countTypecg.EXPIRED}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="EXPIREDcg">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color:orange">
+                                        <td align="right"> ลาออก</td>
+                                        <td align="center" style="font-weight: bold;color: orange;font-size: 18px;">
+                                            &nbsp;{{ countTypecg.QUIT}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="QUITcg">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color: red">
+                                        <td align="right"> เสียชีวิต</td>
+                                        <td align="center" style="font-weight: bold;color: red;font-size: 18px;">
+                                            &nbsp;{{ countTypecg.DEATH}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="DEATHcg">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                            </td>
+                            
+                            
+                            <td>
+                            <center>
+                                <table class="subhpctable" width="380px">
+                                    <tr style="font-weight: bold;color: black">
+                                        <td align="right"> ทั้งหมด</td>
+                                        <td align="center"
+                                            style="font-weight: bold;color: black;font-size: 18px;width: 70px;">
+                                            &nbsp;{{ countTypecm.all}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="allcm">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color: black">
+                                        <td align="right"> CM ที่ปฎิบัติงานหลายหน่วยบริการ</td>
+                                        <td align="center"
+                                            style="font-weight: bold;color: black;font-size: 18px;width: 70px;">
+                                            &nbsp;{{ dataded countcmSecondHosp}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="allhosp">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="4" style="padding-left: 6% !important;">
+                                            <section style="width: 100%;background-color: gray;height: 1px"></section>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color: green">
+                                        <td align="right">CM ปฏับัติการ</td>
+                                        <td align="center" style="font-weight: bold;font-size: 18px;">
+                                            &nbsp;{{ countTypecm.active}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="activecm">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color: #0092ff">
+                                        <td align="right">CM บริหาร</td>
+                                        <td align="center" style="font-weight: bold;color: #0092ff;font-size: 18px;">
+                                            &nbsp;{{ countTypecm.nonactiove}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="nonactivecm">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color: #ff00ff">
+                                        <td align="right">ต้องได้รับการฟื้นฟูศักยภาพ</td>
+                                        <td align="center" style="font-weight: bold;color: #ff00ff;font-size: 18px;">
+                                            &nbsp;{{ countTypecm.EXPIRED}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="EXPIREDcm">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color: purple">
+                                        <td align="right">เกษียณอายุการทำงาน</td>
+                                        <td align="center" style="font-weight: bold;color: purple;font-size: 18px;">
+                                            &nbsp;{{ countTypecm.RETIRED}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="RETIREDcm">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color:orange">
+                                        <td align="right"> ลาออก</td>
+                                        <td align="center" style="font-weight: bold;color:orange;font-size: 18px;">
+                                            &nbsp;{{ countTypecm.QUIT}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="QUITcm">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color:red">
+                                        <td align="right">เสียชีวิต</td>
+                                        <td align="center" style="font-weight: bold;color: red;font-size: 18px;">
+                                            &nbsp;{{ countTypecm.DEATH}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="DEATHcm">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr style="font-weight: bold;color:#6d726d">
+                                        <td align="right">เปลี่ยนงาน / ย้ายงาน</td>
+                                        <td align="center" style="font-weight: bold;color: #6d726d;font-size: 18px;">
+                                            &nbsp;{{ countTypecm.CHANGE}}&nbsp;
+                                        </td>
+                                        <td>คน &nbsp;&nbsp;</td>
+                                        <td>
+                                            <a id="CHANGEcm">
+                                                <i style="font-weight: bold;font-size: 18px" class="fa fa-search"
+                                                    aria-hidden="true"></i>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </center>
+                            </td>
+                            
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    td{
+        padding-left: 0% !important;
+    }
+    .paddingLeft{
+        padding-left: 7% !important;
+    }
+    </style>
+</template>

@@ -1,0 +1,654 @@
+<template name="fullcareplan">
+    <div>
+        <nav class="navbar navbar-custom" style="font-size: 14px;">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <div class="navbar-header">
+                        <a href="/"><img src="./LogoLTC180x100.png" height="55"></a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/"><b>Long Term Care</b></a></li>
+                    </ul>
+                </ul>
+                {{> cmLeftMenu}}
+                <!-- <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <section style="height: 3px"></section>
+                        <a href="/CMdashboard" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>
+                            {{showname}}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/editaccount"><span class="glyphicon glyphicon-cog"></span> แก้ไขข้อมูลส่วนตัว</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a></li>
+                        </ul>
+                    </li>
+                  
+                </ul> -->
+            </div>
+        </nav>
+        <br>
+        <div class="container">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <a class="btn btn-default btn-sm" href="/careplanhistory"><span class="glyphicon glyphicon-chevron-left"></span>
+                        ถอยกลับ</a>
+                    <b>
+                        แผนการดูแลรายบุคคลเพื่อใช้ในการปฎิบัติงาน
+                    </b>
+                </div>
+                <div class="panel-body">
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>แนวคิดของผู้ใช้บริการและครอบครัวที่มีต่อการดำรงชีวิต</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td>&nbsp;&nbsp;</td>
+                                    <td>ผู้สูงอายุ</td>
+                                </tr>
+                                <section style="height: 10px"></section>
+                                <tr>
+                                    <td>&nbsp;&nbsp;</td>
+                                    <td style="width: 95%">
+                                        <select id="thinkelder" multiple placeholder="เลือก ..." style="width: 95%">
+                                            {{#each A1}}
+                                            <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <section style="height: 10px"></section>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>ญาติ / ผู้ดูแล</td>
+                                </tr>
+                                <section style="height: 10px"></section>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <select id="thinkrelative" multiple placeholder="เลือก ..." style="width: 95%">
+                                            {{#each A2}}
+                                            <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>บริการที่นอกเหนือจากรายสัปดาห์ (รวมการช่วยเหลือของครอบครัว และInformal)</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table width="100%" border="0">
+                                <tr>
+                                    <td style="width: 5%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>บริการอื่นๆ</td>
+                                </tr>
+                                <section style="height: 10px"></section>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <select id="otherservice" multiple placeholder="เลือก ..." style="width: 95%">
+                                            {{#each G1}}
+                                            <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <section style="height: 10px"></section>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>กายอุปกรณ์</td>
+                                </tr>
+                                <section style="height: 10px"></section>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <select id="otherphysic" multiple placeholder="เลือก ..." style="width: 95%">
+                                            {{#each G2}}
+                                            <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                                <section style="height: 10px"></section>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>อุปกรณ์ทางการแพทย์</td>
+                                </tr>
+                                <section style="height: 10px"></section>
+                                <tr>
+                                    <td>&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                                    <td>
+                                        <select id="otherdoctor" multiple placeholder="เลือก ..." style="width: 95%">
+                                            {{#each G3}}
+                                            <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>กิจกรรมหลักในการดำรงชีวิต</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table border="0" style="width:100%">
+                                <tr>
+                                    <td width="50px"></td>
+                                    <td>
+                                        <select id="activitybase" multiple placeholder="เลือก ..." style="width: 95%">
+                                            <option value="ตื่นนอน">ตื่นนอน</option>
+                                            <option value="ล้างหน้า">ล้างหน้า</option>
+                                            <option value="ดูแลเตรียมอาหารและรับประทานอาหารเช้า กลางวัน และเย็นโดยญาติ">ดูแลเตรียมอาหารและรับประทานอาหารเช้า
+                                                กลางวัน และเย็นโดยญาติ</option>
+                                            <option value="ดูแลเตรียมอาหารและรับประทานอาหารเช้า กลางวัน และเย็นโดย Caregiver ">ดูแลเตรียมอาหารและรับประทานอาหารเช้า
+                                                กลางวัน และเย็นโดย Caregiver </option>
+                                            <option value="ดูแลเตรียมให้ยาโดยญาติ">ดูแลเตรียมให้ยาโดยญาติ</option>
+                                            <option value="ดูแลเตรียมให้ยาโดย Caregiver">ดูแลเตรียมให้ยาโดย Caregiver</option>
+                                            <option value="รับประทานยา">รับประทานยา</option>
+                                            <option value="กายภาพบำบัดโดยญาติ">กายภาพบำบัดโดยญาติ</option>
+                                            <option value="กายภาพบำบัดโดย Caregiver ">กายภาพบำบัดโดย Caregiver </option>
+                                            <option value="ออกกำลังกาย">ออกกำลังกาย</option>
+                                            <option value="เปลี่ยนผ้าอ้อม">เปลี่ยนผ้าอ้อม</option>
+                                            <option value="สวดมนต์">สวดมนต์</option>
+                                            <option value="นอนหลับ">นอนหลับ</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <hr>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <b>กำหนดการรายสัปดาห์</b>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table width="90%" class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 30%">
+                                            <select id="activity" placeholder="เลือก ..." style="width: 100%">
+                                                <optgroup label="ทำความสะอาดร่างกายและสิ่งแวดล้อมทั่วไป">
+                                                    {{#each Ac11}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="โภชนาการ">
+                                                    {{#each Ac12}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การเคลื่อนย้าย">
+                                                    {{#each Ac13}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การอาบน้ำ">
+                                                    {{#each Ac14}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การช่วยในระบบขับถ่าย (ปัสสาวะ)">
+                                                    {{#each Ac15}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การช่วยในระบบขับถ่าย (อุจจาระ)">
+                                                    {{#each Ac16}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="ท้อง (stomach)">
+                                                    {{#each Ac25}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="อวัยวะสืบพันธุ์ (Genital organs) และสะโพก (hip)">
+                                                    {{#each Ac26}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="สะโพก (hip)">
+                                                    {{#each Ac27}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="สุขภาพจิค และกิจกรรมผ่อนคลายความเครียด">
+                                                    {{#each Ac28}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="บริการพิเศษอื่นๆ">
+                                                    {{#each Ac29}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การรับบริการสวัสดิการทางสังคม">
+                                                    {{#each Ac34}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การหารายได้และความมั่นคงในครอบครัว">
+                                                    {{#each Ac35}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การจัดการสภาพแวดล้อมและการปรับสภาพบ้านให้ปลอดภัยต่อผู้สูงอายุ">
+                                                    {{#each Ac41}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                            </select>
+                                        </th>
+                                        <th style="width: 25%">
+                                            <select id="admincode" style="width: 100%">
+                                                {{#each listAdmincode}}
+                                                <option value="{{ADMINNAME}}">{{ADMINNAME}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="mon"> จ.
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="tue"> อ.
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="wed"> พ
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="thu"> พฤ
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="fri"> ศ
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="sat"> ส
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="sun"> อ
+                                        </th>
+                                        <th style="width: 20%">
+                                            <select id="person" style="width: 100%">
+                                                <option value="แพทย์">แพทย์</option>
+                                                <option value="ทันตแพทย์">ทันตแพทย์</option>
+                                                <option value="เภสัชกร">เภสัชกร</option>
+                                                <option value="พยาบาล">พยาบาล</option>
+                                                <option value="นักจิตวิทยา">นักจิตวิทยา</option>
+                                                <option value="นักโภชนาการ">นักโภชนาการ</option>
+                                                <option value="เจ้าาหน้าที่สาธารณะสุข">เจ้าหน้าที่สาธารณสุข</option>
+                                                <option value="เจ้าหน้าที่แผนไทย">เจ้าหน้าที่แผนไทย</option>
+                                                <option value="ผู้ดูแลผู้สูงอายุ(CG)">ผู้ดูแลผู้สูงอายุ(CG)</option>
+                                                <option value="ครอบครัว">ครอบครัว</option>
+                                                <option value="นักกายภาพบำบัด">นักกายภาพบำบัด</option>
+                                                <option value="นักกิจกรรมบำบัด">นักกิจนักกิจกรรมบำบัด</option>
+                                                <option value="นักสังคมสงเคราะห์">นักสังคมสงเคราะห์</option>
+                                                <option value="นักพัฒนาชุมชน">นักพัฒนาชุมชน</option>
+                                                <option value="นักทันตาภิบาล">ทันตาภิบาล</option>
+                                            </select>
+                                        </th>
+                                        <th id="add">
+                                            <button class="btn btn-info ">
+                                                <span class="glyphicon glyphicon-plus"></span>
+                                            </button>
+                                            <section style="height: 7px"></section>
+                                        </th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="35%">
+                                            กิจกรรม
+                                        </th>
+                                        <th width="15%">
+                                            ความถี่
+                                        </th>
+                                        <th width="5%" align="center">
+                                            จ.
+                                        </th>
+                                        <th width="5%" align="center">
+                                            อ.
+                                        </th>
+                                        <th width="5%" align="center">
+                                            พ
+                                        </th>
+                                        <th width="5%" align="center">
+                                            พฤ
+                                        </th>
+                                        <th width="5%" align="center">
+                                            ศ
+                                        </th>
+                                        <th width="5%" align="center">
+                                            ส
+                                        </th>
+                                        <th width="5%" align="center">
+                                            อ
+                                        </th>
+                                        <th width="15%">
+                                            ผู้รับผิดชอบ
+                                        </th>
+                                        <th>
+                                            <b>แก้ไข</b>
+                                        </th>
+                                        <th>
+                                            <b>ลบ</b>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{#each listcare}}
+                                    <tr>
+                                        <td>
+                                            {{ACTIVITY}}
+                                        </td>
+                                        <td>
+                                            {{ADMIN}}
+                                        </td>
+                                        <td align="center">
+                                            <input type="checkbox" checked="{{MON}}" disabled>
+                                        </td>
+                                        <td align="center">
+                                            <input type="checkbox" checked="{{TUE}}" disabled>
+                                        </td>
+                                        <td align="center">
+                                            <input type="checkbox" checked="{{WED}}" disabled>
+                                        </td>
+                                        <td align="center">
+                                            <input type="checkbox" checked="{{THU}}" disabled>
+                                        </td>
+                                        <td align="center">
+                                            <input type="checkbox" checked="{{FRI}}" disabled>
+                                        </td>
+                                        <td align="center">
+                                            <input type="checkbox" checked="{{SAT}}" disabled>
+                                        </td>
+                                        <td align="center">
+                                            <input type="checkbox" checked="{{SUN}}" disabled>
+                                        </td>
+                                        <td>
+                                            {{CAREGIVER}}
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-info btn-sm" id="edit" data-toggle="modal"
+                                                data-target="#editactivity">
+                                                <span class="glyphicon glyphicon-wrench"></span>
+                                            </button>
+                                        </td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger btn-sm" id="remove">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    {{/each}}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table>
+                                <tr>
+                                    <td><b>ระยะเวลาที่ caregiver ดูแลผู้สูงอายุไม่น้อยกว่า</b>&nbsp;</td>
+                                    <td><input type="number" class="form-control" id="cgworkhour" style="width: 80px"></td>
+                                    <td>&nbsp;<b>ชั่วโมง</b>&nbsp;</td>
+                                    <td><input type="number" class="form-control" id="cgworkmin" style="width: 80px"></td>
+                                    <td>&nbsp;<b>นาที / </b>&nbsp;</td>
+                                    <td>
+                                        <select class="form-control" id="cgworkfreq">
+                                            <option value="วัน"><b>วัน</b></option>
+                                            <option value="สัปดาห์"><b>สัปดาห์</b></option>
+                                            <option value="เดือน"><b>เดือน</b></option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <table>
+                                <tr>
+                                    <td><b>หน่วยงาน</b></td>
+                                    <td>&nbsp;</td>
+                                    <td>
+                                       {{listCompany}}
+                                    </td>
+                                    <td>&nbsp;&nbsp;</td>
+                                    <td><b>caregiver</b></td>
+                                    <td>&nbsp;</td>
+                                    <td>
+                                        <select id="cg" class="form-control" style="width: 300px">
+                                           
+                                            {{#if cgname.CGID}}
+                                            <option value="{{cgname.CGID}}" >{{cgname.CGNAME}}</option>
+                                            {{else}}
+                                            <option value="" selected></option>
+                                            {{/if}}
+                                            
+                                            {{#each cglist}}
+                                            <option value="{{CID}}">{{PRENAME}}{{NAME}} {{LNAME}}</option>
+                                            {{/each}}
+                                        </select>
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </div>
+                    </div>
+                    <section style="height: 10px"></section>
+                    <div class="row">
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+                    <br>
+                    <br>
+                    <center>
+                        <div class="pull-center">
+                            <button type="button" class="button blue " id="finish">เสร็จสิ้น</button>
+                        </div>
+                    </center>
+                    <br>
+                    <br>
+                </div>
+                <br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="editactivity" role="dialog">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <section style="height: 20px"></section>
+                    <div style="width:95%; height:30px; border-bottom: 1px solid black; text-align:left;">
+                        <span style="font-size:18px;font-weight:bold">
+                            แก้ไขกำหนดการรายสัปดาห์
+                        </span>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+
+                            <table width="90%" class="table">
+                                <thead>
+                                    <tr>
+                                        <th style="width: 30%">
+                                            <select id="edit_act" placeholder="เลือก ..." style="width: 100%">
+                                                <optgroup label="ทำความสะอาดร่างกายและสิ่งแวดล้อมทั่วไป">
+                                                    {{#each Ac11}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="โภชนาการ">
+                                                    {{#each Ac12}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การเคลื่อนย้าย">
+                                                    {{#each Ac13}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การอาบน้ำ">
+                                                    {{#each Ac14}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การช่วยในระบบขับถ่าย (ปัสสาวะ)">
+                                                    {{#each Ac15}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การช่วยในระบบขับถ่าย (อุจจาระ)">
+                                                    {{#each Ac16}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="ท้อง (stomach)">
+                                                    {{#each Ac25}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="อวัยวะสืบพันธุ์ (Genital organs) และสะโพก (hip)">
+                                                    {{#each Ac26}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="สะโพก (hip)">
+                                                    {{#each Ac27}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="สุขภาพจิค และกิจกรรมผ่อนคลายความเครียด">
+                                                    {{#each Ac28}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="บริการพิเศษอื่นๆ">
+                                                    {{#each Ac29}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การรับบริการสวัสดิการทางสังคม">
+                                                    {{#each Ac34}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การหารายได้และความมั่นคงในครอบครัว">
+                                                    {{#each Ac35}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                                <optgroup label="การจัดการสภาพแวดล้อมและการปรับสภาพบ้านให้ปลอดภัยต่อผู้สูงอายุ">
+                                                    {{#each Ac41}}
+                                                    <option value="{{CARENAME}}">{{CARENAME}}</option>
+                                                    {{/each}}
+                                                </optgroup>
+                                            </select>
+                                        </th>
+                                        <th style="width: 25%">
+                                            <select id="edit_acode" style="width: 100%">
+                                                {{#each listAdmincode}}
+                                                <option value="{{ADMINNAME}}">{{ADMINNAME}}</option>
+                                                {{/each}}
+                                            </select>
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="e_mon"> จ.
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="e_tue"> อ.
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="e_wed"> พ
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="e_thu"> พฤ
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="e_fri"> ศ
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="e_sat"> ส
+                                        </th>
+                                        <th>
+                                            <input type="checkbox" id="e_sun"> อ
+                                        </th>
+                                        <th style="width: 20%">
+                                            <select id="edit_person" style="width: 100%">
+                                                <option value="ด้วยตนเอง">ด้วยตนเอง</option>
+                                                <option value="แพทย์">แพทย์</option>
+                                                <option value="ทันตแพทย์">ทันตแพทย์</option>
+                                                <option value="เภสัชกร">เภสัชกร</option>
+                                                <option value="พยาบาล">พยาบาล</option>
+                                                <option value="นักจิตวิทยา">นักจิตวิทยา</option>
+                                                <option value="นักโภชนาการ">นักโภชนาการ</option>
+                                                <option value="เจ้าาหน้าที่สาธารณะสุข">เจ้าหน้าที่สาธารณสุข</option>
+                                                <option value="เจ้าหน้าที่แผนไทย">เจ้าหน้าที่แผนไทย</option>
+                                                <option value="ผู้ดูแลผู้สูงอายุ(CG)">ผู้ดูแลผู้สูงอายุ(CG)</option>
+                                                <option value="ครอบครัว">ครอบครัว</option>
+                                                <option value="นักกายภาพบำบัด">นักกายภาพบำบัด</option>
+                                                <option value="นักกิจกรรมบำบัด">นักกิจนักกิจกรรมบำบัด</option>
+                                                <option value="นักสังคมสงเคราะห์">นักสังคมสงเคราะห์</option>
+                                                <option value="นักพัฒนาชุมชน">นักพัฒนาชุมชน</option>
+                                                <option value="นักทันตาภิบาล">ทันตาภิบาล</option>
+                                            </select>
+                                        </th>
+
+                                    </tr>
+                                </thead>
+                            </table>
+
+                        </div>
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                            
+                            <button type="button" id="edit_activity" class="btn btn-primary col-md-12">แก้ไข</button>
+                            
+                        </div>
+                    </div>
+                    
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</template>

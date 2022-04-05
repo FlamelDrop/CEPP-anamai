@@ -1,0 +1,73 @@
+<template name="reportzonenum">
+  <div>
+    {{> indexregmenu}}
+    <div class="container">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <a type="button" class="btn btn-default btn-sm" href="/"><span
+              class="glyphicon glyphicon-chevron-left"></span>ย้อนกลับ
+          </a>
+          จำนวนรายเขต CM และ CG
+          <button type="button" id="printrep" class="btn btn-default btn-sm pull-right">
+            <span class="glyphicon glyphicon-print"></span> พิมพ์
+          </button>
+        </div>
+        <div class="panel-body">
+          <div style="margin-left:1%;margin-right:1%">
+            <br>
+            <div class="row">
+
+              <div class="col-md-6">
+                <canvas id="zonecm" style="width:100%;height:320px;"></canvas>
+              </div>
+              <div class="col-md-6">
+                <canvas id="zonecg" style="width:100%;height:320px"></canvas>
+              </div>
+
+            </div>
+
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table-bordered" style="width:100%">
+                  <thead>
+                    <th class="text-center" style="background-color:#FCECE4;font-weight:bold;">เขต</th>
+                    <th class="text-center">CM ปฎิบัติการ</th>
+                    <th class="text-center">CG</th>
+                    <th class="text-center">CM ปฎิบัติการ:CG</th>
+                    <!-- <th class="text-center">CM :ผู้สูงอายุ</th> -->
+                  </thead>
+                  <tbody>
+                    {{#each zonerep1}}
+                    <tr>
+                      <td align="center" style="background-color:#FCECE4;font-weight:bold;"><a href="/reportprovincenum"
+                          id="viewprovince">{{_id}}</a></td>
+                      <td align="center">{{dataded numcm}}</td>
+                      <td align="center">{{dataded numcg}}</td>
+                      <td align="center">{{CMCGRATIO numcg numcm}}</td>
+
+                      <!-- <td align="center">{{CMCGRATIO numcg numcm}}</td> -->
+                    </tr>
+                    {{/each}}
+                    {{#each sumCMCG}}
+                    <tr>
+                      <td align="center" style="background-color:#FCECE4;font-weight:bold;"><b>รวม</b></td>
+                      <td align="center"><b>{{dataded numcm}}</b></td>
+                      <td align="center"><b>{{dataded numcg}}</b></td>
+                      <td align="center">{{CMCGRATIO numcg numcm}}</td>
+                      
+                      <!-- <td align="center">{{CMCGRATIO numcg numcm}}</td> -->
+                    </tr>
+                    {{/each}}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+</template>

@@ -1,0 +1,113 @@
+<template name="searchelder">
+   <div>
+        <nav class="navbar navbar-custom" style="font-size: 14px;">
+            <div class="container-fluid">
+                <ul class="nav navbar-nav">
+                    <div class="navbar-header">
+                        <a href="/"><img src="./LogoLTC180x100.png" height="55"></a>
+                    </div>
+                    <ul class="nav navbar-nav">
+                        <li><a href="/"><b>Long Term Care</b></a></li>
+                    </ul>
+                </ul>
+                {{> cmLeftMenu}}
+                <!-- <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <section style="height: 3px"></section>
+                        <a href="/CMdashboard" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span> {{showname}}</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/editaccount"><span class="glyphicon glyphicon-cog"></span> แก้ไขข้อมูลส่วนตัว</a></li>
+                            <li class="divider"></li>
+                            <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> ออกจากระบบ</a></li>
+                        </ul>
+                    </li>
+        
+                </ul> -->
+            </div>
+        </nav>
+        <br>
+        <div class="container">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <br>
+                    <br>
+                    <div class="row">
+                        <div class="col-md-2">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <center><b>ข้อมูลส่วนตัว</b></center>
+                                </div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <b>ชื่อ : </b> {{eldercp.PRENAME}}{{eldercp.NAME}} {{eldercp.LNAME}} &nbsp;&nbsp;&nbsp;&nbsp;
+                                            <b>เลขบัตรประชาชน : </b>{{eldercp.CID}} <b> &nbsp;&nbsp;&nbsp;&nbsp;วันเกิด : </b>{{longformatdate eldercp.BIRTHDATE}} ({{getage eldercp.BIRTHDATE}} ปี)
+                                        </div>
+                                    </div>
+                                    <section style="height: 10px"></section>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <b>ที่อยู่ : </b> {{eldercp.ADDRESS}}
+                                        </div>
+                                    </div>
+                                    <section style="height: 10px"></section>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table>
+                                                <tr>
+                                                    <td><b>ที่อยู่ปัจจุบัน : </b></td>
+                                                    <td width="75%">
+                                                        <input type="text" class="form-control input" id="nowaddress" value="{{editcareplan.CURRENTADDRESS}}">
+                                                    </td>
+                                                    <td>
+                                                        <button class="btn btn-sm btn-default" id="nowaddressbtn">คัดลอก</button>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <section style="height: 10px"></section>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <table>
+                                                <td><b>หมายเลขโทรศัพท์ : </b></td>
+                                                <td width="75%">
+                                                    <input type="text" id="phone" class="input" maxlength="10" value="">
+                                                </td>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <center>
+                        <table>
+                            <tr>
+                                <td>
+                                     <div class="pull-center">
+                            <button type="button" class="button blue back" style="font-size:16px">ยกเลิก</button>
+                        </div>
+                                </td>
+                                <td>
+                                    &nbsp;
+                                </td>
+                                <td>
+                                    <div class="pull-center">
+                            <button type="button" class="button blue next" style="font-size:16px">ถัดไป</button>
+                        </div>
+                                </td>
+                            </tr>
+                        </table>
+
+
+                    </center>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
